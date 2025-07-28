@@ -75,6 +75,10 @@ function App() {
         )}
       </div>
 
+<div>
+  <pre>{JSON.stringify(import.meta.env.VITE_SUPABASE_KEY)}</pre>
+</div>
+
       <AdminSection />
       <Footer />
     </div>
