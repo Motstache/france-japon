@@ -19,9 +19,10 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<any>(null);
 
+  // Charger données Supabase au montage
   useEffect(() => {
     async function getData() {
-      const { data, error } = await supabase.from('todos').select('*'); // Ou 'community_messages' selon besoin
+      const { data, error } = await supabase.from('todos').select('*');
       if (error) {
         console.error('Erreur Supabase:', error.message);
         setError(error);
@@ -33,11 +34,13 @@ function App() {
     getData();
   }, []);
 
+  // Gestion du scroll en haut au chargement - version qui fonctionnait bien
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
 
+    // Empêche scroll automatique après
     const preventScroll = (e: Event) => {
       e.preventDefault();
       window.scrollTo(0, 0);
@@ -49,6 +52,7 @@ function App() {
     };
   }, []);
 
+  // Forcer plusieurs fois le scroll top, pour être sûr
   useEffect(() => {
     const forceScrollTop = () => {
       window.scrollTo(0, 0);
@@ -76,34 +80,10 @@ function App() {
   };
 
   return (
-    <div ref={appRef} className="min-h-screen bg-gray-900 text-white">
+    <div ref={appRef} className="min-h-screen bg-gray-900 text-white pt-16">
       <Navigation currentLanguage={currentLanguage} onLanguageChange={handleLanguageChange} />
       <HeroSection />
       <SocialSection />
       <AboutSection />
       <ProjectSection />
-      <BikesSection />
-
-      {/* Exemple affichage données Supabase */}
-      <div className="p-4">
-        <h2 className="text-xl font-bold">{t('dataFromSupabase')}</h2>
-        {loading ? (
-          <p>{t('loading')}</p>
-        ) : error ? (
-          <p className="text-red-500">{t('errorOccurred')} : {error.message}</p>
-        ) : (
-          <ul>
-            {data.map((item, index) => (
-              <li key={index}>{JSON.stringify(item)}</li>
-            ))}
-          </ul>
-        )}
-      </div>
-
-      <AdminSection />
-      <Footer />
-    </div>
-  );
-}
-
-export default App;
+      <Bikes
