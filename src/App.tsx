@@ -18,38 +18,25 @@ function App() {
   };
 
   useEffect(() => {
-    // Empêche le scroll automatique juste au chargement
-    const preventAutoScroll = (e: Event) => {
-      e.preventDefault();
-      window.scrollTo(0, 0);
-    };
+    if (window.location.hash) {
+      // Supprime le hash pour empêcher le scroll automatique sur ancre
+      window.history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
 
-    // Forcer scroll en haut au chargement
+    // Forcer le scroll en haut
     window.scrollTo(0, 0);
     if (document.activeElement instanceof HTMLElement) {
       document.activeElement.blur();
     }
-
-    // Ajouter l'écouteur temporairement
-    window.addEventListener('scroll', preventAutoScroll, { passive: false, capture: true });
-
-    // Supprimer l'écouteur après un court délai pour laisser le scroll manuel fonctionner
-    const timer = setTimeout(() => {
-      window.removeEventListener('scroll', preventAutoScroll, { capture: true });
-    }, 200); // 200 ms suffisent
-
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('scroll', preventAutoScroll, { capture: true });
-    };
   }, []);
 
   return (
-    <div ref={appRef} className="min-h-screen bg-gray-900 text-white" style={{ margin: 0, padding: 0, overflowX: 'hidden' }}>
-      <Navigation
-        currentLanguage={currentLanguage}
-        onLanguageChange={handleLanguageChange}
-      />
+    <div
+      ref={appRef}
+      className="min-h-screen bg-gray-900 text-white"
+      style={{ margin: 0, padding: 0, overflowX: 'hidden' }}
+    >
+      <Navigation currentLanguage={currentLanguage} onLanguageChange={handleLanguageChange} />
       <HeroSection />
       <SocialSection />
       <AboutSection />
