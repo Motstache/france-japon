@@ -1,927 +1,320 @@
-// Dictionnaire de traductions pour les langues principales
-export const translations = {
+export type Language = 'fr' | 'en' | 'de' | 'ru' | 'ja';
+
+export type TranslationKey =
+  | 'translationTitle'
+  | 'translationSubtitle'
+  | 'translationQuote'
+  | 'writeIn'
+  | 'translate'
+  | 'translating'
+  | 'listenPronunciation'
+  | 'dataFromSupabase'
+  | 'loading'
+  | 'errorOccurred'
+  | 'socialTitle'
+  | 'socialSubtitle'
+  | 'home'
+  | 'aboutUs'
+  | 'project'
+  | 'bikes'
+  | 'admin'
+  | 'social'
+  | 'equipmentTitle'
+  | 'protectionSafety'
+  | 'gauthierEquipmentTitle'
+  | 'gauthierEquipmentList'
+  | 'magaliEquipmentTitle'
+  | 'magaliEquipmentList'
+  | 'luggageNavigationTitle'
+  | 'luggageNavigationSubtitle'
+  | 'luggageNavigationList'
+  | 'campingSurvivalTitle'
+  | 'campingSurvivalList'
+  | string; // ajoute toutes les clés nécessaires ici
+
+export const translations: Record<Language, Record<TranslationKey, any>> = {
   fr: {
-    // Navigation
+    translationTitle: "Traduction",
+    translationSubtitle: "Traduisez instantanément",
+    translationQuote: "La langue est la route de l’aventure.",
+    writeIn: "Écrire en",
+    translate: "Traduire",
+    translating: "Traduction en cours...",
+    listenPronunciation: "Écouter la prononciation",
+    dataFromSupabase: "Données de Supabase",
+    loading: "Chargement...",
+    errorOccurred: "Une erreur est survenue",
+    socialTitle: "Suivez-nous",
+    socialSubtitle: "Réseaux sociaux et plus",
     home: "Accueil",
-    aboutUs: "Qui sommes-nous",
-    project: "Projet Japon",
-    bikes: "Nos motos",
-    admin: "Démarches",
-    social: "Réseaux",
-    languages: "Langues",
-    
-    // Bikes Section
-    bikesTitle: "Nos Montures",
-    bikesSubtitle: "Deux Yamaha Ténéré 700 de 2023, préparées pour l'aventure",
-    gauthierBike: "Modèle 2023 - Gauthier",
-    magaliBike: "Modèle 2023 - Magali",
-    engine: "Moteur",
-    engineValue: "689cc bicylindre",
-    power: "Puissance",
-    powerValue: "73 ch",
-    tank: "Réservoir",
-    tankValue: "16L + jerrycan 10L",
-    weight: "Poids",
-    weightValue: "205kg + équipement",
+    aboutUs: "À propos",
+    project: "Notre Projet",
+    bikes: "Nos Motos",
+    admin: "Démarches administratives",
+    social: "Communauté",
+
     equipmentTitle: "Notre Équipement",
     protectionSafety: "Protection & Sécurité",
-    gauthierEquipment: "Équipement de Gauthier",
-    magaliEquipment: "Équipement de Magali",
-    luggageNavigation: "Bagages & Navigation",
-    onEachBike: "Sur chaque moto",
-    campingSurvival: "Camping & Survie",
-    
-    // Équipements spécifiques
-    klimHelmet: "Casque Klim Kryos Carbon",
-    beringWinterJacket: "Veste temps froid Bering Hurricane",
-    revitSummerJacket: "Veste temps chaud Revit Nucleon",
-    beringPants: "Pantalon Bering Hurricane",
-    sidiBoots: "Bottes Sidi Adventure",
-    alpinestarGloves: "Gants chauffants Alpinestar HT-7",
-    shoeiHelmet: "Casque Shoei ADV Hornet",
-    ixonJacket: "Veste temps froid Ixon Tour Adventure",
-    formaBoots: "Bottes Forma Adventure Evo",
-    loneriderCases: "Valises latérales Lonerider",
-    loneriderBag: "Sac de selle Lonerider Overlander",
-    crashBarBags: "Sacoches crash bar Lonerider 6L",
-    handlebarBag: "Sacoche de guidon Lonerider",
-    carpurideGPS: "GPS Carpuride",
-    mototent: "Mototent Lonerider",
-    sleepingBags: "Sacs de couchage",
-    stove: "Réchaud",
-    waterBottles: "Gourdes filtrantes Öko",
-    firstAidKit: "Trousse de premiers secours",
-    
-    // Hero Section
-    heroTitle: "NANCY → JAPAN",
-    heroSubtitle: "Suivez notre aventure épique de 8 mois à moto de la France au Japon. Mars 2026 - Décembre 2026 : 35 000 km d'aventure sur nos Yamaha Ténéré 700.",
-    cookieNotice: "ℹ️ Veuillez accepter les cookies pour visualiser la carte",
-    
-    // Weather Widget
-    weatherTitle: "Météo & Devises",
-    weatherSubtitle: "Données en temps réel",
-    loadingWeather: "Chargement météo...",
-    loadingExchange: "Chargement devises...",
-    humidity: "Humidité",
-    wind: "Vent",
-    exchangeRate: "Taux de change",
-    
-    // Translation Widget
-    translationTitle: "Traduction",
-    translationSubtitle: "Entraîne-toi aux langues !",
-    translationQuote: "Toi aussi, entraîne-toi à parler les langues des pays que l'on découvrira !",
-    writeIn: "Écris en",
-    translate: "Traduire",
-    translating: "Traduction...",
-    usefulPhrases: "Phrases utiles",
-    listenPronunciation: "Écouter la prononciation",
-    
-    // About Section
-    aboutTitle: "Qui sommes-nous ?",
-    aboutSubtitle: "Deux passionnés de moto prêts à vivre l'aventure de leur vie",
-    gauthierTitle: "L'aventurier - 35 ans",
-    gauthierDesc: "Passionné de voyage, j'aime découvrir les autres cultures et rencontrer les gens. J'adore les moments d'échanges avec les personnes qui ne parlent pas la même langue que moi, en adorant ces moments magiques où on se comprend sans se parler.",
-    magaliTitle: "La passionnée du Japon - 37 ans",
-    magaliDesc: "Passionnée du Japon, j'apprends le japonais depuis 4 ans. J'ai hâte de découvrir les différentes cultures que l'on va rencontrer pour finir par des échanges avec des Japonais authentiques.",
-    
-    // Project Section
-    projectTitle: "Notre Projet :",
-    projectSubtitle: "8 mois d'aventure à travers l'Europe et l'Asie sur nos Yamaha Ténéré 700",
-    duration: "Durée",
-    durationValue: "Mars 2026 - Décembre 2026",
-    durationSub: "8 mois d'aventure",
-    distance: "Distance",
-    distanceValue: "Environ 35 000 km",
-    distanceSub: "À travers 22 pays",
-    route: "Itinéraire",
-    routeValue: "Europe → Asie Centrale → Asie",
-    routeSub: "Destination finale : JAPAN",
-    
-    // Social Section
-    socialTitle: "Suivez notre aventure",
-    socialSubtitle: "Restez connectés avec nous sur tous nos réseaux sociaux",
-    supportUs: "Soutenez-nous",
-    supportDesc: "Offrez-nous un bidon d'essence !",
-    supportQuote: "Chaque don nous rapproche un peu plus de JAPAN ! ⛽🏍️",
-    dailyPhotos: "Photos quotidiennes",
-    completeVlogs: "Vlogs complets",
-    community: "Communauté",
-    realTimeTracking: "Suivi en temps réel",
-    supportMakesADifference: "Votre soutien fait la différence !",
-    supportDescription: "Chaque contribution nous aide à financer notre aventure : essence, hébergement, réparations... Ensemble, rendons ce rêve possible ! 🌟",
-    
-    // Footer
-    footerDesc: "Suivez notre aventure épique de Nancy à JAPAN à moto. 8 mois d'aventure vous attendent !",
-    navigation: "Navigation",
-    information: "Informations",
-    contact: "Contact",
-    departure: "Départ : Mars 2026",
-    copyright: "© 2024 Nancy → JAPAN Adventure. Tous droits réservés.",
-    
-    // Admin Section
-    adminTitle: "Démarches administratives",
-    adminSubtitle: "Tout ce qu'il faut savoir pour voyager en moto de l'Europe au Japon",
-    essentialDocs: "Documents essentiels",
-    passports: "Passeports",
-    passportsDesc: "Validité minimum 6 mois",
-    visas: "Visas",
-    visasDesc: "Russie uniquement",
-    carnet: "Carnet de Passage",
-    carnetDesc: "Utile pour le Japon",
-    insurance: "Assurance",
-    insuranceDesc: "Internationale + rapatriement",
-    carnetTitle: "Carnet de Passage en Douane",
-    carnetDetail: "Utile pour le Japon. Caution de 5 000€ par moto via la FFMC.",
-    permitTitle: "Permis International",
-    permitDetail: "Demande en préfecture 2 mois avant le départ. Valable 3 ans.",
-    insuranceTitle: "Assurance Internationale",
-    insuranceDetail: "ACS Assurance - Couverture mondiale + assistance rapatriement moto et personne.",
-    visasTitle: "Visas",
-    visasDetail: "Russie uniquement.",
-    communityDiscussion: "Discussion Communautaire",
-    discussionDesc: "Échangez avec nous et la communauté ! Posez vos questions, partagez vos expériences.",
-    yourName: "Votre nom ou pseudo",
-    yourMessage: "Votre question ou message...",
-    yourReply: "Votre réponse...",
-    replying: "Réponse à",
-    send: "Envoyer",
-    sending: "Envoi...",
-    
-    // Polarsteps Widget
-    countries: "Pays",
-    kilometers: "Kilomètres", 
-    months: "Mois",
-    viewOnPolarsteps: "Voir sur Polarsteps",
-    preparationPhase: "Phase de préparation",
-    plannedDeparture: "Départ prévu : Mars 2026"
+    gauthierEquipmentTitle: "Équipement de Gauthier",
+    gauthierEquipmentList: [
+      "Casque Klim Kryos Carbon",
+      "Veste temps froid Bering Hurricane",
+      "Veste temps chaud Revit Nucleon",
+      "Pantalon Bering Hurricane",
+      "Bottes Sidi Adventure",
+      "Gants chauffants Alpinestar HT-7"
+    ],
+    magaliEquipmentTitle: "Équipement de Magali",
+    magaliEquipmentList: [
+      "Casque Shoei ADV Hornet",
+      "Veste temps froid Ixon Tour Adventure",
+      "Bottes Forma Adventure Evo"
+    ],
+    luggageNavigationTitle: "Bagages & Navigation",
+    luggageNavigationSubtitle: "Sur chaque moto",
+    luggageNavigationList: [
+      "Valises latérales Lonerider",
+      "Sac de selle Lonerider Overlander",
+      "Sacoches crash bar Lonerider 6L",
+      "Sacoche de guidon Lonerider",
+      "GPS Carpuride"
+    ],
+    campingSurvivalTitle: "Camping & Survie",
+    campingSurvivalList: [
+      "Mototent Lonerider",
+      "Sacs de couchage",
+      "Réchaud",
+      "Gourdes filtrantes Öko",
+      "Trousse de premiers secours"
+    ],
+    // Ajoute ici les autres clés et traductions françaises...
   },
-  
+
   en: {
-    // Navigation
-    home: "Home",
-    aboutUs: "About Us",
-    project: "Japan Project",
-    bikes: "Our Bikes",
-    admin: "Procedures",
-    social: "Social Media",
-    languages: "Languages",
-    
-    // Bikes Section
-    bikesTitle: "Our Mounts",
-    bikesSubtitle: "Two 2023 Yamaha Ténéré 700, prepared for adventure",
-    gauthierBike: "Model 2023 - Gauthier",
-    magaliBike: "Model 2023 - Magali",
-    engine: "Engine",
-    engineValue: "689cc twin-cylinder",
-    power: "Power",
-    powerValue: "73 hp",
-    tank: "Tank",
-    tankValue: "16L + 10L jerrycan",
-    weight: "Weight",
-    weightValue: "205kg + equipment",
-    equipmentTitle: "Our Equipment",
-    protectionSafety: "Protection & Safety",
-    gauthierEquipment: "Gauthier's Equipment",
-    magaliEquipment: "Magali's Equipment",
-    luggageNavigation: "Luggage & Navigation",
-    onEachBike: "On each bike",
-    campingSurvival: "Camping & Survival",
-    
-    // Specific Equipment
-    klimHelmet: "Klim Kryos Carbon Helmet",
-    beringWinterJacket: "Bering Hurricane Cold Weather Jacket",
-    revitSummerJacket: "Revit Nucleon Hot Weather Jacket",
-    beringPants: "Bering Hurricane Pants",
-    sidiBoots: "Sidi Adventure Boots",
-    alpinestarGloves: "Alpinestar HT-7 Heated Gloves",
-    shoeiHelmet: "Shoei ADV Hornet Helmet",
-    ixonJacket: "Ixon Tour Adventure Cold Weather Jacket",
-    formaBoots: "Forma Adventure Evo Boots",
-    loneriderCases: "Lonerider Side Cases",
-    loneriderBag: "Lonerider Overlander Tail Bag",
-    crashBarBags: "Lonerider 6L Crash Bar Bags",
-    handlebarBag: "Lonerider Handlebar Bag",
-    carpurideGPS: "Carpuride GPS",
-    mototent: "Lonerider Mototent",
-    sleepingBags: "Sleeping Bags",
-    stove: "Stove",
-    waterBottles: "Öko Filter Water Bottles",
-    firstAidKit: "First Aid Kit",
-    
-    // Hero Section
-    heroTitle: "NANCY → JAPAN",
-    heroSubtitle: "Follow our epic 8-month motorcycle adventure from France to Japan. March 2026 - December 2026: 35,000 km of adventure on our Yamaha Ténéré 700.",
-    cookieNotice: "ℹ️ Please accept cookies to view the map",
-    
-    // Weather Widget
-    weatherTitle: "Weather & Currency",
-    weatherSubtitle: "Real-time data",
-    loadingWeather: "Loading weather...",
-    loadingExchange: "Loading currency...",
-    humidity: "Humidity",
-    wind: "Wind",
-    exchangeRate: "Exchange Rate",
-    
-    // Translation Widget
     translationTitle: "Translation",
-    translationSubtitle: "Practice languages!",
-    translationQuote: "You too, practice speaking the languages of the countries we'll discover!",
+    translationSubtitle: "Instant translation",
+    translationQuote: "Language is the road to adventure.",
     writeIn: "Write in",
     translate: "Translate",
     translating: "Translating...",
-    usefulPhrases: "Useful phrases",
     listenPronunciation: "Listen to pronunciation",
-    
-    // About Section
-    aboutTitle: "Who are we?",
-    aboutSubtitle: "Two motorcycle enthusiasts ready to live the adventure of their lives",
-    gauthierTitle: "The Adventurer - 35 years old",
-    gauthierDesc: "Passionate about travel, I love discovering other cultures and meeting people. I love moments of exchange with people who don't speak the same language as me, cherishing those magical moments when we understand each other without speaking.",
-    magaliTitle: "The Japan Enthusiast - 37 years old",
-    magaliDesc: "Passionate about Japan, I've been learning Japanese for 4 years. I can't wait to discover the different cultures we'll encounter and end with authentic exchanges with Japanese people.",
-    
-    // Project Section
-    projectTitle: "Our Project:",
-    projectSubtitle: "8 months of adventure across Europe and Asia on our Yamaha Ténéré 700",
-    duration: "Duration",
-    durationValue: "March 2026 - December 2026",
-    durationSub: "8 months of adventure",
-    distance: "Distance",
-    distanceValue: "About 35,000 km",
-    distanceSub: "Through 22 countries",
-    route: "Route",
-    routeValue: "Europe → Central Asia → Asia",
-    routeSub: "Final destination: JAPAN",
-    detailedRoute: "Detailed route",
-    centralEurope: "Central Europe",
-    centralEuropeCountries: "Germany, Austria, Slovenia",
-    balkans: "Balkans",
-    balkansCountries: "Croatia, Bosnia, Montenegro, Albania, North Macedonia, Greece",
-    caucasus: "Caucasus",
-    caucasusCountries: "Turkey, Georgia, Armenia",
-    centralAsia: "Central Asia",
-    centralAsiaCountries: "Kazakhstan, Uzbekistan, Tajikistan, Kyrgyzstan",
-    farEast: "Far East",
-    farEastCountries: "Russia, Mongolia, South Korea, Japan",
-    
-    // Bikes Section
-    bikesTitle: "Our Mounts",
-    bikesSubtitle: "Two 2023 Yamaha Ténéré 700, prepared for adventure",
-    gauthierBike: "Model 2023 - Gauthier",
-    magaliBike: "Model 2023 - Magali",
-    engine: "Engine",
-    engineValue: "689cc twin-cylinder",
-    power: "Power",
-    powerValue: "73 hp",
-    tank: "Tank",
-    tankValue: "16L + 10L jerrycan",
-    weight: "Weight",
-    weightValue: "205kg + equipment",
+    dataFromSupabase: "Data from Supabase",
+    loading: "Loading...",
+    errorOccurred: "An error occurred",
+    socialTitle: "Follow us",
+    socialSubtitle: "Social networks and more",
+    home: "Home",
+    aboutUs: "About Us",
+    project: "Our Project",
+    bikes: "Our Bikes",
+    admin: "Administrative steps",
+    social: "Community",
+
     equipmentTitle: "Our Equipment",
     protectionSafety: "Protection & Safety",
-    gauthierEquipment: "Gauthier's Equipment",
-    magaliEquipment: "Magali's Equipment",
-    luggageNavigation: "Luggage & Navigation",
-    onEachBike: "On each bike",
-    campingSurvival: "Camping & Survival",
-    
-    // Admin Section
-    adminTitle: "管理手続き",
-    adminSubtitle: "ヨーロッパから日本へのバイク旅行に必要なすべての情報",
-    essentialDocs: "必要書類",
-    adminTitle: "Административные процедуры",
-    adminSubtitle: "Все, что нужно знать для путешествия на мотоцикле из Европы в Японию",
-    essentialDocs: "Основные документы",
-    adminTitle: "Verwaltungsverfahren",
-    adminSubtitle: "Alles was Sie wissen müssen, um mit dem Motorrad von Europa nach Japan zu reisen",
-    essentialDocs: "Wesentliche Dokumente",
-    adminTitle: "Administrative Procedures",
-    adminSubtitle: "Everything you need to know to travel by motorcycle from Europe to Japan",
-    essentialDocs: "Essential documents",
-    essentialDocs: "Documents essentiels",
-    passports: "Passports",
-    passportsDesc: "Minimum 6 months validity",
-    visas: "Visas",
-    visasDesc: "Russia only",
-    carnet: "Carnet de Passage",
-    carnetDesc: "Useful for Japan",
-    insurance: "Insurance",
-    insuranceDesc: "International + repatriation",
-    essentialDocs: "Essential documents",
-    carnetTitle: "Carnet de Passage en Douane",
-    carnetDetail: "Useful for Japan. €5,000 deposit per bike via FFMC.",
-    permitTitle: "International Permit",
-    permitDetail: "Prefecture application 2 months before departure. Valid 3 years.",
-    insuranceTitle: "International Insurance",
-    insuranceDetail: "ACS Insurance - Worldwide coverage + motorcycle and personal repatriation assistance.",
-    visasTitle: "Visas",
-    visasDetail: "Russia only.",
-    communityDiscussion: "Community Discussion",
-    discussionDesc: "Chat with us and the community! Ask your questions, share your experiences.",
-    yourName: "Your name or nickname",
-    yourMessage: "Your question or message...",
-    yourReply: "Your reply...",
-    replying: "Replying...",
-    send: "Send",
-    sending: "Sending...",
-    
-    // Social Section
-    socialTitle: "Follow our adventure",
-    socialSubtitle: "Stay connected with us on all our social media",
-    supportUs: "Support Us",
-    supportDesc: "Buy us a tank of gas!",
-    supportQuote: "Every donation brings us a little closer to JAPAN! ⛽🏍️",
-    dailyPhotos: "Daily photos",
-    completeVlogs: "Complete vlogs",
-    community: "Community",
-    realTimeTracking: "Real-time tracking",
-    supportMakesADifference: "Your support makes a difference!",
-    supportDescription: "Every contribution helps us finance our adventure: gas, accommodation, repairs... Together, let's make this dream possible! 🌟",
-    dailyPhotos: "Daily photos",
-    completeVlogs: "Complete vlogs",
-    community: "Community",
-    realTimeTracking: "Real-time tracking",
-    supportMakesADifference: "Your support makes a difference!",
-    supportDescription: "Every contribution helps us finance our adventure: gas, accommodation, repairs... Together, let's make this dream possible! 🌟",
-    dailyPhotos: "Daily photos",
-    completeVlogs: "Complete vlogs",
-    community: "Community",
-    realTimeTracking: "Real-time tracking",
-    supportMakesADifference: "Your support makes a difference!",
-    supportDescription: "Every contribution helps us finance our adventure: gas, accommodation, repairs... Together, let's make this dream possible! 🌟",
-    
-    // Footer
-    footerDesc: "Follow our epic motorcycle adventure from Nancy to JAPAN. 8 months of adventure await you!",
-    navigation: "Navigation",
-    information: "Information",
-    contact: "Contact",
-    departure: "Departure: March 2026",
-    copyright: "© 2024 Nancy → JAPAN Adventure. All rights reserved.",
-    
-    // Admin Section
-    adminTitle: "Administrative Procedures",
-    adminSubtitle: "Everything you need to know to travel by motorcycle from Europe to Japan",
-    essentialDocs: "Essential documents",
-    passports: "Passports",
-    passportsDesc: "Minimum 6 months validity",
-    visas: "Visas", 
-    visasDesc: "Russia only",
-    carnet: "Carnet de Passage",
-    carnetDesc: "Useful for Japan",
-    insurance: "Insurance",
-    insuranceDesc: "International + repatriation",
-    carnetTitle: "Carnet de Passage",
-    carnetDetail: "Useful for Japan. €5,000 deposit per bike via FFMC.",
-    permitTitle: "International Permit",
-    permitDetail: "Prefecture application 2 months before departure. Valid 3 years.",
-    insuranceTitle: "International Insurance",
-    insuranceDetail: "ACS Insurance - Worldwide coverage + motorcycle and personal repatriation assistance.",
-    visasTitle: "Visas",
-    visasDetail: "Russia only.",
-    communityDiscussion: "Community Discussion",
-    discussionDesc: "Chat with us and the community! Ask your questions, share your experiences.",
-    yourName: "Your name or nickname",
-    yourMessage: "Your question or message...",
-    yourReply: "Your reply...",
-    replying: "Replying to",
-    send: "Send",
-    sending: "Sending...",
-    
-    // Polarsteps Widget
-    countries: "Countries",
-    kilometers: "Kilometers",
-    months: "Months", 
-    viewOnPolarsteps: "View on Polarsteps",
-    preparationPhase: "Preparation phase",
-    plannedDeparture: "Planned departure: March 2026"
+    gauthierEquipmentTitle: "Gauthier's Equipment",
+    gauthierEquipmentList: [
+      "Klim Kryos Carbon Helmet",
+      "Bering Hurricane Cold Weather Jacket",
+      "Revit Nucleon Warm Weather Jacket",
+      "Bering Hurricane Pants",
+      "Sidi Adventure Boots",
+      "Alpinestar HT-7 Heated Gloves"
+    ],
+    magaliEquipmentTitle: "Magali's Equipment",
+    magaliEquipmentList: [
+      "Shoei ADV Hornet Helmet",
+      "Ixon Tour Adventure Cold Weather Jacket",
+      "Forma Adventure Evo Boots"
+    ],
+    luggageNavigationTitle: "Luggage & Navigation",
+    luggageNavigationSubtitle: "On each bike",
+    luggageNavigationList: [
+      "Lonerider Side Cases",
+      "Lonerider Overlander Seat Bag",
+      "Lonerider 6L Crash Bar Bags",
+      "Lonerider Handlebar Bag",
+      "Carpuride GPS"
+    ],
+    campingSurvivalTitle: "Camping & Survival",
+    campingSurvivalList: [
+      "Lonerider Mototent",
+      "Sleeping Bags",
+      "Camping Stove",
+      "Öko Water Filter Bottles",
+      "First Aid Kit"
+    ],
+    // Add other English keys here...
   },
-  
+
   de: {
-    // Weather Widget
-    weatherTitle: "Wetter & Währung",
-    weatherSubtitle: "Echtzeitdaten",
-    loadingWeather: "Wetter wird geladen...",
-    loadingExchange: "Währung wird geladen...",
-    humidity: "Feuchtigkeit",
-    wind: "Wind",
-    exchangeRate: "Wechselkurs",
-    
-    // Translation Widget
     translationTitle: "Übersetzung",
-    translationSubtitle: "Übe Sprachen!",
-    translationQuote: "Auch du, übe die Sprachen der Länder, die wir entdecken werden!",
-    writeIn: "Schreibe in",
+    translationSubtitle: "Sofortige Übersetzung",
+    translationQuote: "Sprache ist der Weg zum Abenteuer.",
+    writeIn: "Schreiben in",
     translate: "Übersetzen",
-    translating: "Übersetze...",
-    usefulPhrases: "Nützliche Phrasen",
-    yourReply: "Ihre Antwort...",
-    replying: "Antworten auf",
-    
-    // Navigation
+    translating: "Übersetzen...",
+    listenPronunciation: "Aussprache anhören",
+    dataFromSupabase: "Daten von Supabase",
+    loading: "Laden...",
+    errorOccurred: "Ein Fehler ist aufgetreten",
+    socialTitle: "Folge uns",
+    socialSubtitle: "Soziale Netzwerke und mehr",
     home: "Startseite",
     aboutUs: "Über uns",
-    project: "Japan-Projekt",
+    project: "Unser Projekt",
     bikes: "Unsere Motorräder",
-    admin: "Verfahren",
-    social: "Soziale Medien",
-    languages: "Sprachen",
-    
-    // Bikes Section
-    bikesTitle: "Unsere Motorräder",
-    bikesSubtitle: "Zwei 2023 Yamaha Ténéré 700, vorbereitet für das Abenteuer",
-    gauthierBike: "Modell 2023 - Gauthier",
-    magaliBike: "Modell 2023 - Magali",
-    engine: "Motor",
-    engineValue: "689cc Zweizylinder",
-    power: "Leistung",
-    powerValue: "73 PS",
-    tank: "Tank",
-    tankValue: "16L + 10L Kanister",
-    weight: "Gewicht",
-    weightValue: "205kg + Ausrüstung",
+    admin: "Behördliche Schritte",
+    social: "Gemeinschaft",
+
     equipmentTitle: "Unsere Ausrüstung",
     protectionSafety: "Schutz & Sicherheit",
-    gauthierEquipment: "Gauthiers Ausrüstung",
-    magaliEquipment: "Magalis Ausrüstung",
-    luggageNavigation: "Gepäck & Navigation",
-    onEachBike: "Auf jedem Motorrad",
-    campingSurvival: "Camping & Überleben",
-    
-    // Spezifische Ausrüstung
-    klimHelmet: "Klim Kryos Carbon Helm",
-    beringWinterJacket: "Bering Hurricane Winterjacke",
-    revitSummerJacket: "Revit Nucleon Sommerjacke",
-    beringPants: "Bering Hurricane Hose",
-    sidiBoots: "Sidi Adventure Stiefel",
-    alpinestarGloves: "Alpinestar HT-7 Heizhandschuhe",
-    shoeiHelmet: "Shoei ADV Hornet Helm",
-    ixonJacket: "Ixon Tour Adventure Winterjacke",
-    formaBoots: "Forma Adventure Evo Stiefel",
-    loneriderCases: "Lonerider Seitenkoffer",
-    loneriderBag: "Lonerider Overlander Hecktasche",
-    crashBarBags: "Lonerider 6L Sturzbügeltaschen",
-    handlebarBag: "Lonerider Lenkertasche",
-    carpurideGPS: "Carpuride GPS",
-    mototent: "Lonerider Mototent",
-    sleepingBags: "Schlafsäcke",
-    stove: "Kocher",
-    waterBottles: "Öko Filter Wasserflaschen",
-    firstAidKit: "Erste-Hilfe-Set",
-    
-    // Hero Section
-    heroTitle: "NANCY → JAPAN",
-    heroSubtitle: "Folgen Sie unserem epischen 8-monatigen Motorradabenteuer von Frankreich nach Japan. März 2026 - Dezember 2026: 35.000 km Abenteuer auf unseren Yamaha Ténéré 700.",
-    cookieNotice: "ℹ️ Bitte akzeptieren Sie Cookies, um die Karte anzuzeigen",
-    
-    // Weather Widget
-    weatherTitle: "Wetter & Währung",
-    weatherSubtitle: "Echtzeitdaten",
-    loadingWeather: "Wetter wird geladen...",
-    loadingExchange: "Währung wird geladen...",
-    humidity: "Feuchtigkeit",
-    wind: "Wind",
-    exchangeRate: "Wechselkurs",
-    
-    // Translation Widget
-    translationTitle: "Übersetzung",
-    translationSubtitle: "Übe Sprachen!",
-    translationQuote: "Auch du, übe die Sprachen der Länder, die wir entdecken werden!",
-    writeIn: "Schreibe in",
-    translate: "Übersetzen",
-    translating: "Übersetze...",
-    usefulPhrases: "Nützliche Phrasen",
-    
-    // About Section
-    aboutTitle: "Wer sind wir?",
-    aboutSubtitle: "Zwei Motorradbegeisterte, bereit für das Abenteuer ihres Lebens",
-    gauthierTitle: "Der Abenteurer - 35 Jahre alt",
-    gauthierDesc: "Leidenschaftlich für Reisen, liebe ich es, andere Kulturen zu entdecken und Menschen zu treffen. Ich liebe Momente des Austauschs mit Menschen, die nicht dieselbe Sprache sprechen wie ich, und schätze diese magischen Momente, in denen wir uns ohne Worte verstehen.",
-    magaliTitle: "Die Japan-Enthusiastin - 37 Jahre alt",
-    magaliDesc: "Leidenschaftlich für Japan, lerne ich seit 4 Jahren Japanisch. Ich kann es kaum erwarten, die verschiedenen Kulturen zu entdecken, denen wir begegnen werden, und mit authentischen Austauschen mit Japanern zu enden.",
-    
-    // Project Section
-    projectTitle: "Unser Projekt:",
-    projectSubtitle: "8 Monate Abenteuer durch Europa und Asien auf unseren Yamaha Ténéré 700",
-    duration: "Dauer",
-    durationValue: "März 2026 - Dezember 2026",
-    durationSub: "8 Monate Abenteuer",
-    distance: "Entfernung",
-    distanceValue: "Etwa 35.000 km",
-    distanceSub: "Durch 22 Länder",
-    route: "Route",
-    routeValue: "Europa → Zentralasien → Asien",
-    routeSub: "Endziel: JAPAN",
-    
-    // Social Section
-    socialTitle: "Folgen Sie unserem Abenteuer",
-    socialSubtitle: "Bleiben Sie mit uns in Verbindung über alle unsere sozialen Medien",
-    supportUs: "Unterstützen Sie uns",
-    supportDesc: "Kaufen Sie uns einen Tank Benzin!",
-    supportQuote: "Jede Spende bringt uns JAPAN ein wenig näher! ⛽🏍️",
-    dailyPhotos: "Tägliche Fotos",
-    completeVlogs: "Vollständige Vlogs",
-    community: "Gemeinschaft",
-    realTimeTracking: "Echtzeit-Verfolgung",
-    supportMakesADifference: "Ihre Unterstützung macht einen Unterschied!",
-    supportDescription: "Jeder Beitrag hilft uns, unser Abenteuer zu finanzieren: Benzin, Unterkunft, Reparaturen... Gemeinsam machen wir diesen Traum möglich! 🌟",
-    
-    // Footer
-    footerDesc: "Folgen Sie unserem epischen Motorradabenteuer von Nancy nach JAPAN. 8 Monate Abenteuer erwarten Sie!",
-    navigation: "Navigation",
-    information: "Information",
-    contact: "Kontakt",
-    departure: "Abfahrt: März 2026",
-    copyright: "© 2024 Nancy → JAPAN Abenteuer. Alle Rechte vorbehalten.",
-    
-    // Admin Section
-    adminTitle: "Verwaltungsverfahren",
-    adminSubtitle: "Alles was Sie wissen müssen, um mit dem Motorrad von Europa nach Japan zu reisen",
-    essentialDocs: "Wesentliche Dokumente",
-    passports: "Reisepässe",
-    passportsDesc: "Mindestens 6 Monate gültig",
-    visas: "Visa",
-    visasDesc: "Nur Russland",
-    carnet: "Carnet de Passage",
-    carnetDesc: "Nützlich für Japan",
-    insurance: "Versicherung",
-    insuranceDesc: "International + Rückführung",
-    carnetTitle: "Carnet de Passage",
-    carnetDetail: "Nützlich für Japan. 5.000€ Kaution pro Motorrad über FFMC.",
-    permitTitle: "Internationaler Führerschein",
-    permitDetail: "Antrag bei der Präfektur 2 Monate vor Abreise. 3 Jahre gültig.",
-    insuranceTitle: "Internationale Versicherung",
-    insuranceDetail: "ACS Versicherung - Weltweite Abdeckung + Motorrad- und Personenrückführung.",
-    visasTitle: "Visa",
-    visasDetail: "Nur Russland.",
-    communityDiscussion: "Gemeinschaftsdiskussion",
-    discussionDesc: "Tauschen Sie sich mit uns und der Gemeinschaft aus! Stellen Sie Ihre Fragen, teilen Sie Ihre Erfahrungen.",
-    yourName: "Ihr Name oder Pseudonym",
-    yourMessage: "Ihre Frage oder Nachricht...",
-    yourReply: "Ihre Antwort...",
-    replying: "Antworten auf",
-    send: "Senden",
-    sending: "Senden...",
-    
-    // Polarsteps Widget
-    countries: "Länder",
-    kilometers: "Kilometer",
-    months: "Monate",
-    viewOnPolarsteps: "Auf Polarsteps ansehen",
-    preparationPhase: "Vorbereitungsphase",
-    plannedDeparture: "Geplante Abfahrt: März 2026"
+    gauthierEquipmentTitle: "Ausrüstung von Gauthier",
+    gauthierEquipmentList: [
+      "Klim Kryos Carbon Helm",
+      "Bering Hurricane Winterjacke",
+      "Revit Nucleon Sommerjacke",
+      "Bering Hurricane Hose",
+      "Sidi Adventure Stiefel",
+      "Alpinestar HT-7 beheizte Handschuhe"
+    ],
+    magaliEquipmentTitle: "Ausrüstung von Magali",
+    magaliEquipmentList: [
+      "Shoei ADV Hornet Helm",
+      "Ixon Tour Adventure Winterjacke",
+      "Forma Adventure Evo Stiefel"
+    ],
+    luggageNavigationTitle: "Gepäck & Navigation",
+    luggageNavigationSubtitle: "Auf jedem Motorrad",
+    luggageNavigationList: [
+      "Lonerider Seitenkoffer",
+      "Lonerider Overlander Satteltasche",
+      "Lonerider 6L Crash Bar Taschen",
+      "Lonerider Lenker Tasche",
+      "Carpuride GPS"
+    ],
+    campingSurvivalTitle: "Camping & Überleben",
+    campingSurvivalList: [
+      "Lonerider Mototent",
+      "Schlafsäcke",
+      "Campingkocher",
+      "Öko Wasserfilterflaschen",
+      "Erste-Hilfe-Set"
+    ],
+    // Weitere deutsche Schlüssel hier...
   },
-  
+
   ru: {
-    // Weather Widget
-    weatherTitle: "Погода и валюта",
-    weatherSubtitle: "Данные в реальном времени",
-    loadingWeather: "Загрузка погоды...",
-    loadingExchange: "Загрузка валюты...",
-    humidity: "Влажность",
-    wind: "Ветер",
-    exchangeRate: "Обменный курс",
-    
-    // Translation Widget
     translationTitle: "Перевод",
-    translationSubtitle: "Практикуйте языки!",
-    translationQuote: "Вы тоже практикуйте языки стран, которые мы откроем!",
-    writeIn: "Пишите на",
+    translationSubtitle: "Мгновенный перевод",
+    translationQuote: "Язык - это дорога к приключениям.",
+    writeIn: "Писать на",
     translate: "Перевести",
     translating: "Перевод...",
-    usefulPhrases: "Полезные фразы",
-    yourReply: "Ваш ответ...",
-    replying: "Отвечаю на",
-    
-    // Navigation
+    listenPronunciation: "Послушать произношение",
+    dataFromSupabase: "Данные из Supabase",
+    loading: "Загрузка...",
+    errorOccurred: "Произошла ошибка",
+    socialTitle: "Подписывайтесь на нас",
+    socialSubtitle: "Социальные сети и многое другое",
     home: "Главная",
     aboutUs: "О нас",
-    project: "Проект Япония",
+    project: "Наш проект",
     bikes: "Наши мотоциклы",
-    admin: "Процедуры",
-    social: "Социальные сети",
-    languages: "Языки",
-    
-    // Bikes Section
-    bikesTitle: "Наши Мотоциклы",
-    bikesSubtitle: "Два Yamaha Ténéré 700 2023 года, подготовленные для приключений",
-    gauthierBike: "Модель 2023 - Готье",
-    magaliBike: "Модель 2023 - Магали",
-    engine: "Двигатель",
-    engineValue: "689cc двухцилиндровый",
-    power: "Мощность",
-    powerValue: "73 л.с.",
-    tank: "Бак",
-    tankValue: "16L + канистра 10L",
-    weight: "Вес",
-    weightValue: "205кг + снаряжение",
-    equipmentTitle: "Наше Снаряжение",
-    protectionSafety: "Защита и Безопасность",
-    gauthierEquipment: "Снаряжение Готье",
-    magaliEquipment: "Снаряжение Магали",
-    luggageNavigation: "Багаж и Навигация",
-    onEachBike: "На каждом мотоцикле",
-    campingSurvival: "Кемпинг и Выживание",
-    
-    // Специфическое снаряжение
-    klimHelmet: "Шлем Klim Kryos Carbon",
-    beringWinterJacket: "Зимняя куртка Bering Hurricane",
-    revitSummerJacket: "Летняя куртка Revit Nucleon",
-    beringPants: "Штаны Bering Hurricane",
-    sidiBoots: "Ботинки Sidi Adventure",
-    alpinestarGloves: "Перчатки с подогревом Alpinestar HT-7",
-    shoeiHelmet: "Шлем Shoei ADV Hornet",
-    ixonJacket: "Зимняя куртка Ixon Tour Adventure",
-    formaBoots: "Ботинки Forma Adventure Evo",
-    loneriderCases: "Боковые кофры Lonerider",
-    loneriderBag: "Задняя сумка Lonerider Overlander",
-    crashBarBags: "Сумки на дуги Lonerider 6L",
-    handlebarBag: "Сумка на руль Lonerider",
-    carpurideGPS: "GPS Carpuride",
-    mototent: "Мототент Lonerider",
-    sleepingBags: "Спальные мешки",
-    stove: "Горелка",
-    waterBottles: "Фильтрующие бутылки Öko",
-    firstAidKit: "Аптечка первой помощи",
-    
-    // Hero Section
-    heroTitle: "НАНСИ → ТОКИО",
-    heroSubtitle: "Следите за нашим эпическим 8-месячным мотоциклетным приключением из Франции в Японию. Март 2026 - Декабрь 2026: 35 000 км приключений на наших Yamaha Ténéré 700.",
-    cookieNotice: "ℹ️ Пожалуйста, примите файлы cookie для просмотра карты",
-    
-    // Weather Widget
-    weatherTitle: "Погода и валюта",
-    weatherSubtitle: "Данные в реальном времени",
-    loadingWeather: "Загрузка погоды...",
-    loadingExchange: "Загрузка валюты...",
-    humidity: "Влажность",
-    wind: "Ветер",
-    exchangeRate: "Обменный курс",
-    
-    // Translation Widget
-    translationTitle: "Перевод",
-    translationSubtitle: "Практикуйте языки!",
-    translationQuote: "Вы тоже практикуйте языки стран, которые мы откроем!",
-    writeIn: "Пишите на",
-    translate: "Перевести",
-    translating: "Перевод...",
-    usefulPhrases: "Полезные фразы",
-    
-    // About Section
-    aboutTitle: "Кто мы?",
-    aboutSubtitle: "Два энтузиаста мотоциклов, готовых к приключению всей жизни",
-    gauthierTitle: "Авантюрист - 35 лет",
-    gauthierDesc: "Увлеченный путешествиями, я люблю открывать другие культуры и встречать людей. Я люблю моменты обмена с людьми, которые не говорят на том же языке, что и я, дорожа этими волшебными моментами, когда мы понимаем друг друга без слов.",
-    magaliTitle: "Энтузиаст Японии - 37 лет",
-    magaliDesc: "Увлеченная Японией, я изучаю японский язык уже 4 года. Не могу дождаться, чтобы открыть различные культуры, с которыми мы столкнемся, и закончить аутентичными обменами с японцами.",
-    
-    // Project Section
-    projectTitle: "Наш проект:",
-    projectSubtitle: "8 месяцев приключений через Европу и Азию на наших Yamaha Ténéré 700",
-    duration: "Продолжительность",
-    durationValue: "Март 2026 - Декабрь 2026",
-    durationSub: "8 месяцев приключений",
-    distance: "Расстояние",
-    distanceValue: "Около 35 000 км",
-    distanceSub: "Через 22 страны",
-    route: "Маршрут",
-    routeValue: "Европа → Центральная Азия → Азия",
-    routeSub: "Конечный пункт: Токио",
-    
-    // Social Section
-    socialTitle: "Следите за нашим приключением",
-    socialSubtitle: "Оставайтесь на связи с нами во всех наших социальных сетях",
-    supportUs: "Поддержите нас",
-    supportDesc: "Купите нам бак бензина!",
-    supportQuote: "Каждое пожертвование приближает нас к Токио! ⛽🏍️",
-    dailyPhotos: "Ежедневные фото",
-    completeVlogs: "Полные влоги",
-    community: "Сообщество",
-    realTimeTracking: "Отслеживание в реальном времени",
-    supportMakesADifference: "Ваша поддержка имеет значение!",
-    supportDescription: "Каждый вклад помогает нам финансировать наше приключение: бензин, жилье, ремонт... Вместе давайте сделаем эту мечту возможной! 🌟",
-    
-    // Footer
-    footerDesc: "Следите за нашим эпическим мотоциклетным приключением из Нанси в Токио. Вас ждут 8 месяцев приключений!",
-    navigation: "Навигация",
-    information: "Информация",
-    contact: "Контакт",
-    departure: "Отправление: Март 2026",
-    copyright: "© 2024 Приключение Нанси → Токио. Все права защищены.",
-    
-    // Admin Section
-    adminTitle: "Административные процедуры",
-    adminSubtitle: "Все, что нужно знать для путешествия на мотоцикле из Европы в Японию",
-    essentialDocs: "Основные документы",
-    passports: "Паспорта",
-    passportsDesc: "Минимум 6 месяцев действия",
-    visas: "Визы",
-    visasDesc: "Только Россия",
-    carnet: "Карнет де Пассаж",
-    carnetDesc: "Полезен для Японии",
-    insurance: "Страхование",
-    insuranceDesc: "Международное + репатриация",
-    carnetTitle: "Карнет де Пассаж",
-    carnetDetail: "Полезен для Японии. Залог 5000€ за мотоцикл через FFMC.",
-    permitTitle: "Международные права",
-    permitDetail: "Заявление в префектуру за 2 месяца до отъезда. Действительны 3 года.",
-    insuranceTitle: "Международная страховка",
-    insuranceDetail: "ACS Страхование - Мировое покрытие + помощь в репатриации мотоцикла и человека.",
-    visasTitle: "Визы",
-    visasDetail: "Только Россия.",
-    communityDiscussion: "Обсуждение сообщества",
-    discussionDesc: "Общайтесь с нами и сообществом! Задавайте вопросы, делитесь опытом.",
-    yourName: "Ваше имя или псевдоним",
-    yourMessage: "Ваш вопрос или сообщение...",
-    yourReply: "Ваш ответ...",
-    replying: "Отвечаю на",
-    send: "Отправить",
-    sending: "Отправка...",
-    
-    // Polarsteps Widget
-    countries: "Страны",
-    kilometers: "Километры",
-    months: "Месяцы",
-    viewOnPolarsteps: "Смотреть на Polarsteps",
-    preparationPhase: "Фаза подготовки",
-    plannedDeparture: "Планируемый отъезд: Март 2026"
+    admin: "Административные шаги",
+    social: "Сообщество",
+
+    equipmentTitle: "Наше оборудование",
+    protectionSafety: "Защита и безопасность",
+    gauthierEquipmentTitle: "Экипировка Готье",
+    gauthierEquipmentList: [
+      "Шлем Klim Kryos Carbon",
+      "Куртка Bering Hurricane для холодной погоды",
+      "Куртка Revit Nucleon для теплой погоды",
+      "Штаны Bering Hurricane",
+      "Боты Sidi Adventure",
+      "Подогреваемые перчатки Alpinestar HT-7"
+    ],
+    magaliEquipmentTitle: "Экипировка Магали",
+    magaliEquipmentList: [
+      "Шлем Shoei ADV Hornet",
+      "Куртка Ixon Tour Adventure для холодной погоды",
+      "Боты Forma Adventure Evo"
+    ],
+    luggageNavigationTitle: "Багаж и навигация",
+    luggageNavigationSubtitle: "На каждом мотоцикле",
+    luggageNavigationList: [
+      "Боковые кофры Lonerider",
+      "Седельная сумка Lonerider Overlander",
+      "Сумки на рамку Lonerider 6L",
+      "Сумка на руль Lonerider",
+      "GPS Carpuride"
+    ],
+    campingSurvivalTitle: "Кемпинг и выживание",
+    campingSurvivalList: [
+      "Палатка Mototent Lonerider",
+      "Спальные мешки",
+      "Плита для кемпинга",
+      "Фильтрующие бутылки Öko",
+      "Аптечка первой помощи"
+    ],
+    // Другие ключи...
   },
-  
+
   ja: {
-    // Weather Widget
-    weatherTitle: "天気と通貨",
-    weatherSubtitle: "リアルタイムデータ",
-    loadingWeather: "天気を読み込み中...",
-    loadingExchange: "通貨を読み込み中...",
-    humidity: "湿度",
-    wind: "風",
-    exchangeRate: "為替レート",
-    
-    // Translation Widget
     translationTitle: "翻訳",
-    translationSubtitle: "言語を練習しよう！",
-    translationQuote: "あなたも、私たちが発見する国々の言語を話す練習をしてください！",
-    writeIn: "で書く",
-    translate: "翻訳",
+    translationSubtitle: "即時翻訳",
+    translationQuote: "言語は冒険への道です。",
+    writeIn: "書く言語",
+    translate: "翻訳する",
     translating: "翻訳中...",
-    usefulPhrases: "便利なフレーズ",
     listenPronunciation: "発音を聞く",
-    yourReply: "あなたの返信...",
-    replying: "返信中",
-    
-    // Navigation
+    dataFromSupabase: "Supabaseからのデータ",
+    loading: "読み込み中...",
+    errorOccurred: "エラーが発生しました",
+    socialTitle: "フォローしてください",
+    socialSubtitle: "ソーシャルネットワークなど",
     home: "ホーム",
     aboutUs: "私たちについて",
-    project: "日本プロジェクト",
+    project: "私たちのプロジェクト",
     bikes: "私たちのバイク",
-    admin: "手続き",
-    social: "ソーシャルメディア",
-    languages: "言語",
-    
-    // Bikes Section
-    bikesTitle: "私たちのバイク",
-    bikesSubtitle: "冒険のために準備された2台の2023年ヤマハ テネレ700",
-    gauthierBike: "2023年モデル - ゴーティエ",
-    magaliBike: "2023年モデル - マガリ",
-    engine: "エンジン",
-    engineValue: "689cc 2気筒",
-    power: "パワー",
-    powerValue: "73馬力",
-    tank: "タンク",
-    tankValue: "16L + 10L携行缶",
-    weight: "重量",
-    weightValue: "205kg + 装備",
+    admin: "管理手続き",
+    social: "コミュニティ",
+
     equipmentTitle: "私たちの装備",
     protectionSafety: "保護と安全",
-    gauthierEquipment: "ゴーティエの装備",
-    magaliEquipment: "マガリの装備",
-    luggageNavigation: "荷物とナビゲーション",
-    onEachBike: "各バイクに",
-    campingSurvival: "キャンプとサバイバル",
-    
-    // 具体的な装備
-    klimHelmet: "Klim Kryos Carbonヘルメット",
-    beringWinterJacket: "Bering Hurricane防寒ジャケット",
-    revitSummerJacket: "Revit Nucleon夏用ジャケット",
-    beringPants: "Bering Hurricaneパンツ",
-    sidiBoots: "Sidi Adventureブーツ",
-    alpinestarGloves: "Alpinestar HT-7加熱グローブ",
-    shoeiHelmet: "Shoei ADV Hornetヘルメット",
-    ixonJacket: "Ixon Tour Adventure防寒ジャケット",
-    formaBoots: "Forma Adventure Evoブーツ",
-    loneriderCases: "Loneriderサイドケース",
-    loneriderBag: "Lonerider Overlanderテールバッグ",
-    crashBarBags: "Lonerider 6Lクラッシュバーバッグ",
-    handlebarBag: "Loneriderハンドルバーバッグ",
-    carpurideGPS: "Carpuride GPS",
-    mototent: "Loneriderモトテント",
-    sleepingBags: "寝袋",
-    stove: "ストーブ",
-    waterBottles: "Ökoフィルターウォーターボトル",
-    firstAidKit: "救急箱",
-    
-    // Hero Section
-    heroTitle: "ナンシー → 東京",
-    heroSubtitle: "フランスから日本への8ヶ月間の壮大なバイク冒険をフォローしてください。2026年3月〜2026年12月：ヤマハ テネレ700での35,000kmの冒険。",
-    cookieNotice: "ℹ️ 地図を表示するにはクッキーを受け入れてください",
-    
-    // Weather Widget
-    weatherTitle: "天気と通貨",
-    weatherSubtitle: "リアルタイムデータ",
-    loadingWeather: "天気を読み込み中...",
-    loadingExchange: "通貨を読み込み中...",
-    humidity: "湿度",
-    wind: "風",
-    exchangeRate: "為替レート",
-    
-    // Translation Widget
-    translationTitle: "翻訳",
-    translationSubtitle: "言語を練習しよう！",
-    translationQuote: "あなたも、私たちが発見する国々の言語を話す練習をしてください！",
-    writeIn: "で書く",
-    translate: "翻訳",
-    translating: "翻訳中...",
-    usefulPhrases: "便利なフレーズ",
-    
-    // About Section
-    aboutTitle: "私たちは誰ですか？",
-    aboutSubtitle: "人生の冒険を生きる準備ができた二人のバイク愛好家",
-    gauthierTitle: "冒険家 - 35歳",
-    gauthierDesc: "旅行に情熱を持ち、他の文化を発見し、人々に会うことが大好きです。私と同じ言語を話さない人々との交流の瞬間を愛し、話すことなくお互いを理解するその魔法的な瞬間を大切にしています。",
-    magaliTitle: "日本愛好家 - 37歳",
-    magaliDesc: "日本に情熱を持ち、4年間日本語を学んでいます。私たちが出会うさまざまな文化を発見し、日本人との本物の交流で終わることを楽しみにしています。",
-    
-    // Project Section
-    projectTitle: "私たちのプロジェクト：",
-    projectSubtitle: "ヤマハ テネレ700でヨーロッパとアジアを横断する8ヶ月の冒険",
-    duration: "期間",
-    durationValue: "2026年3月〜2026年12月",
-    durationSub: "8ヶ月の冒険",
-    distance: "距離",
-    distanceValue: "約35,000km",
-    distanceSub: "22カ国を通過",
-    route: "ルート",
-    routeValue: "ヨーロッパ → 中央アジア → アジア",
-    routeSub: "最終目的地：東京",
-    
-    // Social Section
-    socialTitle: "私たちの冒険をフォロー",
-    socialSubtitle: "すべてのソーシャルメディアで私たちとつながりを保ちましょう",
-    supportUs: "私たちをサポート",
-    supportDesc: "ガソリンタンクを買ってください！",
-    supportQuote: "すべての寄付が私たちを東京に少し近づけます！⛽🏍️",
-    dailyPhotos: "毎日の写真",
-    completeVlogs: "完全なブログ",
-    community: "コミュニティ",
-    realTimeTracking: "リアルタイム追跡",
-    supportMakesADifference: "あなたのサポートが違いを生みます！",
-    supportDescription: "すべての貢献が私たちの冒険の資金調達に役立ちます：ガソリン、宿泊、修理...一緒に、この夢を可能にしましょう！🌟",
-    
-    // Footer
-    footerDesc: "ナンシーから東京への壮大なバイク冒険をフォローしてください。8ヶ月の冒険があなたを待っています！",
-    navigation: "ナビゲーション",
-    information: "情報",
-    contact: "連絡先",
-    departure: "出発：2026年3月",
-    copyright: "© 2024 ナンシー → 東京 アドベンチャー。全著作権所有。",
-    
-    // Admin Section
-    adminTitle: "管理手続き",
-    adminSubtitle: "ヨーロッパから日本へのバイク旅行に必要なすべての情報",
-    essentialDocs: "必要書類",
-    passports: "パスポート",
-    passportsDesc: "最低6ヶ月の有効期限",
-    visas: "ビザ",
-    visasDesc: "ロシアのみ",
-    carnet: "カルネ・ド・パッサージュ",
-    carnetDesc: "日本で有用",
-    insurance: "保険",
-    insuranceDesc: "国際 + 本国送還",
-    carnetTitle: "カルネ・ド・パッサージュ",
-    carnetDetail: "日本で有用。FFMCを通じてバイク1台につき5,000ユーロの保証金。",
-    permitTitle: "国際免許証",
-    permitDetail: "出発2ヶ月前に県庁で申請。3年間有効。",
-    insuranceTitle: "国際保険",
-    insuranceDetail: "ACS保険 - 世界規模の補償 + バイクと人の本国送還支援。",
-    visasTitle: "ビザ",
-    visasDetail: "ロシアのみ。",
-    communityDiscussion: "コミュニティディスカッション",
-    discussionDesc: "私たちやコミュニティとチャットしましょう！質問をしたり、経験を共有してください。",
-    yourName: "お名前またはニックネーム",
-    yourMessage: "ご質問またはメッセージ...",
-    yourReply: "あなたの返信...",
-    replying: "返信中",
-    send: "送信",
-    sending: "送信中...",
-    
-    // Polarsteps Widget
-    countries: "国",
-    kilometers: "キロメートル",
-    months: "ヶ月",
-    viewOnPolarsteps: "Polarstepsで見る",
-    preparationPhase: "準備段階",
-    plannedDeparture: "出発予定：2026年3月"
+    gauthierEquipmentTitle: "ガティエの装備",
+    gauthierEquipmentList: [
+      "Klim Kryos Carbon ヘルメット",
+      "Bering Hurricane 寒冷地用ジャケット",
+      "Revit Nucleon 暖かい季節用ジャケット",
+      "Bering Hurricane パンツ",
+      "Sidi Adventure ブーツ",
+      "Alpinestar HT-7 ヒーター付きグローブ"
+    ],
+    magaliEquipmentTitle: "マガリの装備",
+    magaliEquipmentList: [
+      "Shoei ADV Hornet ヘルメット",
+      "Ixon Tour Adventure 寒冷地用ジャケット",
+      "Forma Adventure Evo ブーツ"
+    ],
+    luggageNavigationTitle: "荷物＆ナビゲーション",
+    luggageNavigationSubtitle: "各バイクに装備",
+    luggageNavigationList: [
+      "Lonerider サイドケース",
+      "Lonerider Overlander シートバッグ",
+      "Lonerider 6L クラッシュバー用バッグ",
+      "Lonerider ハンドルバー バッグ",
+      "Carpuride GPS"
+    ],
+    campingSurvivalTitle: "キャンプ＆サバイバル",
+    campingSurvivalList: [
+      "Lonerider モトテント",
+      "寝袋",
+      "キャンプ用ストーブ",
+      "Öko 浄水ボトル",
+      "救急セット"
+    ],
+    // ...
   }
 };
-
-export type Language = keyof typeof translations;
-export type TranslationKey = keyof typeof translations.fr;
