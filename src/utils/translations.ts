@@ -1,197 +1,139 @@
-export type Language = 'fr' | 'en' | 'de' | 'ru' | 'ja';
-
-export type TranslationKey =
-  | 'socialTitle'
-  | 'socialSubtitle'
-  | 'projectTitle'
-  | 'centralEurope'
-  | 'centralEuropeCountries'
-  | 'balkans'
-  | 'balkansCountries'
-  | 'caucasus'
-  | 'caucasusCountries'
-  | 'centralAsia'
-  | 'centralAsiaCountries'
-  | 'farEast'
-  | 'farEastCountries'
-  | 'dataFromSupabase'
-  | 'loading'
-  | 'errorOccurred'
-  | 'home'
-  | 'social'
-  | 'aboutUs'
-  | 'project'
-  | 'bikes'
-  | 'admin'
-  | 'translationTitle'
-  | 'translationSubtitle'
-  | 'translationQuote'
-  | 'writeIn'
-  | 'translate'
-  | 'translating'
-  | 'listenPronunciation'
-  | 'usefulPhrases'
-  // Ajoute toutes les autres clés utilisées...
-
-export const translations: Record<Language, Record<TranslationKey, string>> = {
+export const translations = {
   fr: {
+    // Social Section
     socialTitle: "Suivez notre aventure",
-    socialSubtitle: "Partagez nos aventures et découvrez nos photos",
-    projectTitle: "Notre projet",
-    centralEurope: "Europe centrale",
-    centralEuropeCountries: "Allemagne, Autriche, Slovénie, Croatie, Bosnie, Monténégro, Macédoine du Nord",
-    balkans: "Balkans",
-    balkansCountries: "Serbie, Kosovo, Albanie, Macédoine, etc.",
-    caucasus: "Caucase",
-    caucasusCountries: "Géorgie, Arménie, Azerbaïdjan",
-    centralAsia: "Asie centrale",
-    centralAsiaCountries: "Kazakhstan, Ouzbékistan, Turkménistan, Tadjikistan, Kirghizistan",
-    farEast: "Extrême-Orient",
-    farEastCountries: "Russie (Sibérie), Mongolie, Corée, Japon",
-    dataFromSupabase: "Données depuis Supabase",
+    socialSubtitle: "Nos réseaux sociaux pour ne rien manquer",
+    languages: "Langues",
+
+    // Bikes Section
+    bikesTitle: "Nos Montures",
+
+    // Admin Section
+    adminTitle: "Démarches administratives",
+    adminSubtitle: "Tout ce qu'il faut savoir pour voyager en moto de l'Europe au Japon",
+    essentialDocs: "Documents essentiels",
+    passports: "Passeports",
+    passportsDesc: "Validité minimum 6 mois",
+    visas: "Visas",
+    visasDesc: "Russie uniquement",
+    carnet: "Carnet de Passage",
+    carnetDesc: "Utile pour le Japon",
+    insurance: "Assurance",
+    insuranceDesc: "Internationale + rapatriement",
+    carnetTitle: "Carnet de Passage en Douane",
+    carnetDetail: "Utile pour le Japon. Caution de 5 000€ par moto via la FFMC.",
+    permitTitle: "Permis International",
+    permitDetail: "Demande en préfecture 2 mois avant le départ. Valable 3 ans.",
+    insuranceTitle: "Assurance Internationale",
+    insuranceDetail: "ACS Assurance - Couverture mondiale + assistance rapatriement moto et personne.",
+    visasTitle: "Visas",
+    visasDetail: "Russie uniquement.",
+
+    // Community Discussion
+    communityDiscussion: "Discussion Communautaire",
+    discussionDesc: "Échangez avec nous et la communauté ! Posez vos questions, partagez vos expériences.",
+    yourName: "Votre nom ou pseudo",
+    yourMessage: "Votre question ou message...",
+    yourReply: "Votre réponse...",
+    replying: "Réponse à",
+    send: "Envoyer",
+    sending: "Envoi...",
+
+    // Data display
+    dataFromSupabase: "Données Supabase",
     loading: "Chargement...",
     errorOccurred: "Une erreur est survenue",
-    home: "Accueil",
-    social: "Réseaux",
-    aboutUs: "À propos",
-    project: "Notre projet",
-    bikes: "Nos motos",
-    admin: "Démarches administratives",
-    translationTitle: "Traduction",
-    translationSubtitle: "Traduisez instantanément le site dans votre langue",
-    translationQuote: "La langue est la route de la culture, la clé de la compréhension.",
-    writeIn: "Écrire en",
+
+    // Translation widget
+    translationTitle: "Traduction instantanée",
+    translationSubtitle: "Traduisez tout le site en un clic",
+    translationQuote: "La langue est la clé du monde.",
     translate: "Traduire",
     translating: "Traduction en cours...",
+    writeIn: "Écrire en",
     listenPronunciation: "Écouter la prononciation",
     usefulPhrases: "Phrases utiles",
-  },
-  en: {
-    socialTitle: "Follow our adventure",
-    socialSubtitle: "Share our journeys and discover our photos",
-    projectTitle: "Our project",
-    centralEurope: "Central Europe",
-    centralEuropeCountries: "Germany, Austria, Slovenia, Croatia, Bosnia, Montenegro, North Macedonia",
+
+    // Project Section example
+    detailedRoute: "Itinéraire détaillé",
+    centralEurope: "Europe centrale",
+    centralEuropeCountries: "Allemagne, Autriche, Slovénie...",
     balkans: "Balkans",
-    balkansCountries: "Serbia, Kosovo, Albania, Macedonia, etc.",
-    caucasus: "Caucasus",
-    caucasusCountries: "Georgia, Armenia, Azerbaijan",
-    centralAsia: "Central Asia",
-    centralAsiaCountries: "Kazakhstan, Uzbekistan, Turkmenistan, Tajikistan, Kyrgyzstan",
-    farEast: "Far East",
-    farEastCountries: "Russia (Siberia), Mongolia, Korea, Japan",
-    dataFromSupabase: "Data from Supabase",
+    balkansCountries: "Croatie, Bosnie, Monténégro...",
+    caucasus: "Caucase",
+    caucasusCountries: "Géorgie, Arménie, Azerbaïdjan...",
+    centralAsia: "Asie centrale",
+    centralAsiaCountries: "Kazakhstan, Ouzbékistan, Kirghizstan...",
+    farEast: "Extrême-Orient",
+    farEastCountries: "Russie, Mongolie, Japon...",
+  },
+
+  en: {
+    // Social Section
+    socialTitle: "Follow our adventure",
+    socialSubtitle: "Our social networks so you don't miss anything",
+    languages: "Languages",
+
+    // Bikes Section
+    bikesTitle: "Our Bikes",
+
+    // Admin Section
+    adminTitle: "Administrative Steps",
+    adminSubtitle: "Everything you need to know to travel by motorcycle from Europe to Japan",
+    essentialDocs: "Essential documents",
+    passports: "Passports",
+    passportsDesc: "Minimum 6 months validity",
+    visas: "Visas",
+    visasDesc: "Russia only",
+    carnet: "Carnet de Passage",
+    carnetDesc: "Useful for Japan",
+    insurance: "Insurance",
+    insuranceDesc: "International + repatriation",
+    carnetTitle: "Carnet de Passage en Douane",
+    carnetDetail: "Useful for Japan. Deposit of 5,000€ per bike via FFMC.",
+    permitTitle: "International Driving Permit",
+    permitDetail: "Apply 2 months before departure at prefecture. Valid for 3 years.",
+    insuranceTitle: "International Insurance",
+    insuranceDetail: "ACS Insurance - Worldwide coverage + assistance for bike and personal repatriation.",
+    visasTitle: "Visas",
+    visasDetail: "Russia only.",
+
+    // Community Discussion
+    communityDiscussion: "Community Discussion",
+    discussionDesc: "Chat with us and the community! Ask questions, share experiences.",
+    yourName: "Your name or nickname",
+    yourMessage: "Your question or message...",
+    yourReply: "Your reply...",
+    replying: "Replying to",
+    send: "Send",
+    sending: "Sending...",
+
+    // Data display
+    dataFromSupabase: "Supabase Data",
     loading: "Loading...",
     errorOccurred: "An error occurred",
-    home: "Home",
-    social: "Social",
-    aboutUs: "About us",
-    project: "Our project",
-    bikes: "Our bikes",
-    admin: "Admin procedures",
-    translationTitle: "Translation",
-    translationSubtitle: "Instantly translate the site into your language",
-    translationQuote: "Language is the road to culture, the key to understanding.",
-    writeIn: "Write in",
+
+    // Translation widget
+    translationTitle: "Instant Translation",
+    translationSubtitle: "Translate the whole site with one click",
+    translationQuote: "Language is the key to the world.",
     translate: "Translate",
     translating: "Translating...",
+    writeIn: "Write in",
     listenPronunciation: "Listen to pronunciation",
-    usefulPhrases: "Useful phrases",
-  },
-  de: {
-    socialTitle: "Folgen Sie unserem Abenteuer",
-    socialSubtitle: "Teilen Sie unsere Reisen und entdecken Sie unsere Fotos",
-    projectTitle: "Unser Projekt",
-    centralEurope: "Mitteleuropa",
-    centralEuropeCountries: "Deutschland, Österreich, Slowenien, Kroatien, Bosnien, Montenegro, Nordmazedonien",
-    balkans: "Balkan",
-    balkansCountries: "Serbien, Kosovo, Albanien, Mazedonien, usw.",
-    caucasus: "Kaukasus",
-    caucasusCountries: "Georgien, Armenien, Aserbaidschan",
-    centralAsia: "Zentralasien",
-    centralAsiaCountries: "Kasachstan, Usbekistan, Turkmenistan, Tadschikistan, Kirgisistan",
-    farEast: "Fernost",
-    farEastCountries: "Russland (Sibirien), Mongolei, Korea, Japan",
-    dataFromSupabase: "Daten von Supabase",
-    loading: "Wird geladen...",
-    errorOccurred: "Ein Fehler ist aufgetreten",
-    home: "Startseite",
-    social: "Soziales",
-    aboutUs: "Über uns",
-    project: "Unser Projekt",
-    bikes: "Unsere Motorräder",
-    admin: "Verwaltungsverfahren",
-    translationTitle: "Übersetzung",
-    translationSubtitle: "Übersetzen Sie die Seite sofort in Ihre Sprache",
-    translationQuote: "Sprache ist der Weg zur Kultur, der Schlüssel zum Verständnis.",
-    writeIn: "Schreiben in",
-    translate: "Übersetzen",
-    translating: "Übersetzen...",
-    listenPronunciation: "Aussprache anhören",
-    usefulPhrases: "Nützliche Sätze",
-  },
-  ru: {
-    socialTitle: "Следите за нашим приключением",
-    socialSubtitle: "Делитесь нашими путешествиями и смотрите наши фотографии",
-    projectTitle: "Наш проект",
-    centralEurope: "Центральная Европа",
-    centralEuropeCountries: "Германия, Австрия, Словения, Хорватия, Босния, Черногория, Северная Македония",
-    balkans: "Балканы",
-    balkansCountries: "Сербия, Косово, Албания, Македония и др.",
-    caucasus: "Кавказ",
-    caucasusCountries: "Грузия, Армения, Азербайджан",
-    centralAsia: "Центральная Азия",
-    centralAsiaCountries: "Казахстан, Узбекистан, Туркменистан, Таджикистан, Кыргызстан",
-    farEast: "Дальний Восток",
-    farEastCountries: "Россия (Сибирь), Монголия, Корея, Япония",
-    dataFromSupabase: "Данные из Supabase",
-    loading: "Загрузка...",
-    errorOccurred: "Произошла ошибка",
-    home: "Главная",
-    social: "Социальные сети",
-    aboutUs: "О нас",
-    project: "Наш проект",
-    bikes: "Наши мотоциклы",
-    admin: "Административные процедуры",
-    translationTitle: "Перевод",
-    translationSubtitle: "Мгновенный перевод сайта на ваш язык",
-    translationQuote: "Язык — это дорога к культуре, ключ к пониманию.",
-    writeIn: "Писать на",
-    translate: "Перевести",
-    translating: "Перевод...",
-    listenPronunciation: "Послушать произношение",
-    usefulPhrases: "Полезные фразы",
-  },
-  ja: {
-    socialTitle: "私たちの冒険をフォローしてください",
-    socialSubtitle: "私たちの旅を共有し、写真を見てください",
-    projectTitle: "私たちのプロジェクト",
-    centralEurope: "中央ヨーロッパ",
-    centralEuropeCountries: "ドイツ、オーストリア、スロベニア、クロアチア、ボスニア、モンテネグロ、北マケドニア",
-    balkans: "バルカン半島",
-    balkansCountries: "セルビア、コソボ、アルバニア、マケドニアなど",
-    caucasus: "コーカサス",
-    caucasusCountries: "ジョージア、アルメニア、アゼルバイジャン",
-    centralAsia: "中央アジア",
-    centralAsiaCountries: "カザフスタン、ウズベキスタン、トルクメニスタン、タジキスタン、キルギス",
-    farEast: "極東",
-    farEastCountries: "ロシア（シベリア）、モンゴル、韓国、日本",
-    dataFromSupabase: "Supabaseからのデータ",
-    loading: "読み込み中...",
-    errorOccurred: "エラーが発生しました",
-    home: "ホーム",
-    social: "ソーシャル",
-    aboutUs: "私たちについて",
-    project: "私たちのプロジェクト",
-    bikes: "私たちのバイク",
-    admin: "管理手続き",
-    translationTitle: "翻訳",
-    translationSubtitle: "サイトをあなたの言語に即時翻訳",
-    translationQuote: "言語は文化への道、理解への鍵です。",
-    writeIn: "で書く",
-    translate: "翻訳する",
-    translating: "翻訳中...",
-    listenPronunciation: "発音を聞く",
-    usefulPhrases: "役に立つフレーズ",
+    usefulPhrases: "Useful Phrases",
+
+    // Project Section example
+    detailedRoute: "Detailed Route",
+    centralEurope: "Central Europe",
+    centralEuropeCountries: "Germany, Austria, Slovenia...",
+    balkans: "Balkans",
+    balkansCountries: "Croatia, Bosnia, Montenegro...",
+    caucasus: "Caucasus",
+    caucasusCountries: "Georgia, Armenia, Azerbaijan...",
+    centralAsia: "Central Asia",
+    centralAsiaCountries: "Kazakhstan, Uzbekistan, Kyrgyzstan...",
+    farEast: "Far East",
+    farEastCountries: "Russia, Mongolia, Japan...",
   },
 };
