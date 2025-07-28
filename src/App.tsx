@@ -18,23 +18,26 @@ function App() {
   };
 
   useEffect(() => {
-    // Force scroll top on load
-    window.scrollTo(0, 0);
+    // Forcer scroll en haut après léger délai pour laisser le DOM se stabiliser
+    const timeout = setTimeout(() => {
+      window.scrollTo(0, 0);
 
-    // Log scroll position to debug
-    setTimeout(() => {
-      console.log('Scroll position after load:', window.scrollY, document.documentElement.scrollTop, document.body.scrollTop);
-    }, 100);
+      // Enlever le focus sur tout élément actif (empêche scroll automatique lié au focus)
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
+    }, 50);
 
-    // Remove focus from any element to prevent auto-scroll
-    if (document.activeElement instanceof HTMLElement) {
-      document.activeElement.blur();
-    }
+    return () => clearTimeout(timeout);
   }, []);
 
   return (
-    <div ref={appRef} className="min-h-screen bg-gray-900 text-white">
-      <Navigation 
+    <div
+      ref={appRef}
+      className="min-h-screen bg-gray-900 text-white"
+      style={{ margin: 0, padding: 0, overflowX: 'hidden' }}
+    >
+      <Navigation
         currentLanguage={currentLanguage}
         onLanguageChange={handleLanguageChange}
       />
