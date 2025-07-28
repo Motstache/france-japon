@@ -9,7 +9,7 @@ export const translations = {
     admin: "Démarches",
     social: "Réseaux",
     languages: "Langues",
-Commande ECHO d�sactiv�e.
+
     // Bikes Section
     bikesTitle: "Nos Montures",
     bikesSubtitle: "Deux Yamaha Ténéré 700 de 2023, préparées pour l'aventure",
@@ -30,7 +30,7 @@ Commande ECHO d�sactiv�e.
     luggageNavigation: "Bagages & Navigation",
     onEachBike: "Sur chaque moto",
     campingSurvival: "Camping & Survie",
-Commande ECHO d�sactiv�e.
+
     // Équipements spécifiques
     klimHelmet: "Casque Klim Kryos Carbon",
     beringWinterJacket: "Veste temps froid Bering Hurricane",
@@ -51,12 +51,12 @@ Commande ECHO d�sactiv�e.
     stove: "Réchaud",
     waterBottles: "Gourdes filtrantes Öko",
     firstAidKit: "Trousse de premiers secours",
-Commande ECHO d�sactiv�e.
+
     // Hero Section
     heroTitle: "NANCY → TOKYO",
     heroSubtitle: "Suivez notre aventure épique de 10 mois à moto de la France au Japon. Mars 2026 - Décembre 2026 : 35 000 km d'aventure sur nos Yamaha Ténéré 700.",
     cookieNotice: "ℹ️ Veuillez accepter les cookies pour visualiser la carte",
-Commande ECHO d�sactiv�e.
+
     // Weather Widget
     weatherTitle: "Météo & Devises",
     weatherSubtitle: "Données en temps réel",
@@ -65,7 +65,7 @@ Commande ECHO d�sactiv�e.
     humidity: "Humidité",
     wind: "Vent",
     exchangeRate: "Taux de change",
-Commande ECHO d�sactiv�e.
+
     // Translation Widget
     translationTitle: "Traduction",
     translationSubtitle: "Entraîne-toi aux langues ",
@@ -75,7 +75,7 @@ Commande ECHO d�sactiv�e.
     translating: "Traduction...",
     usefulPhrases: "Phrases utiles",
     listenPronunciation: "Écouter la prononciation",
-Commande ECHO d�sactiv�e.
+
     // About Section
     aboutTitle: "Qui sommes-nous ?",
     aboutSubtitle: "Deux passionnés de moto prêts à vivre l'aventure de leur vie",
@@ -83,7 +83,7 @@ Commande ECHO d�sactiv�e.
     gauthierDesc: "Passionné de voyage, j'aime découvrir les autres cultures et rencontrer les gens. J'adore les moments d'échanges avec les personnes qui ne parlent pas la même langue que moi, en adorant ces moments magiques où on se comprend sans se parler.",
     magaliTitle: "La passionnée du Japon - 37 ans",
     magaliDesc: "Passionnée du Japon, j'apprends le japonais depuis 4 ans. J'ai hâte de découvrir les différentes cultures que l'on va rencontrer pour finir par des échanges avec des Japonais authentiques.",
-Commande ECHO d�sactiv�e.
+
     // Project Section
     projectTitle: "Notre Projet :",
     projectSubtitle: "10 mois d'aventure à travers l'Europe et l'Asie sur nos Yamaha Ténéré 700",
@@ -96,7 +96,7 @@ Commande ECHO d�sactiv�e.
     route: "Itinéraire",
     routeValue: "Europe → Asie Centrale → Asie",
     routeSub: "Destination finale : Tokyo",
-Commande ECHO d�sactiv�e.
+
     // Social Section
     socialTitle: "Suivez notre aventure",
     socialSubtitle: "Restez connectés avec nous sur tous nos réseaux sociaux",
@@ -109,7 +109,7 @@ Commande ECHO d�sactiv�e.
     realTimeTracking: "Suivi en temps réel",
     supportMakesADifference: "Votre soutien fait la différence ",
     supportDescription: "Chaque contribution nous aide à financer notre aventure : essence, hébergement, réparations... Ensemble, rendons ce rêve possible  🌟",
-Commande ECHO d�sactiv�e.
+
     // Footer
     footerDesc: "Suivez notre aventure épique de Nancy à Tokyo à moto. 10 mois d'aventure vous attendent ",
     navigation: "Navigation",
@@ -117,7 +117,7 @@ Commande ECHO d�sactiv�e.
     contact: "Contact",
     departure: "Départ : Mars 2026",
     copyright: "© 2024 Nancy → Tokyo Adventure. Tous droits réservés.",
-Commande ECHO d�sactiv�e.
+
     // Admin Section
     adminTitle: "Démarches administratives",
     adminSubtitle: "Tout ce qu'il faut savoir pour voyager en moto de l'Europe au Japon",
@@ -146,7 +146,7 @@ Commande ECHO d�sactiv�e.
     replying: "Réponse à",
     send: "Envoyer",
     sending: "Envoi...",
-Commande ECHO d�sactiv�e.
+
     // Polarsteps Widget
     countries: "Pays",
     kilometers: "Kilomètres", 
@@ -155,7 +155,7 @@ Commande ECHO d�sactiv�e.
     preparationPhase: "Phase de préparation",
     plannedDeparture: "Départ prévu : Mars 2026"
   },
-Commande ECHO d�sactiv�e.
+
   en: {
     // Navigation
     home: "Home",
@@ -165,7 +165,7 @@ Commande ECHO d�sactiv�e.
     admin: "Procedures",
     social: "Social Media",
     languages: "Languages",
-Commande ECHO d�sactiv�e.
+
     // Bikes Section
     bikesTitle: "Our Mounts",
     bikesSubtitle: "Two 2023 Yamaha Ténéré 700, prepared for adventure",
@@ -186,7 +186,7 @@ Commande ECHO d�sactiv�e.
     luggageNavigation: "Luggage & Navigation",
     onEachBike: "On each bike",
     campingSurvival: "Camping & Survival",
-Commande ECHO d�sactiv�e.
+
     // Specific Equipment
     klimHelmet: "Klim Kryos Carbon Helmet",
     beringWinterJacket: "Bering Hurricane Cold Weather Jacket",
@@ -207,12 +207,12 @@ Commande ECHO d�sactiv�e.
     stove: "Stove",
     waterBottles: "Öko Filter Water Bottles",
     firstAidKit: "First Aid Kit",
-Commande ECHO d�sactiv�e.
+
     // Hero Section
     heroTitle: "NANCY → TOKYO",
     heroSubtitle: "Follow our epic 10-month motorcycle adventure from France to Japan. March 2026 - December 2026: 35,000 km of adventure on our Yamaha Ténéré 700.",
     cookieNotice: "ℹ️ Please accept cookies to view the map",
-Commande ECHO d�sactiv�e.
+
     // Weather Widget
     weatherTitle: "Weather & Currency",
     weatherSubtitle: "Real-time data",
@@ -221,7 +221,7 @@ Commande ECHO d�sactiv�e.
     humidity: "Humidity",
     wind: "Wind",
     exchangeRate: "Exchange Rate",
-Commande ECHO d�sactiv�e.
+
     // Translation Widget
     translationTitle: "Translation",
     translationSubtitle: "Practice languages",
@@ -231,7 +231,7 @@ Commande ECHO d�sactiv�e.
     translating: "Translating...",
     usefulPhrases: "Useful phrases",
     listenPronunciation: "Listen to pronunciation",
-Commande ECHO d�sactiv�e.
+
     // About Section
     aboutTitle: "Who are we?",
     aboutSubtitle: "Two motorcycle enthusiasts ready to live the adventure of their lives",
@@ -239,7 +239,7 @@ Commande ECHO d�sactiv�e.
     gauthierDesc: "Passionate about travel, I love discovering other cultures and meeting people. I love moments of exchange with people who don't speak the same language as me, cherishing those magical moments when we understand each other without speaking.",
     magaliTitle: "The Japan Enthusiast - 37 years old",
     magaliDesc: "Passionate about Japan, I've been learning Japanese for 4 years. I can't wait to discover the different cultures we'll encounter and end with authentic exchanges with Japanese people.",
-Commande ECHO d�sactiv�e.
+
     // Project Section
     projectTitle: "Our Project:",
     projectSubtitle: "10 months of adventure across Europe and Asia on our Yamaha Ténéré 700",
@@ -263,7 +263,7 @@ Commande ECHO d�sactiv�e.
     centralAsiaCountries: "Kazakhstan, Uzbekistan, Tajikistan, Kyrgyzstan",
     farEast: "Far East",
     farEastCountries: "Russia, Mongolia, South Korea, Japan",
-Commande ECHO d�sactiv�e.
+
     // Bikes Section
     bikesTitle: "Our Mounts",
     bikesSubtitle: "Two 2023 Yamaha Ténéré 700, prepared for adventure",
@@ -284,7 +284,7 @@ Commande ECHO d�sactiv�e.
     luggageNavigation: "Luggage & Navigation",
     onEachBike: "On each bike",
     campingSurvival: "Camping & Survival",
-Commande ECHO d�sactiv�e.
+
     // Admin Section
     adminTitle: "管理手続き",
     adminSubtitle: "ヨーロッパから日本へのバイク旅行に必要なすべての情報",
@@ -324,7 +324,7 @@ Commande ECHO d�sactiv�e.
     replying: "Replying...",
     send: "Send",
     sending: "Sending...",
-Commande ECHO d�sactiv�e.
+
     // Social Section
     socialTitle: "Follow our adventure",
     socialSubtitle: "Stay connected with us on all our social media",
@@ -349,7 +349,7 @@ Commande ECHO d�sactiv�e.
     realTimeTracking: "Real-time tracking",
     supportMakesADifference: "Your support makes a difference",
     supportDescription: "Every contribution helps us finance our adventure: gas, accommodation, repairs... Together, let's make this dream possible 🌟",
-Commande ECHO d�sactiv�e.
+
     // Footer
     footerDesc: "Follow our epic motorcycle adventure from Nancy to Tokyo. 10 months of adventure await you",
     navigation: "Navigation",
@@ -357,7 +357,7 @@ Commande ECHO d�sactiv�e.
     contact: "Contact",
     departure: "Departure: March 2026",
     copyright: "© 2024 Nancy → Tokyo Adventure. All rights reserved.",
-Commande ECHO d�sactiv�e.
+
     // Admin Section
     adminTitle: "Administrative Procedures",
     adminSubtitle: "Everything you need to know to travel by motorcycle from Europe to Japan",
@@ -386,7 +386,7 @@ Commande ECHO d�sactiv�e.
     replying: "Replying to",
     send: "Send",
     sending: "Sending...",
-Commande ECHO d�sactiv�e.
+
     // Polarsteps Widget
     countries: "Countries",
     kilometers: "Kilometers",
@@ -395,7 +395,7 @@ Commande ECHO d�sactiv�e.
     preparationPhase: "Preparation phase",
     plannedDeparture: "Planned departure: March 2026"
   },
-Commande ECHO d�sactiv�e.
+
   de: {
     // Weather Widget
     weatherTitle: "Wetter & Währung",
@@ -405,7 +405,7 @@ Commande ECHO d�sactiv�e.
     humidity: "Feuchtigkeit",
     wind: "Wind",
     exchangeRate: "Wechselkurs",
-Commande ECHO d�sactiv�e.
+
     // Translation Widget
     translationTitle: "Übersetzung",
     translationSubtitle: "Übe Sprachen",
@@ -416,7 +416,7 @@ Commande ECHO d�sactiv�e.
     usefulPhrases: "Nützliche Phrasen",
     yourReply: "Ihre Antwort...",
     replying: "Antworten auf",
-Commande ECHO d�sactiv�e.
+
     // Navigation
     home: "Startseite",
     aboutUs: "Über uns",
@@ -425,7 +425,7 @@ Commande ECHO d�sactiv�e.
     admin: "Verfahren",
     social: "Soziale Medien",
     languages: "Sprachen",
-Commande ECHO d�sactiv�e.
+
     // Bikes Section
     bikesTitle: "Unsere Motorräder",
     bikesSubtitle: "Zwei 2023 Yamaha Ténéré 700, vorbereitet für das Abenteuer",
@@ -446,7 +446,7 @@ Commande ECHO d�sactiv�e.
     luggageNavigation: "Gepäck & Navigation",
     onEachBike: "Auf jedem Motorrad",
     campingSurvival: "Camping & Überleben",
-Commande ECHO d�sactiv�e.
+
     // Spezifische Ausrüstung
     klimHelmet: "Klim Kryos Carbon Helm",
     beringWinterJacket: "Bering Hurricane Winterjacke",
@@ -467,12 +467,12 @@ Commande ECHO d�sactiv�e.
     stove: "Kocher",
     waterBottles: "Öko Filter Wasserflaschen",
     firstAidKit: "Erste-Hilfe-Set",
-Commande ECHO d�sactiv�e.
+
     // Hero Section
     heroTitle: "NANCY → TOKYO",
     heroSubtitle: "Folgen Sie unserem epischen 10-monatigen Motorradabenteuer von Frankreich nach Japan. März 2026 - Dezember 2026: 35.000 km Abenteuer auf unseren Yamaha Ténéré 700.",
     cookieNotice: "ℹ️ Bitte akzeptieren Sie Cookies, um die Karte anzuzeigen",
-Commande ECHO d�sactiv�e.
+
     // Weather Widget
     weatherTitle: "Wetter & Währung",
     weatherSubtitle: "Echtzeitdaten",
@@ -481,7 +481,7 @@ Commande ECHO d�sactiv�e.
     humidity: "Feuchtigkeit",
     wind: "Wind",
     exchangeRate: "Wechselkurs",
-Commande ECHO d�sactiv�e.
+
     // Translation Widget
     translationTitle: "Übersetzung",
     translationSubtitle: "Übe Sprachen",
@@ -490,7 +490,7 @@ Commande ECHO d�sactiv�e.
     translate: "Übersetzen",
     translating: "Übersetze...",
     usefulPhrases: "Nützliche Phrasen",
-Commande ECHO d�sactiv�e.
+
     // About Section
     aboutTitle: "Wer sind wir?",
     aboutSubtitle: "Zwei Motorradbegeisterte, bereit für das Abenteuer ihres Lebens",
@@ -498,7 +498,7 @@ Commande ECHO d�sactiv�e.
     gauthierDesc: "Leidenschaftlich für Reisen, liebe ich es, andere Kulturen zu entdecken und Menschen zu treffen. Ich liebe Momente des Austauschs mit Menschen, die nicht dieselbe Sprache sprechen wie ich, und schätze diese magischen Momente, in denen wir uns ohne Worte verstehen.",
     magaliTitle: "Die Japan-Enthusiastin - 37 Jahre alt",
     magaliDesc: "Leidenschaftlich für Japan, lerne ich seit 4 Jahren Japanisch. Ich kann es kaum erwarten, die verschiedenen Kulturen zu entdecken, denen wir begegnen werden, und mit authentischen Austauschen mit Japanern zu enden.",
-Commande ECHO d�sactiv�e.
+
     // Project Section
     projectTitle: "Unser Projekt:",
     projectSubtitle: "10 Monate Abenteuer durch Europa und Asien auf unseren Yamaha Ténéré 700",
@@ -511,7 +511,7 @@ Commande ECHO d�sactiv�e.
     route: "Route",
     routeValue: "Europa → Zentralasien → Asien",
     routeSub: "Endziel: Tokyo",
-Commande ECHO d�sactiv�e.
+
     // Social Section
     socialTitle: "Folgen Sie unserem Abenteuer",
     socialSubtitle: "Bleiben Sie mit uns in Verbindung über alle unsere sozialen Medien",
@@ -524,7 +524,7 @@ Commande ECHO d�sactiv�e.
     realTimeTracking: "Echtzeit-Verfolgung",
     supportMakesADifference: "Ihre Unterstützung macht einen Unterschied",
     supportDescription: "Jeder Beitrag hilft uns, unser Abenteuer zu finanzieren: Benzin, Unterkunft, Reparaturen... Gemeinsam machen wir diesen Traum möglich 🌟",
-Commande ECHO d�sactiv�e.
+
     // Footer
     footerDesc: "Folgen Sie unserem epischen Motorradabenteuer von Nancy nach Tokyo. 10 Monate Abenteuer erwarten Sie",
     navigation: "Navigation",
@@ -532,7 +532,7 @@ Commande ECHO d�sactiv�e.
     contact: "Kontakt",
     departure: "Abfahrt: März 2026",
     copyright: "© 2024 Nancy → Tokyo Abenteuer. Alle Rechte vorbehalten.",
-Commande ECHO d�sactiv�e.
+
     // Admin Section
     adminTitle: "Verwaltungsverfahren",
     adminSubtitle: "Alles was Sie wissen müssen, um mit dem Motorrad von Europa nach Japan zu reisen",
@@ -561,7 +561,7 @@ Commande ECHO d�sactiv�e.
     replying: "Antworten auf",
     send: "Senden",
     sending: "Senden...",
-Commande ECHO d�sactiv�e.
+
     // Polarsteps Widget
     countries: "Länder",
     kilometers: "Kilometer",
@@ -570,7 +570,7 @@ Commande ECHO d�sactiv�e.
     preparationPhase: "Vorbereitungsphase",
     plannedDeparture: "Geplante Abfahrt: März 2026"
   },
-Commande ECHO d�sactiv�e.
+
   ru: {
     // Weather Widget
     weatherTitle: "Погода и валюта",
@@ -580,7 +580,7 @@ Commande ECHO d�sactiv�e.
     humidity: "Влажность",
     wind: "Ветер",
     exchangeRate: "Обменный курс",
-Commande ECHO d�sactiv�e.
+
     // Translation Widget
     translationTitle: "Перевод",
     translationSubtitle: "Практикуйте языки",
@@ -591,7 +591,7 @@ Commande ECHO d�sactiv�e.
     usefulPhrases: "Полезные фразы",
     yourReply: "Ваш ответ...",
     replying: "Отвечаю на",
-Commande ECHO d�sactiv�e.
+
     // Navigation
     home: "Главная",
     aboutUs: "О нас",
@@ -600,7 +600,7 @@ Commande ECHO d�sactiv�e.
     admin: "Процедуры",
     social: "Социальные сети",
     languages: "Языки",
-Commande ECHO d�sactiv�e.
+
     // Bikes Section
     bikesTitle: "Наши Мотоциклы",
     bikesSubtitle: "Два Yamaha Ténéré 700 2023 года, подготовленные для приключений",
@@ -621,7 +621,7 @@ Commande ECHO d�sactiv�e.
     luggageNavigation: "Багаж и Навигация",
     onEachBike: "На каждом мотоцикле",
     campingSurvival: "Кемпинг и Выживание",
-Commande ECHO d�sactiv�e.
+
     // Специфическое снаряжение
     klimHelmet: "Шлем Klim Kryos Carbon",
     beringWinterJacket: "Зимняя куртка Bering Hurricane",
@@ -642,12 +642,12 @@ Commande ECHO d�sactiv�e.
     stove: "Горелка",
     waterBottles: "Фильтрующие бутылки Öko",
     firstAidKit: "Аптечка первой помощи",
-Commande ECHO d�sactiv�e.
+
     // Hero Section
     heroTitle: "НАНСИ → ТОКИО",
     heroSubtitle: "Следите за нашим эпическим 10-месячным мотоциклетным приключением из Франции в Японию. Март 2026 - Декабрь 2026: 35 000 км приключений на наших Yamaha Ténéré 700.",
     cookieNotice: "ℹ️ Пожалуйста, примите файлы cookie для просмотра карты",
-Commande ECHO d�sactiv�e.
+
     // Weather Widget
     weatherTitle: "Погода и валюта",
     weatherSubtitle: "Данные в реальном времени",
@@ -656,7 +656,7 @@ Commande ECHO d�sactiv�e.
     humidity: "Влажность",
     wind: "Ветер",
     exchangeRate: "Обменный курс",
-Commande ECHO d�sactiv�e.
+
     // Translation Widget
     translationTitle: "Перевод",
     translationSubtitle: "Практикуйте языки",
@@ -665,7 +665,7 @@ Commande ECHO d�sactiv�e.
     translate: "Перевести",
     translating: "Перевод...",
     usefulPhrases: "Полезные фразы",
-Commande ECHO d�sactiv�e.
+
     // About Section
     aboutTitle: "Кто мы?",
     aboutSubtitle: "Два энтузиаста мотоциклов, готовых к приключению всей жизни",
@@ -673,7 +673,7 @@ Commande ECHO d�sactiv�e.
     gauthierDesc: "Увлеченный путешествиями, я люблю открывать другие культуры и встречать людей. Я люблю моменты обмена с людьми, которые не говорят на том же языке, что и я, дорожа этими волшебными моментами, когда мы понимаем друг друга без слов.",
     magaliTitle: "Энтузиаст Японии - 37 лет",
     magaliDesc: "Увлеченная Японией, я изучаю японский язык уже 4 года. Не могу дождаться, чтобы открыть различные культуры, с которыми мы столкнемся, и закончить аутентичными обменами с японцами.",
-Commande ECHO d�sactiv�e.
+
     // Project Section
     projectTitle: "Наш проект:",
     projectSubtitle: "10 месяцев приключений через Европу и Азию на наших Yamaha Ténéré 700",
@@ -686,7 +686,7 @@ Commande ECHO d�sactiv�e.
     route: "Маршрут",
     routeValue: "Европа → Центральная Азия → Азия",
     routeSub: "Конечный пункт: Токио",
-Commande ECHO d�sactiv�e.
+.
     // Social Section
     socialTitle: "Следите за нашим приключением",
     socialSubtitle: "Оставайтесь на связи с нами во всех наших социальных сетях",
@@ -699,7 +699,7 @@ Commande ECHO d�sactiv�e.
     realTimeTracking: "Отслеживание в реальном времени",
     supportMakesADifference: "Ваша поддержка имеет значение",
     supportDescription: "Каждый вклад помогает нам финансировать наше приключение: бензин, жилье, ремонт... Вместе давайте сделаем эту мечту возможной 🌟",
-Commande ECHO d�sactiv�e.
+
     // Footer
     footerDesc: "Следите за нашим эпическим мотоциклетным приключением из Нанси в Токио. Вас ждут 10 месяцев приключений",
     navigation: "Навигация",
@@ -707,7 +707,7 @@ Commande ECHO d�sactiv�e.
     contact: "Контакт",
     departure: "Отправление: Март 2026",
     copyright: "© 2024 Приключение Нанси → Токио. Все права защищены.",
-Commande ECHO d�sactiv�e.
+
     // Admin Section
     adminTitle: "Административные процедуры",
     adminSubtitle: "Все, что нужно знать для путешествия на мотоцикле из Европы в Японию",
@@ -736,7 +736,7 @@ Commande ECHO d�sactiv�e.
     replying: "Отвечаю на",
     send: "Отправить",
     sending: "Отправка...",
-Commande ECHO d�sactiv�e.
+
     // Polarsteps Widget
     countries: "Страны",
     kilometers: "Километры",
@@ -745,7 +745,7 @@ Commande ECHO d�sactiv�e.
     preparationPhase: "Фаза подготовки",
     plannedDeparture: "Планируемый отъезд: Март 2026"
   },
-Commande ECHO d�sactiv�e.
+
   ja: {
     // Weather Widget
     weatherTitle: "天気と通貨",
@@ -755,7 +755,7 @@ Commande ECHO d�sactiv�e.
     humidity: "湿度",
     wind: "風",
     exchangeRate: "為替レート",
-Commande ECHO d�sactiv�e.
+
     // Translation Widget
     translationTitle: "翻訳",
     translationSubtitle: "言語を練習しよう！",
@@ -767,7 +767,7 @@ Commande ECHO d�sactiv�e.
     listenPronunciation: "発音を聞く",
     yourReply: "あなたの返信...",
     replying: "返信中",
-Commande ECHO d�sactiv�e.
+
     // Navigation
     home: "ホーム",
     aboutUs: "私たちについて",
@@ -776,7 +776,7 @@ Commande ECHO d�sactiv�e.
     admin: "手続き",
     social: "ソーシャルメディア",
     languages: "言語",
-Commande ECHO d�sactiv�e.
+
     // Bikes Section
     bikesTitle: "私たちのバイク",
     bikesSubtitle: "冒険のために準備された2台の2023年ヤマハ テネレ700",
@@ -797,7 +797,7 @@ Commande ECHO d�sactiv�e.
     luggageNavigation: "荷物とナビゲーション",
     onEachBike: "各バイクに",
     campingSurvival: "キャンプとサバイバル",
-Commande ECHO d�sactiv�e.
+
     // 具体的な装備
     klimHelmet: "Klim Kryos Carbonヘルメット",
     beringWinterJacket: "Bering Hurricane防寒ジャケット",
@@ -818,12 +818,12 @@ Commande ECHO d�sactiv�e.
     stove: "ストーブ",
     waterBottles: "Ökoフィルターウォーターボトル",
     firstAidKit: "救急箱",
-Commande ECHO d�sactiv�e.
+
     // Hero Section
     heroTitle: "ナンシー → 東京",
     heroSubtitle: "フランスから日本への10ヶ月間の壮大なバイク冒険をフォローしてください。2026年3月〜2026年12月：ヤマハ テネレ700での35,000kmの冒険。",
     cookieNotice: "ℹ️ 地図を表示するにはクッキーを受け入れてください",
-Commande ECHO d�sactiv�e.
+
     // Weather Widget
     weatherTitle: "天気と通貨",
     weatherSubtitle: "リアルタイムデータ",
@@ -832,7 +832,7 @@ Commande ECHO d�sactiv�e.
     humidity: "湿度",
     wind: "風",
     exchangeRate: "為替レート",
-Commande ECHO d�sactiv�e.
+
     // Translation Widget
     translationTitle: "翻訳",
     translationSubtitle: "言語を練習しよう！",
@@ -841,7 +841,7 @@ Commande ECHO d�sactiv�e.
     translate: "翻訳",
     translating: "翻訳中...",
     usefulPhrases: "便利なフレーズ",
-Commande ECHO d�sactiv�e.
+
     // About Section
     aboutTitle: "私たちは誰ですか？",
     aboutSubtitle: "人生の冒険を生きる準備ができた二人のバイク愛好家",
@@ -849,7 +849,7 @@ Commande ECHO d�sactiv�e.
     gauthierDesc: "旅行に情熱を持ち、他の文化を発見し、人々に会うことが大好きです。私と同じ言語を話さない人々との交流の瞬間を愛し、話すことなくお互いを理解するその魔法的な瞬間を大切にしています。",
     magaliTitle: "日本愛好家 - 37歳",
     magaliDesc: "日本に情熱を持ち、4年間日本語を学んでいます。私たちが出会うさまざまな文化を発見し、日本人との本物の交流で終わることを楽しみにしています。",
-Commande ECHO d�sactiv�e.
+
     // Project Section
     projectTitle: "私たちのプロジェクト：",
     projectSubtitle: "ヤマハ テネレ700でヨーロッパとアジアを横断する10ヶ月の冒険",
@@ -862,7 +862,7 @@ Commande ECHO d�sactiv�e.
     route: "ルート",
     routeValue: "ヨーロッパ → 中央アジア → アジア",
     routeSub: "最終目的地：東京",
-Commande ECHO d�sactiv�e.
+
     // Social Section
     socialTitle: "私たちの冒険をフォロー",
     socialSubtitle: "すべてのソーシャルメディアで私たちとつながりを保ちましょう",
@@ -875,7 +875,7 @@ Commande ECHO d�sactiv�e.
     realTimeTracking: "リアルタイム追跡",
     supportMakesADifference: "あなたのサポートが違いを生みます！",
     supportDescription: "すべての貢献が私たちの冒険の資金調達に役立ちます：ガソリン、宿泊、修理...一緒に、この夢を可能にしましょう！🌟",
-Commande ECHO d�sactiv�e.
+
     // Footer
     footerDesc: "ナンシーから東京への壮大なバイク冒険をフォローしてください。10ヶ月の冒険があなたを待っています！",
     navigation: "ナビゲーション",
@@ -883,7 +883,7 @@ Commande ECHO d�sactiv�e.
     contact: "連絡先",
     departure: "出発：2026年3月",
     copyright: "© 2024 ナンシー → 東京 アドベンチャー。全著作権所有。",
-Commande ECHO d�sactiv�e.
+
     // Admin Section
     adminTitle: "管理手続き",
     adminSubtitle: "ヨーロッパから日本へのバイク旅行に必要なすべての情報",
@@ -912,7 +912,7 @@ Commande ECHO d�sactiv�e.
     replying: "返信中",
     send: "送信",
     sending: "送信中...",
-Commande ECHO d�sactiv�e.
+
     // Polarsteps Widget
     countries: "国",
     kilometers: "キロメートル",
