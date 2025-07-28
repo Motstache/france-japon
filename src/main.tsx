@@ -4,7 +4,7 @@ import App from './App.tsx';
 import './index.css';
 
 // Forcer le scroll en haut AVANT tout
-window.scrollTo(0, 0);
+// window.scrollTo(0, 0);
 document.documentElement.scrollTop = 0;
 document.body.scrollTop = 0;
 
@@ -21,13 +21,13 @@ createRoot(document.getElementById('root')!).render(
 
 // Forcer encore après le rendu
 setTimeout(() => {
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
 }, 0);
 
 setTimeout(() => {
-  window.scrollTo(0, 0);
+  // window.scrollTo(0, 0);
   document.documentElement.scrollTop = 0;
   document.body.scrollTop = 0;
 }, 100);

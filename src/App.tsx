@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     // Forcer scroll en haut après léger délai pour laisser le DOM se stabiliser
     const timeout = setTimeout(() => {
-      window.scrollTo(0, 0);
+      // window.scrollTo(0, 0);
 
       // Enlever le focus sur tout élément actif (empêche scroll automatique lié au focus)
       if (document.activeElement instanceof HTMLElement) {
