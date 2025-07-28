@@ -17,9 +17,19 @@ function App() {
     changeLanguage(langCode as any);
   };
 
-  // Forcer le scroll en haut AU CHARGEMENT UNE SEULE FOIS
   useEffect(() => {
+    // Force scroll top on load
     window.scrollTo(0, 0);
+
+    // Log scroll position to debug
+    setTimeout(() => {
+      console.log('Scroll position after load:', window.scrollY, document.documentElement.scrollTop, document.body.scrollTop);
+    }, 100);
+
+    // Remove focus from any element to prevent auto-scroll
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
   }, []);
 
   return (
@@ -28,7 +38,6 @@ function App() {
         currentLanguage={currentLanguage}
         onLanguageChange={handleLanguageChange}
       />
-
       <HeroSection />
       <SocialSection />
       <AboutSection />
