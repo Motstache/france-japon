@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Forcer le scroll en haut au chargement */
+html {
+  scroll-behavior: smooth;
+}
+
+/* S'assurer que la page commence en haut */
+html, body {
+  overflow-x: hidden;
+}
+
+/* Éviter le défilement automatique vers les ancres */
+html:target {
+  scroll-behavior: auto;
+}

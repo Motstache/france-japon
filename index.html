@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Motorcycle Road Trip Vlog Website</title>
+    <style>
+      /* Forcer la page à commencer en haut */
+      html, body {
+        scroll-behavior: auto !important; 
+        overflow-x: hidden;
+        scroll-padding-top: 0 !important;
+        scroll-margin-top: 0 !important;
+      }
+      
+      /* Empêcher tout défilement automatique */
+      html:target {
+        scroll-behavior: auto !important;
+      }
+      
+      /* Masquer la barre Google Translate */
+      .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+      }
+      body {
+        top: 0px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .goog-te-combo {
+        display: none !important;
+      }
+      
+      /* Forcer la position en haut */
+      #root {
+        position: relative;
+        top: 0 !important;
+      }
+    </style>
+    <script>
+      // Forcer immédiatement
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      if (document.body) document.body.scrollTop = 0;
+      
+      // Supprimer toute ancre
+      if (window.location.hash) {
+        window.history.replaceState(null, null, window.location.pathname);
+      }
+      
+      // Forcer à chaque étape du chargement
+      document.addEventListener('DOMContentLoaded', function() {
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+      });
+      
+      window.addEventListener('load', function() {
+        window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+        
+        // Forcer encore après un délai
+        setTimeout(function() {
+          window.scrollTo(0, 0);
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
+        }, 100);
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
