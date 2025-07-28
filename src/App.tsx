@@ -23,7 +23,7 @@ function App() {
     console.log("🔄 Tentative de récupération des données Supabase...");
     async function getData() {
       try {
-        const { data, error } = await supabase.from("table").select("*");
+       	const { data, error } = await supabase.from("todos").select("*");
         console.log("📦 Résultat Supabase :", { data, error });
         setData(data || []);
         setError(error);
