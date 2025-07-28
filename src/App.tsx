@@ -86,4 +86,4 @@ function App() {
       <SocialSection />
       <AboutSection />
       <ProjectSection />
-      <Bikes
+      <Bikes />
