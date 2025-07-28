@@ -1,6 +1,13 @@
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseKey = import.meta.env.VITE_SUPABASE_KEY
+// ✅ URL de ton projet Supabase
+const supabaseUrl = "https://zrrbhyhulzwqldrepxso.supabase.co";
 
-export const supabase = createClient(supabaseUrl, supabaseKey)
+// ✅ On utilise une variable d'environnement Vite (doit commencer par VITE_)
+const supabaseKey = import.meta.env.VITE_SUPABASE_KEY;
+
+if (!supabaseKey) {
+  console.error("❌ ERREUR : VITE_SUPABASE_KEY est introuvable !");
+}
+
+export const supabase = createClient(supabaseUrl, supabaseKey);
