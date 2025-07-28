@@ -686,7 +686,7 @@ export const translations = {
     route: "Маршрут",
     routeValue: "Европа → Центральная Азия → Азия",
     routeSub: "Конечный пункт: Токио",
-.
+
     // Social Section
     socialTitle: "Следите за нашим приключением",
     socialSubtitle: "Оставайтесь на связи с нами во всех наших социальных сетях",
