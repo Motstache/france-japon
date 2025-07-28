@@ -1,6 +1,5 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useTranslation } from './hooks/useTranslation';
-
 import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
 import SocialSection from './components/SocialSection';
@@ -9,38 +8,105 @@ import ProjectSection from './components/ProjectSection';
 import BikesSection from './components/BikesSection';
 import AdminSection from './components/AdminSection';
 import Footer from './components/Footer';
-
-import LanguageSelector from './components/LanguageSelector';
+import { supabase } from './utils/supabaseClient';
 
 function App() {
-  const { currentLanguage, changeLanguage } = useTranslation();
+  const { currentLanguage, changeLanguage, t } = useTranslation();
   const appRef = useRef<HTMLDivElement>(null);
 
+  // State pour données Supabase
+  const [data, setData] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<any>(null);
+
+  // Charger données Supabase au montage
   useEffect(() => {
-    // Scroll en haut uniquement au premier rendu
-    window.scrollTo(0, 0);
+    async function getData() {
+      const { data, error } = await supabase.from('todos').select('*'); // Ou 'community_messages' selon besoin
+      if (error) {
+        console.error('Erreur Supabase:', error.message);
+        setError(error);
+      } else {
+        setData(data || []);
+      }
+      setLoading(false);
+    }
+    getData();
   }, []);
+
+  // Gestion du scroll en haut au chargement - version qui fonctionnait bien
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
+    // Empêche scroll automatique après
+    const preventScroll = (e: Event) => {
+      e.preventDefault();
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener('scroll', preventScroll, { once: true });
+
+    return () => {
+      window.removeEventListener('scroll', preventScroll);
+    };
+  }, []);
+
+  // Forcer plusieurs fois le scroll top, pour être sûr
+  useEffect(() => {
+    const forceScrollTop = () => {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    };
+
+    forceScrollTop();
+
+    const timers = [
+      setTimeout(forceScrollTop, 0),
+      setTimeout(forceScrollTop, 50),
+      setTimeout(forceScrollTop, 100),
+      setTimeout(forceScrollTop, 200),
+      setTimeout(forceScrollTop, 500),
+    ];
+
+    return () => {
+      timers.forEach(timer => clearTimeout(timer));
+    };
+  }, []);
+
+  // Changement langue
+  const handleLanguageChange = (langCode: string) => {
+    changeLanguage(langCode as any);
+  };
 
   return (
     <div ref={appRef} className="min-h-screen bg-gray-900 text-white">
-      <div className="p-4 flex justify-end">
-        <LanguageSelector
-          currentLanguage={currentLanguage}
-          onLanguageChange={changeLanguage}
-        />
-      </div>
-
-      <Navigation
-        currentLanguage={currentLanguage}
-        onLanguageChange={changeLanguage}
-      />
-
+      <Navigation currentLanguage={currentLanguage} onLanguageChange={handleLanguageChange} />
       <HeroSection />
       <SocialSection />
       <AboutSection />
       <ProjectSection />
       <BikesSection />
+
+      {/* Exemple affichage données Supabase */}
+      <div className="p-4">
+        <h2 className="text-xl font-bold">{t('dataFromSupabase')}</h2>
+        {loading ? (
+          <p>{t('loading')}</p>
+        ) : error ? (
+          <p className="text-red-500">{t('errorOccurred')} : {error.message}</p>
+        ) : (
+          <ul>
+            {data.map((item, index) => (
+              <li key={index}>{JSON.stringify(item)}</li>
+            ))}
+          </ul>
+        )}
+      </div>
+
       <AdminSection />
+
       <Footer />
     </div>
   );
