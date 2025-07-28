@@ -17,12 +17,39 @@ function App() {
   };
 
   useEffect(() => {
-    // Forcer le scroll en haut APRES 100ms, pour écraser tout scroll automatique
-    const timeoutId = setTimeout(() => {
+    // Bloquer scroll & focus pendant 1s
+    function preventScroll(e: Event) {
+      e.preventDefault();
+      e.stopPropagation();
       window.scrollTo(0, 0);
-    }, 100);
+      return false;
+    }
 
-    return () => clearTimeout(timeoutId);
+    // Bloquer les événements scroll, wheel, touchmove, keydown (flèches)
+    window.addEventListener('scroll', preventScroll, { passive: false });
+    window.addEventListener('wheel', preventScroll, { passive: false });
+    window.addEventListener('touchmove', preventScroll, { passive: false });
+    window.addEventListener('keydown', preventScroll, { passive: false });
+
+    // Forcer scroll en haut tout de suite et après 500ms
+    window.scrollTo(0, 0);
+    const timer = setTimeout(() => {
+      window.scrollTo(0, 0);
+
+      // Après 1s, on enlève le blocage pour libérer scroll
+      window.removeEventListener('scroll', preventScroll);
+      window.removeEventListener('wheel', preventScroll);
+      window.removeEventListener('touchmove', preventScroll);
+      window.removeEventListener('keydown', preventScroll);
+    }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('scroll', preventScroll);
+      window.removeEventListener('wheel', preventScroll);
+      window.removeEventListener('touchmove', preventScroll);
+      window.removeEventListener('keydown', preventScroll);
+    };
   }, []);
 
   return (
