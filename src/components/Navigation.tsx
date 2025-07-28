@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 
-// Drapeaux unicode pour chaque langue
 const LANGUAGES = [
   { code: 'fr', label: 'Français', flag: '🇫🇷' },
   { code: 'en', label: 'English', flag: '🇬🇧' },
@@ -18,12 +17,9 @@ interface NavigationProps {
 const Navigation: React.FC<NavigationProps> = ({ currentLanguage, onLanguageChange }) => {
   const { t } = useTranslation();
   const [menuOpen, setMenuOpen] = useState(false);
-
   const currentLang = LANGUAGES.find(lang => lang.code === currentLanguage) || LANGUAGES[0];
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
+  const toggleMenu = () => setMenuOpen(!menuOpen);
 
   const handleChangeLanguage = (code: string) => {
     onLanguageChange(code);
@@ -32,8 +28,18 @@ const Navigation: React.FC<NavigationProps> = ({ currentLanguage, onLanguageChan
 
   return (
     <nav className="bg-gray-900 text-white flex items-center justify-between p-4 shadow-md sticky top-0 z-50">
-      {/* Logo or site title */}
-      <div className="font-bold text-xl cursor-pointer">Motstache</div>
+      {/* Logo / Title */}
+      <div className="font-bold text-xl cursor-pointer select-none">Motstache</div>
+
+      {/* Links */}
+      <ul className="hidden sm:flex space-x-6 text-sm font-medium">
+        <li><a href="#home" className="hover:text-orange-400 transition">{t('home')}</a></li>
+        <li><a href="#social" className="hover:text-orange-400 transition">{t('social')}</a></li>
+        <li><a href="#about-us" className="hover:text-orange-400 transition">{t('aboutUs')}</a></li>
+        <li><a href="#project" className="hover:text-orange-400 transition">{t('project')}</a></li>
+        <li><a href="#bikes" className="hover:text-orange-400 transition">{t('bikes')}</a></li>
+        <li><a href="#admin" className="hover:text-orange-400 transition">{t('admin')}</a></li>
+      </ul>
 
       {/* Language selector */}
       <div className="relative">
