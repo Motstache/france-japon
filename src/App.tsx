@@ -18,16 +18,37 @@ function App() {
   };
 
   useEffect(() => {
+    // Supprimer le hash dans l'URL pour éviter scroll automatique lié aux ancres
     if (window.location.hash) {
-      // Supprime le hash pour empêcher le scroll automatique sur ancre
       window.history.replaceState(null, '', window.location.pathname + window.location.search);
     }
 
-    // Forcer le scroll en haut
+    // Forcer scroll en haut
     window.scrollTo(0, 0);
+
+    // Forcer le blur sur l'élément actif s'il y en a un
     if (document.activeElement instanceof HTMLElement) {
       document.activeElement.blur();
     }
+
+    // Bloquer temporairement tout focus automatique qui provoquerait un scroll
+    const preventFocus = (e: FocusEvent) => {
+      e.preventDefault();
+      if (document.activeElement instanceof HTMLElement) {
+        document.activeElement.blur();
+      }
+    };
+    window.addEventListener('focusin', preventFocus);
+
+    // Supprimer le listener après 500ms
+    const timeout = setTimeout(() => {
+      window.removeEventListener('focusin', preventFocus);
+    }, 500);
+
+    return () => {
+      clearTimeout(timeout);
+      window.removeEventListener('focusin', preventFocus);
+    };
   }, []);
 
   return (
