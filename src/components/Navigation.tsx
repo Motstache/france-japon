@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Menu, X, Languages } from 'lucide-react';
 import { useTranslation } from '../hooks/useTranslation';
 
 interface NavigationProps {
@@ -10,120 +9,142 @@ interface NavigationProps {
 const Navigation: React.FC<NavigationProps> = ({ currentLanguage, onLanguageChange }) => {
   const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
 
-  const languages = [
-    { code: 'fr', name: 'Français', flag: '🇫🇷' },
-    { code: 'en', name: 'English', flag: '🇬🇧' },
-    { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-    { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-    { code: 'ja', name: '日本語', flag: '🇯🇵' }
-  ];
-
-  const handleLanguageChange = (langCode: string) => {
-    onLanguageChange(langCode);
-    setIsLanguageMenuOpen(false);
-    setIsMenuOpen(false); // Fermer le menu mobile aussi
+  // Fonction pour scroll en haut et fermer menu si ouvert
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
-    <nav className="fixed top-0 w-full bg-gray-900/95 backdrop-blur-sm z-50 border-b border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex items-center space-x-2">
-            <img 
-              src="/Logo Motstache.png" 
-              alt="MotoVlog Logo" 
-              className="h-10 w-auto"
-            />
-            <span className="text-xl font-bold text-white">Motstache</span>
-          </div>
+    <nav className="fixed top-0 left-0 w-full bg-gray-800 text-white z-50">
+      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+        <div className="text-xl font-bold">Motstache</div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200">{t('home')}</a>
-            <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200">{t('aboutUs')}</a>
-            <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200">{t('project')}</a>
-            <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200">{t('bikes')}</a>
-            <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200">{t('admin')}</a>
-            <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200">{t('social')}</a>
-            
-            {/* Language Selector */}
-            <div className="relative">
-              <button
-                onClick={() => setIsLanguageMenuOpen(!isLanguageMenuOpen)}
-                className="flex items-center space-x-2 hover:text-orange-400 transition-colors duration-200 bg-gray-800 px-3 py-2 rounded-lg border border-gray-700"
-              >
-                <Languages className="w-4 h-4" />
-                <span>{languages.find(lang => lang.code === currentLanguage)?.flag}</span>
-                <span className="text-sm">{languages.find(lang => lang.code === currentLanguage)?.code.toUpperCase()}</span>
-              </button>
-              
-              {isLanguageMenuOpen && (
-                <div className="absolute right-0 top-full mt-2 bg-gray-800 border border-gray-700 rounded-lg shadow-xl z-50 min-w-[180px]">
-                  {languages.map((language) => (
-                    <button
-                      key={language.code}
-                      onClick={() => handleLanguageChange(language.code)}
-                      className={`w-full text-left px-4 py-3 hover:bg-gray-700 transition-colors duration-200 flex items-center space-x-3 ${
-                        currentLanguage === language.code ? 'bg-gray-700 text-orange-400' : 'text-white'
-                      } ${language.code === languages[0].code ? 'rounded-t-lg' : ''} ${language.code === languages[languages.length - 1].code ? 'rounded-b-lg' : ''}`}
-                    >
-                      <span className="text-lg">{language.flag}</span>
-                      <span className="font-medium">{language.name}</span>
-                    </button>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
-
-          {/* Mobile menu button */}
-          <button 
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+        <div className="hidden md:flex space-x-6">
+          <a
+            href="#home"
+            onClick={(e) => handleAnchorClick(e, 'home')}
+            className="hover:text-orange-400 transition-colors duration-200"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            {t('home')}
+          </a>
+          <a
+            href="#about-us"
+            onClick={(e) => handleAnchorClick(e, 'about-us')}
+            className="hover:text-orange-400 transition-colors duration-200"
+          >
+            {t('aboutUs')}
+          </a>
+          <a
+            href="#project"
+            onClick={(e) => handleAnchorClick(e, 'project')}
+            className="hover:text-orange-400 transition-colors duration-200"
+          >
+            {t('project')}
+          </a>
+          <a
+            href="#bikes"
+            onClick={(e) => handleAnchorClick(e, 'bikes')}
+            className="hover:text-orange-400 transition-colors duration-200"
+          >
+            {t('bikes')}
+          </a>
+          <a
+            href="#admin"
+            onClick={(e) => handleAnchorClick(e, 'admin')}
+            className="hover:text-orange-400 transition-colors duration-200"
+          >
+            {t('admin')}
+          </a>
+          <a
+            href="#social"
+            onClick={(e) => handleAnchorClick(e, 'social')}
+            className="hover:text-orange-400 transition-colors duration-200"
+          >
+            {t('social')}
+          </a>
         </div>
 
-        {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-800">
-            <div className="flex flex-col space-y-4">
-              <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('home')}</a>
-              <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('aboutUs')}</a>
-              <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('project')}</a>
-              <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('bikes')}</a>
-              <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('admin')}</a>
-              <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('social')}</a>
-              
-              {/* Mobile Language Selector */}
-              <div className="border-t border-gray-700 pt-4">
-                <p className="text-gray-400 text-sm mb-3 flex items-center">
-                  <Languages className="w-4 h-4 mr-2" />
-                  {t('languages')}
-                </p>
-                <div className="grid grid-cols-2 gap-2">
-                  {languages.map((language) => (
-                    <button
-                      key={language.code}
-                      onClick={() => handleLanguageChange(language.code)}
-                      className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-colors duration-200 ${
-                        currentLanguage === language.code 
-                          ? 'bg-orange-500 text-white' 
-                          : 'bg-gray-700 hover:bg-gray-600 text-gray-300'
-                      }`}
-                    >
-                      <span>{language.flag}</span>
-                      <span className="text-sm">{language.code.toUpperCase()}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden focus:outline-none"
+          aria-label="Toggle menu"
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            {isMenuOpen ? (
+              <path d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path d="M3 12h18M3 6h18M3 18h18" />
+            )}
+          </svg>
+        </button>
+      </div>
+
+      {isMenuOpen && (
+        <div className="md:hidden bg-gray-700 px-4 py-4 space-y-4">
+          <a
+            href="#home"
+            onClick={(e) => handleAnchorClick(e, 'home')}
+            className="block hover:text-orange-400 transition-colors duration-200"
+          >
+            {t('home')}
+          </a>
+          <a
+            href="#about-us"
+            onClick={(e) => handleAnchorClick(e, 'about-us')}
+            className="block hover:text-orange-400 transition-colors duration-200"
+          >
+            {t('aboutUs')}
+          </a>
+          <a
+            href="#project"
+            onClick={(e) => handleAnchorClick(e, 'project')}
+            className="block hover:text-orange-400 transition-colors duration-200"
+          >
+            {t('project')}
+          </a>
+          <a
+            href="#bikes"
+            onClick={(e) => handleAnchorClick(e, 'bikes')}
+            className="block hover:text-orange-400 transition-colors duration-200"
+          >
+            {t('bikes')}
+          </a>
+          <a
+            href="#admin"
+            onClick={(e) => handleAnchorClick(e, 'admin')}
+            className="block hover:text-orange-400 transition-colors duration-200"
+          >
+            {t('admin')}
+          </a>
+          <a
+            href="#social"
+            onClick={(e) => handleAnchorClick(e, 'social')}
+            className="block hover:text-orange-400 transition-colors duration-200"
+          >
+            {t('social')}
+          </a>
+        </div>
+      )}
+
+      <div className="mt-2 flex justify-end space-x-4 pr-4">
+        <select
+          value={currentLanguage}
+          onChange={(e) => onLanguageChange(e.target.value)}
+          className="bg-gray-600 text-white rounded px-2 py-1"
+          aria-label="Changer la langue"
+        >
+          <option value="fr">Français</option>
+          <option value="en">English</option>
+          {/* ajoute d’autres langues si besoin */}
+        </select>
       </div>
     </nav>
   );
