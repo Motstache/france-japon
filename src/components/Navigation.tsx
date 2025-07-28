@@ -3,127 +3,128 @@ import { useTranslation } from '../hooks/useTranslation';
 
 interface NavigationProps {
   currentLanguage: string;
-  onLanguageChange: (langCode: string) => void;
+  onLanguageChange: (lang: string) => void;
 }
 
 const Navigation: React.FC<NavigationProps> = ({ currentLanguage, onLanguageChange }) => {
-  const { t, availableLanguages } = useTranslation();
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleLanguageSelect = (lang: string) => {
-    onLanguageChange(lang);
-    setIsMenuOpen(false);
-  };
+  // Liste des liens de navigation
+  const navLinks = [
+    { href: '#home', label: t('home') },
+    { href: '#social', label: t('socialTitle') },
+    { href: '#about-us', label: t('aboutUs') },
+    { href: '#project', label: t('project') },
+    { href: '#bikes', label: t('bikesTitle') },
+    { href: '#admin', label: t('adminTitle') },
+  ];
 
   return (
-    <nav className="bg-gray-800 text-white fixed top-0 left-0 right-0 z-50 shadow-md">
-      <div className="container mx-auto flex items-center justify-between p-3">
-        {/* Logo + Nom */}
-        <a href="#home" className="flex items-center space-x-2 font-bold text-lg">
-          <img
-            src="https://zupimages.net/up/25/29/al3n.png"
-            alt="Motstache Logo"
-            className="w-8 h-8 rounded-full"
-          />
-          <span>Motstache</span>
-        </a>
+    <nav className="bg-gray-800 text-white sticky top-0 z-50 shadow-md">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between h-14 items-center">
+          {/* Logo + Nom */}
+          <a href="#home" className="flex items-center space-x-2">
+            <img
+              src="https://zupimages.net/up/25/29/al3n.png"
+              alt="Motstache logo"
+              className="h-8 w-8 object-contain"
+            />
+            <span className="font-bold text-lg select-none">Motstache</span>
+          </a>
 
-        {/* Boutons de navigation pour PC */}
-        <div className="hidden md:flex space-x-6 items-center">
-          <a href="#home" className="hover:text-orange-400 transition">{t('home')}</a>
-          <a href="#social" className="hover:text-orange-400 transition">{t('social')}</a>
-          <a href="#about-us" className="hover:text-orange-400 transition">{t('aboutUs')}</a>
-          <a href="#project" className="hover:text-orange-400 transition">{t('project')}</a>
-          <a href="#bikes" className="hover:text-orange-400 transition">{t('bikes')}</a>
-          <a href="#admin" className="hover:text-orange-400 transition">{t('admin')}</a>
-
-          {/* Sélecteur langue */}
-          <select
-            className="bg-gray-700 text-white rounded px-2 py-1 cursor-pointer"
-            value={currentLanguage}
-            onChange={(e) => handleLanguageSelect(e.target.value)}
-          >
-            {availableLanguages.map((lang) => (
-              <option key={lang} value={lang}>
-                {lang.toUpperCase()}
-              </option>
+          {/* Menu desktop */}
+          <div className="hidden md:flex md:items-center md:space-x-6">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="hover:text-orange-400 transition-colors duration-200"
+              >
+                {link.label}
+              </a>
             ))}
-          </select>
-        </div>
+          </div>
 
-        {/* Menu burger pour mobile */}
-        <button
-          className="md:hidden focus:outline-none"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round">
-            {isMenuOpen ? (
-              <path d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path d="M3 12h18M3 6h18M3 18h18" />
-            )}
-          </svg>
-        </button>
+          {/* Sélecteur de langue desktop */}
+          <div className="hidden md:block">
+            <select
+              value={currentLanguage}
+              onChange={(e) => onLanguageChange(e.target.value)}
+              className="bg-gray-700 text-white rounded px-2 py-1 cursor-pointer"
+            >
+              <option value="fr">🇫🇷 Français</option>
+              <option value="en">🇬🇧 English</option>
+              <option value="de">🇩🇪 Deutsch</option>
+              <option value="ru">🇷🇺 Русский</option>
+              <option value="ja">🇯🇵 日本語</option>
+            </select>
+          </div>
+
+          {/* Bouton menu mobile */}
+          <div className="md:hidden">
+            <button
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+              className="focus:outline-none"
+            >
+              <svg
+                className="h-6 w-6 text-white"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                {isMenuOpen ? (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                ) : (
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
 
-      {/* Menu mobile déroulant */}
+      {/* Menu mobile */}
       {isMenuOpen && (
-        <div className="md:hidden bg-gray-700">
-          <a
-            href="#home"
-            className="block px-4 py-2 hover:bg-gray-600"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t('home')}
-          </a>
-          <a
-            href="#social"
-            className="block px-4 py-2 hover:bg-gray-600"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t('social')}
-          </a>
-          <a
-            href="#about-us"
-            className="block px-4 py-2 hover:bg-gray-600"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t('aboutUs')}
-          </a>
-          <a
-            href="#project"
-            className="block px-4 py-2 hover:bg-gray-600"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t('project')}
-          </a>
-          <a
-            href="#bikes"
-            className="block px-4 py-2 hover:bg-gray-600"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t('bikes')}
-          </a>
-          <a
-            href="#admin"
-            className="block px-4 py-2 hover:bg-gray-600"
-            onClick={() => setIsMenuOpen(false)}
-          >
-            {t('admin')}
-          </a>
-
-          {/* Sélecteur langue mobile */}
+        <div className="md:hidden bg-gray-700 px-4 py-3 space-y-2">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setIsMenuOpen(false)}
+              className="block text-white hover:text-orange-400 transition-colors duration-200"
+            >
+              {link.label}
+            </a>
+          ))}
+          {/* Sélecteur de langue mobile */}
           <select
-            className="m-4 bg-gray-600 text-white rounded px-2 py-1 cursor-pointer"
             value={currentLanguage}
-            onChange={(e) => handleLanguageSelect(e.target.value)}
+            onChange={(e) => {
+              onLanguageChange(e.target.value);
+              setIsMenuOpen(false);
+            }}
+            className="w-full mt-2 bg-gray-600 text-white rounded px-2 py-1 cursor-pointer"
           >
-            {availableLanguages.map((lang) => (
-              <option key={lang} value={lang}>
-                {lang.toUpperCase()}
-              </option>
-            ))}
+            <option value="fr">🇫🇷 Français</option>
+            <option value="en">🇬🇧 English</option>
+            <option value="de">🇩🇪 Deutsch</option>
+            <option value="ru">🇷🇺 Русский</option>
+            <option value="ja">🇯🇵 日本語</option>
           </select>
         </div>
       )}

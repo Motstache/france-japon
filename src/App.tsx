@@ -14,15 +14,13 @@ function App() {
   const { currentLanguage, changeLanguage, t } = useTranslation();
   const appRef = useRef<HTMLDivElement>(null);
 
-  // State pour données Supabase
   const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<any>(null);
 
-  // Charger données Supabase au montage
   useEffect(() => {
     async function getData() {
-      const { data, error } = await supabase.from('todos').select('*'); // Ou 'community_messages' selon besoin
+      const { data, error } = await supabase.from('todos').select('*');
       if (error) {
         console.error('Erreur Supabase:', error.message);
         setError(error);
@@ -34,14 +32,22 @@ function App() {
     getData();
   }, []);
 
-  // Gestion du scroll en haut au chargement - version stable
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
+
+    const preventScroll = (e: Event) => {
+      e.preventDefault();
+      window.scrollTo(0, 0);
+    };
+    window.addEventListener('scroll', preventScroll, { once: true });
+
+    return () => {
+      window.removeEventListener('scroll', preventScroll);
+    };
   }, []);
 
-  // Forcer plusieurs fois le scroll top, pour être sûr
   useEffect(() => {
     const forceScrollTop = () => {
       window.scrollTo(0, 0);
@@ -64,7 +70,6 @@ function App() {
     };
   }, []);
 
-  // Changement langue
   const handleLanguageChange = (langCode: string) => {
     changeLanguage(langCode as any);
   };
@@ -80,7 +85,7 @@ function App() {
 
       {/* Exemple affichage données Supabase */}
       <div className="p-4">
-        <h2 className="text-xl font-bold">{t('dataFromSupabase')}</h2>
+        <h2 className="text-xl font-bold">{t('adminTitle')}</h2>
         {loading ? (
           <p>{t('loading')}</p>
         ) : error ? (
@@ -95,6 +100,7 @@ function App() {
       </div>
 
       <AdminSection />
+
       <Footer />
     </div>
   );
