@@ -10,39 +10,19 @@ import AdminSection from './components/AdminSection';
 import Footer from './components/Footer';
 
 function App() {
-  const hasScrolledRef = useRef(false);
   const { currentLanguage, changeLanguage } = useTranslation();
 
   const handleLanguageChange = (langCode: string) => {
     changeLanguage(langCode as any);
   };
 
-  // Forcer le scroll en haut une seule fois au montage
   useEffect(() => {
-    if (!hasScrolledRef.current) {
+    // Forcer le scroll en haut APRES 100ms, pour écraser tout scroll automatique
+    const timeoutId = setTimeout(() => {
       window.scrollTo(0, 0);
-      hasScrolledRef.current = true;
-    }
-  }, []);
+    }, 100);
 
-  // Empêcher le scroll automatique dû aux ancres dans les liens
-  useEffect(() => {
-    function preventAnchorScroll(event: MouseEvent) {
-      const target = event.target as HTMLElement;
-      if (
-        target.tagName === 'A' &&
-        target.getAttribute('href')?.startsWith('#') &&
-        target.getAttribute('href') !== '#'
-      ) {
-        event.preventDefault();
-      }
-    }
-
-    document.addEventListener('click', preventAnchorScroll);
-
-    return () => {
-      document.removeEventListener('click', preventAnchorScroll);
-    };
+    return () => clearTimeout(timeoutId);
   }, []);
 
   return (
