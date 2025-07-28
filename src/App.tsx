@@ -18,25 +18,29 @@ function App() {
   };
 
   useEffect(() => {
-    // Forcer scroll en haut après léger délai pour laisser le DOM se stabiliser
-    const timeout = setTimeout(() => {
-      // window.scrollTo(0, 0);
+    // Bloquer scroll automatique provoqué par les ancres
+    const preventAutoScroll = (e: Event) => {
+      e.preventDefault();
+      window.scrollTo(0, 0);
+    };
 
-      // Enlever le focus sur tout élément actif (empêche scroll automatique lié au focus)
-      if (document.activeElement instanceof HTMLElement) {
-        document.activeElement.blur();
-      }
-    }, 50);
+    // Dès le chargement complet
+    window.scrollTo(0, 0);
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
 
-    return () => clearTimeout(timeout);
+    // Empêcher les scroll causés par le focus ou les hash de navigation
+    window.addEventListener('scroll', preventAutoScroll, { passive: false, capture: true });
+
+    // Nettoyage à la destruction
+    return () => {
+      window.removeEventListener('scroll', preventAutoScroll, { capture: true });
+    };
   }, []);
 
   return (
-    <div
-      ref={appRef}
-      className="min-h-screen bg-gray-900 text-white"
-      style={{ margin: 0, padding: 0, overflowX: 'hidden' }}
-    >
+    <div ref={appRef} className="min-h-screen bg-gray-900 text-white" style={{ margin: 0, padding: 0, overflowX: 'hidden' }}>
       <Navigation
         currentLanguage={currentLanguage}
         onLanguageChange={handleLanguageChange}
