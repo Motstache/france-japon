@@ -1,37 +1,39 @@
 import React from 'react';
 
-type LangCode = 'fr' | 'en' | 'de' | 'ru' | 'ja';
+type Language = {
+  code: string;
+  name: string;
+  flag: string;
+};
 
-interface LanguageSelectorProps {
-  currentLanguage: LangCode;
-  onLanguageChange: (lang: LangCode) => void;
-}
+type Props = {
+  currentLanguage: string;
+  onLanguageChange: (langCode: string) => void;
+};
 
-const languages: { code: LangCode; label: string; flag: string }[] = [
-  { code: 'fr', label: 'Français', flag: '🇫🇷' },
-  { code: 'en', label: 'English', flag: '🇬🇧' },
-  { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
-  { code: 'ru', label: 'Русский', flag: '🇷🇺' },
-  { code: 'ja', label: '日本語', flag: '🇯🇵' },
+const languages: Language[] = [
+  { code: 'fr', name: 'Français', flag: '🇫🇷' },
+  { code: 'en', name: 'English', flag: '🇬🇧' },
+  { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+  { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+  { code: 'ja', name: '日本語', flag: '🇯🇵' },
 ];
 
-const LanguageSelector: React.FC<LanguageSelectorProps> = ({ currentLanguage, onLanguageChange }) => {
+const LanguageSelector: React.FC<Props> = ({ currentLanguage, onLanguageChange }) => {
   return (
-    <div className="flex space-x-3">
-      {languages.map(({ code, label, flag }) => (
+    <div className="flex space-x-3 items-center bg-gray-800/70 rounded-lg p-2">
+      {languages.map(({ code, name, flag }) => (
         <button
           key={code}
           onClick={() => onLanguageChange(code)}
-          className={`flex items-center space-x-1 px-3 py-1 rounded-md font-semibold transition-colors ${
-            currentLanguage === code
-              ? 'bg-blue-600 text-white'
-              : 'bg-gray-200 hover:bg-gray-300 text-gray-700'
+          className={`px-3 py-1 rounded-lg transition ${
+            currentLanguage === code ? 'bg-blue-600 text-white' : 'text-gray-300 hover:bg-gray-700'
           }`}
-          title={label}
-          aria-label={`Switch language to ${label}`}
+          aria-label={`Changer la langue en ${name}`}
+          title={name}
         >
-          <span className="text-xl">{flag}</span>
-          <span className="hidden sm:inline">{label}</span>
+          <span className="mr-1">{flag}</span>
+          <span className="hidden sm:inline">{name}</span>
         </button>
       ))}
     </div>
