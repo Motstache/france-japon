@@ -1,92 +1,116 @@
 import React, { useState } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 
-const LANGUAGES = [
-  { code: 'fr', label: 'Français', flag: '🇫🇷' },
-  { code: 'en', label: 'English', flag: '🇬🇧' },
-  { code: 'de', label: 'Deutsch', flag: '🇩🇪' },
-  { code: 'ru', label: 'Русский', flag: '🇷🇺' },
-  { code: 'ja', label: '日本語', flag: '🇯🇵' },
-];
-
 interface NavigationProps {
   currentLanguage: string;
   onLanguageChange: (lang: string) => void;
 }
 
 const Navigation: React.FC<NavigationProps> = ({ currentLanguage, onLanguageChange }) => {
-  const { t } = useTranslation();
-  const [menuOpen, setMenuOpen] = useState(false);
-  const currentLang = LANGUAGES.find(lang => lang.code === currentLanguage) || LANGUAGES[0];
-
-  const toggleMenu = () => setMenuOpen(!menuOpen);
-
-  const handleChangeLanguage = (code: string) => {
-    onLanguageChange(code);
-    setMenuOpen(false);
-  };
+  const { t, availableLanguages } = useTranslation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-gray-900 text-white flex items-center justify-between p-4 shadow-md sticky top-0 z-50">
-      {/* Logo / Title */}
-      <div className="font-bold text-xl cursor-pointer select-none">Motstache</div>
+    <nav className="bg-gray-900 text-white sticky top-0 z-50 shadow-md">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-14">
 
-      {/* Links */}
-      <ul className="hidden sm:flex space-x-6 text-sm font-medium">
-        <li><a href="#home" className="hover:text-orange-400 transition">{t('home')}</a></li>
-        <li><a href="#social" className="hover:text-orange-400 transition">{t('social')}</a></li>
-        <li><a href="#about-us" className="hover:text-orange-400 transition">{t('aboutUs')}</a></li>
-        <li><a href="#project" className="hover:text-orange-400 transition">{t('project')}</a></li>
-        <li><a href="#bikes" className="hover:text-orange-400 transition">{t('bikes')}</a></li>
-        <li><a href="#admin" className="hover:text-orange-400 transition">{t('admin')}</a></li>
-      </ul>
+        {/* Logo + Nom */}
+        <div className="flex items-center space-x-2 cursor-pointer select-none">
+          {/* Logo image */}
+          <img
+            src="https://zupimages.net/up/25/29/al3n.png"
+            alt="Motstache Logo"
+            className="h-8 w-8 object-contain"
+          />
+          <div className="font-bold text-xl text-white">Motstache</div>
+        </div>
 
-      {/* Language selector */}
-      <div className="relative">
-        <button
-          onClick={toggleMenu}
-          className="flex items-center space-x-2 bg-gray-800 hover:bg-gray-700 rounded-md px-3 py-1 focus:outline-none"
-          aria-haspopup="true"
-          aria-expanded={menuOpen}
-          aria-label={t('selectLanguage')}
-        >
-          <span className="text-xl">{currentLang.flag}</span>
-          <span className="hidden sm:inline">{currentLang.label}</span>
-          <svg
-            className={`w-4 h-4 transition-transform duration-200 ${menuOpen ? 'rotate-180' : ''}`}
-            fill="none"
-            stroke="currentColor"
-            strokeWidth={2}
-            viewBox="0 0 24 24"
-            aria-hidden="true"
+        {/* Navigation Links */}
+        <div className="hidden md:flex space-x-6 items-center">
+          <a href="#home" className="hover:text-orange-400 transition-colors duration-200">{t('home')}</a>
+          <a href="#social" className="hover:text-orange-400 transition-colors duration-200">{t('social')}</a>
+          <a href="#about-us" className="hover:text-orange-400 transition-colors duration-200">{t('aboutUs')}</a>
+          <a href="#project" className="hover:text-orange-400 transition-colors duration-200">{t('project')}</a>
+          <a href="#bikes" className="hover:text-orange-400 transition-colors duration-200">{t('bikes')}</a>
+          <a href="#admin" className="hover:text-orange-400 transition-colors duration-200">{t('admin')}</a>
+        </div>
+
+        {/* Language Selector */}
+        <div className="hidden md:block">
+          <select
+            value={currentLanguage}
+            onChange={(e) => onLanguageChange(e.target.value)}
+            className="bg-gray-800/70 border border-gray-600 rounded-lg px-2 py-1 text-white text-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-400"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-          </svg>
-        </button>
-
-        {menuOpen && (
-          <ul
-            className="absolute right-0 mt-2 w-40 bg-gray-800 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
-            role="menu"
-            aria-label={t('selectLanguage')}
-          >
-            {LANGUAGES.map(lang => (
-              <li key={lang.code} role="none">
-                <button
-                  onClick={() => handleChangeLanguage(lang.code)}
-                  className={`flex items-center space-x-2 w-full px-4 py-2 text-left text-sm hover:bg-gray-700 focus:bg-gray-700 focus:outline-none ${
-                    lang.code === currentLanguage ? 'font-semibold bg-gray-700' : ''
-                  }`}
-                  role="menuitem"
-                >
-                  <span className="text-xl">{lang.flag}</span>
-                  <span>{lang.label}</span>
-                </button>
-              </li>
+            {availableLanguages.map(lang => (
+              <option key={lang} value={lang}>
+                {lang.toUpperCase()}
+              </option>
             ))}
-          </ul>
-        )}
+          </select>
+        </div>
+
+        {/* Mobile Menu Button */}
+        <div className="md:hidden flex items-center">
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="text-white focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            <svg
+              className="h-6 w-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {isMenuOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
+            </svg>
+          </button>
+        </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-gray-900 text-white px-4 py-2 space-y-2">
+          <a href="#home" onClick={() => setIsMenuOpen(false)} className="block hover:text-orange-400">{t('home')}</a>
+          <a href="#social" onClick={() => setIsMenuOpen(false)} className="block hover:text-orange-400">{t('social')}</a>
+          <a href="#about-us" onClick={() => setIsMenuOpen(false)} className="block hover:text-orange-400">{t('aboutUs')}</a>
+          <a href="#project" onClick={() => setIsMenuOpen(false)} className="block hover:text-orange-400">{t('project')}</a>
+          <a href="#bikes" onClick={() => setIsMenuOpen(false)} className="block hover:text-orange-400">{t('bikes')}</a>
+          <a href="#admin" onClick={() => setIsMenuOpen(false)} className="block hover:text-orange-400">{t('admin')}</a>
+
+          {/* Mobile language selector */}
+          <select
+            value={currentLanguage}
+            onChange={(e) => {
+              onLanguageChange(e.target.value);
+              setIsMenuOpen(false);
+            }}
+            className="w-full bg-gray-800/70 border border-gray-600 rounded-lg px-2 py-1 text-white text-sm cursor-pointer focus:outline-none focus:ring-2 focus:ring-orange-400 mt-2"
+          >
+            {availableLanguages.map(lang => (
+              <option key={lang} value={lang}>
+                {lang.toUpperCase()}
+              </option>
+            ))}
+          </select>
+        </div>
+      )}
     </nav>
   );
 };
