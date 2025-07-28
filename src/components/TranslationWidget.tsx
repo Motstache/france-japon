@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 
 const langCodeToSpeechLang: { [key: string]: string } = {
@@ -16,20 +16,11 @@ export default function TranslationWidget() {
   const [targetLanguage, setTargetLanguage] = useState('fr');
   const [isPlaying, setIsPlaying] = useState(false);
 
-  useEffect(() => {
-    // Reset playing state if speechSynthesis is cancelled elsewhere
-    const handleEnd = () => setIsPlaying(false);
-    window.speechSynthesis.addEventListener('end', handleEnd);
-    return () => {
-      window.speechSynthesis.removeEventListener('end', handleEnd);
-    };
-  }, []);
-
   const speakText = (text: string, language: string) => {
     if (!text.trim()) return;
 
     if (!('speechSynthesis' in window)) {
-      console.error("Synthèse vocale non supportée dans ce navigateur");
+      alert('Votre navigateur ne supporte pas la synthèse vocale.');
       return;
     }
 
@@ -39,40 +30,31 @@ export default function TranslationWidget() {
       return;
     }
 
-    setIsPlaying(true);
-    console.log(`🔊 Lecture vocale démarrée: "${text}" en ${language}`);
-
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = language;
     utterance.rate = 0.8;
 
-    utterance.onend = () => {
-      console.log("🔈 Lecture vocale terminée");
-      setIsPlaying(false);
-    };
-
-    utterance.onerror = (event) => {
-      console.error("Erreur de synthèse vocale:", event);
-      setIsPlaying(false);
-    };
+    utterance.onstart = () => setIsPlaying(true);
+    utterance.onend = () => setIsPlaying(false);
+    utterance.onerror = () => setIsPlaying(false);
 
     window.speechSynthesis.speak(utterance);
   };
 
   return (
-    <div className="p-4 max-w-md mx-auto bg-gray-800 rounded-md shadow-md text-white relative">
-      <h2 className="text-xl mb-4">{t('translationWidgetTitle')}</h2>
+    <div className="translation-widget p-4 bg-gray-900 rounded shadow-md text-white max-w-md mx-auto">
+      <h2 className="mb-2 text-lg font-semibold">{t('translationWidgetTitle')}</h2>
 
       <textarea
-        className="w-full p-2 mb-4 bg-gray-700 rounded"
-        rows={4}
+        className="w-full p-2 mb-4 bg-gray-800 rounded resize-none"
         placeholder={t('writeYourText')}
+        rows={4}
         value={sourceText}
         onChange={(e) => setSourceText(e.target.value)}
       />
 
       <select
-        className="mb-4 p-2 rounded bg-gray-700"
+        className="mb-4 p-2 bg-gray-800 rounded w-full"
         value={targetLanguage}
         onChange={(e) => setTargetLanguage(e.target.value)}
       >
@@ -82,32 +64,24 @@ export default function TranslationWidget() {
         <option value="ru">Русский</option>
       </select>
 
-      <div className="relative">
-        <textarea
-          className="w-full p-2 bg-gray-700 rounded pr-10"
-          rows={4}
-          placeholder={t('translatedText')}
-          value={targetText}
-          readOnly
-        />
+      <textarea
+        className="w-full p-2 mb-2 bg-gray-800 rounded resize-none"
+        placeholder={t('translatedText')}
+        rows={4}
+        value={targetText}
+        readOnly
+      />
 
-        <button
-          onClick={() => speakText(targetText, langCodeToSpeechLang[targetLanguage])}
-          disabled={!targetText.trim() || isPlaying}
-          className={`absolute right-2 top-2 p-2 rounded-lg transition-all duration-200 ${
-            targetText.trim() && !isPlaying
-              ? 'bg-blue-500 hover:bg-blue-600 text-white'
-              : 'bg-gray-600 text-gray-400 cursor-not-allowed'
-          }`}
-          title={t('listenPronunciation')}
-        >
-          {isPlaying ? (
-            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-          ) : (
-            <span>🔊</span>
-          )}
-        </button>
-      </div>
+      <button
+        onClick={() => speakText(targetText, langCodeToSpeechLang[targetLanguage])}
+        disabled={!targetText.trim() || isPlaying}
+        className={`px-4 py-2 rounded ${
+          isPlaying ? 'bg-gray-700 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-700'
+        } text-white transition`}
+        title={t('listenPronunciation')}
+      >
+        {isPlaying ? '⏸ Lecture...' : '▶️ Écouter'}
+      </button>
     </div>
   );
 }
