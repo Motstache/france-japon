@@ -6,20 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Motorcycle Road Trip Vlog Website</title>
     <style>
-      /* Forcer la page à commencer en haut */
       html, body {
         scroll-behavior: auto !important; 
         overflow-x: hidden;
         scroll-padding-top: 0 !important;
         scroll-margin-top: 0 !important;
       }
-      
-      /* Empêcher tout défilement automatique */
       html:target {
         scroll-behavior: auto !important;
       }
-      
-      /* Masquer la barre Google Translate */
       .goog-te-banner-frame.skiptranslate {
         display: none !important;
       }
@@ -31,8 +26,6 @@
       .goog-te-combo {
         display: none !important;
       }
-      
-      /* Forcer la position en haut */
       #root {
         position: relative;
         top: 0 !important;
@@ -43,24 +36,24 @@
       window.scrollTo(0, 0);
       document.documentElement.scrollTop = 0;
       if (document.body) document.body.scrollTop = 0;
-      
+
       // Supprimer toute ancre
       if (window.location.hash) {
         window.history.replaceState(null, null, window.location.pathname);
       }
-      
+
       // Forcer à chaque étape du chargement
       document.addEventListener('DOMContentLoaded', function() {
         window.scrollTo(0, 0);
         document.documentElement.scrollTop = 0;
         document.body.scrollTop = 0;
       });
-      
+
       window.addEventListener('load', function() {
         window.scrollTo(0, 0);
         document.documentElement.scrollTop = 0;
         document.body.scrollTop = 0;
-        
+
         // Forcer encore après un délai
         setTimeout(function() {
           window.scrollTo(0, 0);
@@ -68,6 +61,16 @@
           document.body.scrollTop = 0;
         }, 100);
       });
+
+      // ✅ Ajout du logger d'erreurs
+      window.onerror = function (msg, url, line, col, error) {
+        document.body.innerHTML = "<pre style='color:red;font-size:20px;padding:20px'>" +
+          "❌ ERREUR JS : " + msg + "\\n" +
+          "📄 Fichier : " + url + "\\n" +
+          "📍 Ligne : " + line + ", Col : " + col + "\\n" +
+          "🛠 Détails : " + (error && error.stack ? error.stack : "aucun stack") +
+          "</pre>";
+      };
     </script>
   </head>
   <body>
