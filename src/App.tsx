@@ -14,6 +14,7 @@ function App() {
   const { currentLanguage, changeLanguage, t } = useTranslation();
   const appRef = useRef<HTMLDivElement>(null);
 
+  // State pour données Supabase
   const [data, setData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<any>(null);
@@ -32,11 +33,13 @@ function App() {
     getData();
   }, []);
 
+  // Gestion du scroll top au chargement
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
 
+    // Empêche scroll automatique après
     const preventScroll = (e: Event) => {
       e.preventDefault();
       window.scrollTo(0, 0);
@@ -48,15 +51,14 @@ function App() {
     };
   }, []);
 
+  // Forcer scroll top plusieurs fois (sécurisé)
   useEffect(() => {
     const forceScrollTop = () => {
       window.scrollTo(0, 0);
       document.documentElement.scrollTop = 0;
       document.body.scrollTop = 0;
     };
-
     forceScrollTop();
-
     const timers = [
       setTimeout(forceScrollTop, 0),
       setTimeout(forceScrollTop, 50),
@@ -64,10 +66,7 @@ function App() {
       setTimeout(forceScrollTop, 200),
       setTimeout(forceScrollTop, 500),
     ];
-
-    return () => {
-      timers.forEach(timer => clearTimeout(timer));
-    };
+    return () => timers.forEach(timer => clearTimeout(timer));
   }, []);
 
   const handleLanguageChange = (langCode: string) => {
@@ -83,9 +82,8 @@ function App() {
       <ProjectSection />
       <BikesSection />
 
-      {/* Exemple affichage données Supabase */}
       <div className="p-4">
-        <h2 className="text-xl font-bold">{t('adminTitle')}</h2>
+        <h2 className="text-xl font-bold">{t('dataFromSupabase')}</h2>
         {loading ? (
           <p>{t('loading')}</p>
         ) : error ? (
@@ -100,7 +98,6 @@ function App() {
       </div>
 
       <AdminSection />
-
       <Footer />
     </div>
   );

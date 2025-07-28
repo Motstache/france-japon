@@ -1,18 +1,17 @@
 import { useState, useCallback, useEffect } from 'react';
 import { translations, type Language, type TranslationKey } from '../utils/translations';
 
-// État global partagé pour la langue
+// Global language state shared across components
 let globalLanguage: Language = 'fr';
 let globalListeners: Array<(lang: Language) => void> = [];
 
 export function useTranslation() {
   const [currentLanguage, setCurrentLanguage] = useState<Language>(globalLanguage);
-  const [, forceUpdate] = useState({});
 
+  // Subscribe to global language changes
   useEffect(() => {
     const listener = (newLang: Language) => {
       setCurrentLanguage(newLang);
-      forceUpdate({});
     };
     globalListeners.push(listener);
 
@@ -39,6 +38,6 @@ export function useTranslation() {
     t,
     currentLanguage,
     changeLanguage,
-    availableLanguages: Object.keys(translations) as Language[]
+    availableLanguages: Object.keys(translations) as Language[],
   };
 }
