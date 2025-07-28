@@ -16,28 +16,24 @@ function App() {
   const { currentLanguage, changeLanguage } = useTranslation();
   const appRef = useRef<HTMLDivElement>(null);
 
-  // Forcer le scroll en haut à l'ouverture une seule fois
+  // Forcer scroll TOP uniquement au premier rendu (montage)
   useEffect(() => {
+    // On force le scroll en haut seulement une fois (pas en continu)
     window.scrollTo(0, 0);
   }, []);
 
-  const handleLanguageChange = (langCode: string) => {
-    changeLanguage(langCode as any);
-  };
-
   return (
     <div ref={appRef} className="min-h-screen bg-gray-900 text-white">
-      {/* Sélecteur de langue global */}
       <div className="p-4 flex justify-end">
         <LanguageSelector
           currentLanguage={currentLanguage}
-          onLanguageChange={handleLanguageChange}
+          onLanguageChange={changeLanguage}
         />
       </div>
 
       <Navigation
         currentLanguage={currentLanguage}
-        onLanguageChange={handleLanguageChange}
+        onLanguageChange={changeLanguage}
       />
 
       <HeroSection />
