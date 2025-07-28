@@ -18,23 +18,28 @@ function App() {
   };
 
   useEffect(() => {
-    // Bloquer scroll automatique provoqué par les ancres
+    // Empêche le scroll automatique juste au chargement
     const preventAutoScroll = (e: Event) => {
       e.preventDefault();
       window.scrollTo(0, 0);
     };
 
-    // Dès le chargement complet
+    // Forcer scroll en haut au chargement
     window.scrollTo(0, 0);
     if (document.activeElement instanceof HTMLElement) {
       document.activeElement.blur();
     }
 
-    // Empêcher les scroll causés par le focus ou les hash de navigation
+    // Ajouter l'écouteur temporairement
     window.addEventListener('scroll', preventAutoScroll, { passive: false, capture: true });
 
-    // Nettoyage à la destruction
+    // Supprimer l'écouteur après un court délai pour laisser le scroll manuel fonctionner
+    const timer = setTimeout(() => {
+      window.removeEventListener('scroll', preventAutoScroll, { capture: true });
+    }, 200); // 200 ms suffisent
+
     return () => {
+      clearTimeout(timer);
       window.removeEventListener('scroll', preventAutoScroll, { capture: true });
     };
   }, []);
