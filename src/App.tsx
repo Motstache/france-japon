@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useTranslation } from './hooks/useTranslation';
 
 import Navigation from './components/Navigation';
@@ -16,9 +16,8 @@ function App() {
   const { currentLanguage, changeLanguage } = useTranslation();
   const appRef = useRef<HTMLDivElement>(null);
 
-  // Forcer scroll TOP uniquement au premier rendu (montage)
   useEffect(() => {
-    // On force le scroll en haut seulement une fois (pas en continu)
+    // Scroll en haut uniquement au premier rendu
     window.scrollTo(0, 0);
   }, []);
 

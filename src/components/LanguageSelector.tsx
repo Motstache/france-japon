@@ -21,7 +21,7 @@ const languages: Language[] = [
 
 const LanguageSelector: React.FC<Props> = ({ currentLanguage, onLanguageChange }) => {
   return (
-    <div className="flex space-x-3 items-center bg-gray-800/70 rounded-lg p-2">
+    <div className="flex space-x-2 items-center bg-gray-800/70 rounded-lg p-2">
       {languages.map(({ code, name, flag }) => (
         <button
           key={code}
@@ -29,8 +29,8 @@ const LanguageSelector: React.FC<Props> = ({ currentLanguage, onLanguageChange }
           className={`px-3 py-1 rounded-lg transition ${
             currentLanguage === code ? 'bg-blue-600 text-white' : 'text-gray-300 hover:bg-gray-700'
           }`}
-          aria-label={`Changer la langue en ${name}`}
           title={name}
+          aria-label={`Change language to ${name}`}
         >
           <span className="mr-1">{flag}</span>
           <span className="hidden sm:inline">{name}</span>
