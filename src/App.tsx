@@ -17,6 +17,7 @@ function App() {
     changeLanguage(langCode as any);
   };
 
+  // Forcer le scroll en haut une seule fois au montage
   useEffect(() => {
     if (!hasScrolledRef.current) {
       window.scrollTo(0, 0);
@@ -24,13 +25,29 @@ function App() {
     }
   }, []);
 
+  // Empêcher le scroll automatique dû aux ancres dans les liens
+  useEffect(() => {
+    function preventAnchorScroll(event: MouseEvent) {
+      const target = event.target as HTMLElement;
+      if (
+        target.tagName === 'A' &&
+        target.getAttribute('href')?.startsWith('#') &&
+        target.getAttribute('href') !== '#'
+      ) {
+        event.preventDefault();
+      }
+    }
+
+    document.addEventListener('click', preventAnchorScroll);
+
+    return () => {
+      document.removeEventListener('click', preventAnchorScroll);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      <Navigation
-        currentLanguage={currentLanguage}
-        onLanguageChange={handleLanguageChange}
-      />
-
+      <Navigation currentLanguage={currentLanguage} onLanguageChange={handleLanguageChange} />
       <HeroSection />
       <SocialSection />
       <AboutSection />
