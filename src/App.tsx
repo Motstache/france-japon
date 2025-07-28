@@ -18,24 +18,29 @@ function App() {
   };
 
   useEffect(() => {
-    // Remove any hash to prevent anchor scroll
+    // Supprimer hash initial
     if (window.location.hash) {
       window.history.replaceState(null, '', window.location.pathname + window.location.search);
     }
 
-    // Immediately scroll to top before React paint
+    // Scroll haut initial
     window.scrollTo(0, 0);
 
-    // Remove any focused element to prevent focus scroll
-    if (document.activeElement instanceof HTMLElement) {
-      document.activeElement.blur();
-    }
-
-    // Double-check scroll to top on next tick (after paint)
-    requestAnimationFrame(() => {
+    // Bloquer le scroll automatique lié au hash quand il change (en user navigation)
+    const onHashChange = () => {
       window.scrollTo(0, 0);
-    });
+      // Remplace le hash par une URL sans hash
+      if (window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname + window.location.search);
+      }
+    };
 
+    window.addEventListener('hashchange', onHashChange, false);
+
+    // Nettoyage
+    return () => {
+      window.removeEventListener('hashchange', onHashChange);
+    };
   }, []);
 
   return (
