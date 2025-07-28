@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import { supabase } from '../utils/supabaseClient'
-
+import { supabase, type CommunityMessage } from '../lib/supabase'
 
 export function useCommunityMessages() {
   const [messages, setMessages] = useState<CommunityMessage[]>([])

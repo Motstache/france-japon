@@ -20,7 +20,7 @@ const TranslationWidget: React.FC = () => {
     { code: 'ko', name: '한국어', flag: '🇰🇷' },
     { code: 'mn', name: 'Монгол', flag: '🇲🇳' },
     { code: 'kk', name: 'Қазақша', flag: '🇰🇿' },
-    { code: 'uz', name: "O'zbek", flag: '🇺🇿' },
+    { code: 'uz', name: 'O\'zbek', flag: '🇺🇿' },
     { code: 'tg', name: 'Тоҷикӣ', flag: '🇹🇯' },
     { code: 'ky', name: 'Кыргызча', flag: '🇰🇬' },
     { code: 'hy', name: 'Հայերեն', flag: '🇦🇲' },
@@ -83,14 +83,14 @@ const TranslationWidget: React.FC = () => {
 
   const handleTranslate = async () => {
     if (!sourceText.trim()) return;
-
+    
     setIsTranslating(true);
-
+    
     try {
       // Utiliser Google Translate API via un service proxy
       const response = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=${sourceLanguage}&tl=${targetLanguage}&dt=t&q=${encodeURIComponent(sourceText)}`);
       const data = await response.json();
-
+      
       if (data && data[0] && data[0][0] && data[0][0][0]) {
         setTargetText(data[0][0][0]);
       }
@@ -113,58 +113,23 @@ const TranslationWidget: React.FC = () => {
     setTargetText(tempText);
   };
 
-  const speakText = (text: string, languageCode: string) => {
+  const speakText = (text: string, language: string) => {
     if (!text.trim()) return;
-
-    if (!('speechSynthesis' in window)) {
-      alert('Votre navigateur ne supporte pas la synthèse vocale.');
-      return;
-    }
-
-    if (window.speechSynthesis.speaking) {
-      window.speechSynthesis.cancel();
-      setIsPlaying(false);
-      return;
-    }
-
+    
+    setIsPlaying(true);
     const utterance = new SpeechSynthesisUtterance(text);
-
-    // Remplacement des codes de langue si besoin pour la synthèse vocale
-    const langMap: Record<string, string> = {
-      fr: 'fr-FR',
-      en: 'en-US',
-      de: 'de-DE',
-      ru: 'ru-RU',
-      ja: 'ja-JP',
-      ko: 'ko-KR',
-      mn: 'mn-MN',
-      kk: 'kk-KZ',
-      uz: 'uz-UZ',
-      tg: 'tg-TJ',
-      ky: 'ky-KG',
-      hy: 'hy-AM',
-      ka: 'ka-GE',
-      tr: 'tr-TR',
-      el: 'el-GR',
-      mk: 'mk-MK',
-      sq: 'sq-AL',
-      sr: 'sr-RS',
-      hr: 'hr-HR',
-      zh: 'zh-CN',
-      th: 'th-TH',
-      vi: 'vi-VN',
-      hi: 'hi-IN',
-      ar: 'ar-SA'
-    };
-
-    utterance.lang = langMap[languageCode] || 'fr-FR';
+    utterance.lang = language;
     utterance.rate = 0.8;
-
-    utterance.onstart = () => setIsPlaying(true);
-    utterance.onend = () => setIsPlaying(false);
-    utterance.onerror = () => setIsPlaying(false);
-
-    window.speechSynthesis.speak(utterance);
+    
+    utterance.onend = () => {
+      setIsPlaying(false);
+    };
+    
+    utterance.onerror = () => {
+      setIsPlaying(false);
+    };
+    
+    speechSynthesis.speak(utterance);
   };
 
   const insertPhrase = (phrase: string) => {
@@ -182,15 +147,15 @@ const TranslationWidget: React.FC = () => {
           <p className="text-gray-300 text-xs sm:text-sm">{t('translationSubtitle')}</p>
         </div>
       </div>
-
+      
       <p className="text-gray-300 text-xs sm:text-sm mb-3 sm:mb-4 md:mb-6 text-center italic leading-relaxed">
         "{t('translationQuote')}"
       </p>
-
+      
       <div className="space-y-3 sm:space-y-4 md:space-y-6">
         {/* Sélecteurs de langues */}
         <div className="flex items-center space-x-2">
-          <select
+          <select 
             value={sourceLanguage}
             onChange={(e) => setSourceLanguage(e.target.value)}
             className="flex-1 bg-gray-800/70 border border-gray-600 rounded-lg px-1.5 sm:px-2 md:px-3 py-1 sm:py-1.5 md:py-2 text-white text-xs sm:text-sm focus:border-blue-400 focus:outline-none cursor-pointer"
@@ -201,7 +166,7 @@ const TranslationWidget: React.FC = () => {
               </option>
             ))}
           </select>
-
+          
           <button
             onClick={swapLanguages}
             className="p-1 sm:p-1.5 md:p-2 bg-gray-700/50 hover:bg-gray-600/50 rounded-lg transition-colors duration-200"
@@ -209,8 +174,8 @@ const TranslationWidget: React.FC = () => {
           >
             <div className="text-white text-xs sm:text-sm">⇄</div>
           </button>
-
-          <select
+          
+          <select 
             value={targetLanguage}
             onChange={(e) => setTargetLanguage(e.target.value)}
             className="flex-1 bg-gray-800/70 border border-gray-600 rounded-lg px-1.5 sm:px-2 md:px-3 py-1 sm:py-1.5 md:py-2 text-white text-xs sm:text-sm focus:border-blue-400 focus:outline-none cursor-pointer"
@@ -222,7 +187,7 @@ const TranslationWidget: React.FC = () => {
             ))}
           </select>
         </div>
-
+        
         {/* Zones de texte */}
         <div className="space-y-3 sm:space-y-4">
           {/* Texte source */}
@@ -238,7 +203,7 @@ const TranslationWidget: React.FC = () => {
               rows={2}
             />
           </div>
-
+          
           {/* Translation Button */}
           <div className="flex justify-center">
             <button
@@ -259,7 +224,7 @@ const TranslationWidget: React.FC = () => {
               )}
             </button>
           </div>
-
+          
           {/* Texte cible */}
           <div className="relative">
             <label className="block text-gray-300 text-xs sm:text-sm mb-1">
@@ -293,7 +258,7 @@ const TranslationWidget: React.FC = () => {
             </div>
           </div>
         </div>
-
+        
         {/* Phrases utiles */}
         {usefulPhrases[sourceLanguage as keyof typeof usefulPhrases] && (
           <div>
