@@ -25,18 +25,18 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="font-bold text-lg mb-4">{t('navigation')}</h3>
             <div className="space-y-2">
-              <a href="#home" className="block text-gray-400 hover:text-orange-400 transition-colors duration-200">{t('home')}</a>
-              <a href="#about-us" className="block text-gray-400 hover:text-orange-400 transition-colors duration-200">{t('aboutUs')}</a>
-              <a href="#project" className="block text-gray-400 hover:text-orange-400 transition-colors duration-200">{t('project')}</a>
-              <a href="#bikes" className="block text-gray-400 hover:text-orange-400 transition-colors duration-200">{t('bikes')}</a>
+              <a href="#" onClick="event.preventDefault()" className="block text-gray-400 hover:text-orange-400 transition-colors duration-200">{t('home')}</a>
+              <a href="#" onClick="event.preventDefault()" className="block text-gray-400 hover:text-orange-400 transition-colors duration-200">{t('aboutUs')}</a>
+              <a href="#" onClick="event.preventDefault()" className="block text-gray-400 hover:text-orange-400 transition-colors duration-200">{t('project')}</a>
+              <a href="#" onClick="event.preventDefault()" className="block text-gray-400 hover:text-orange-400 transition-colors duration-200">{t('bikes')}</a>
             </div>
           </div>
 
           <div>
             <h3 className="font-bold text-lg mb-4">{t('information')}</h3>
             <div className="space-y-2">
-              <a href="#admin" className="block text-gray-400 hover:text-orange-400 transition-colors duration-200">{t('admin')}</a>
-              <a href="#social" className="block text-gray-400 hover:text-orange-400 transition-colors duration-200">{t('social')}</a>
+              <a href="#" onClick="event.preventDefault()" className="block text-gray-400 hover:text-orange-400 transition-colors duration-200">{t('admin')}</a>
+              <a href="#" onClick="event.preventDefault()" className="block text-gray-400 hover:text-orange-400 transition-colors duration-200">{t('social')}</a>
             </div>
           </div>
           

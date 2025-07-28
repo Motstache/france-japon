@@ -41,12 +41,12 @@ const Navigation: React.FC<NavigationProps> = ({ currentLanguage, onLanguageChan
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            <a href="#home" className="hover:text-orange-400 transition-colors duration-200">{t('home')}</a>
-            <a href="#about-us" className="hover:text-orange-400 transition-colors duration-200">{t('aboutUs')}</a>
-            <a href="#project" className="hover:text-orange-400 transition-colors duration-200">{t('project')}</a>
-            <a href="#bikes" className="hover:text-orange-400 transition-colors duration-200">{t('bikes')}</a>
-            <a href="#admin" className="hover:text-orange-400 transition-colors duration-200">{t('admin')}</a>
-            <a href="#social" className="hover:text-orange-400 transition-colors duration-200">{t('social')}</a>
+            <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200">{t('home')}</a>
+            <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200">{t('aboutUs')}</a>
+            <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200">{t('project')}</a>
+            <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200">{t('bikes')}</a>
+            <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200">{t('admin')}</a>
+            <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200">{t('social')}</a>
             
             {/* Language Selector */}
             <div className="relative">
@@ -91,12 +91,12 @@ const Navigation: React.FC<NavigationProps> = ({ currentLanguage, onLanguageChan
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-gray-800">
             <div className="flex flex-col space-y-4">
-              <a href="#home" className="hover:text-orange-400 transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('home')}</a>
-              <a href="#about-us" className="hover:text-orange-400 transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('aboutUs')}</a>
-              <a href="#project" className="hover:text-orange-400 transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('project')}</a>
-              <a href="#bikes" className="hover:text-orange-400 transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('bikes')}</a>
-              <a href="#admin" className="hover:text-orange-400 transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('admin')}</a>
-              <a href="#social" className="hover:text-orange-400 transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('social')}</a>
+              <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('home')}</a>
+              <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('aboutUs')}</a>
+              <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('project')}</a>
+              <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('bikes')}</a>
+              <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('admin')}</a>
+              <a href="#" onClick="event.preventDefault()" className="hover:text-orange-400 transition-colors duration-200" onClick={() => setIsMenuOpen(false)}>{t('social')}</a>
               
               {/* Mobile Language Selector */}
               <div className="border-t border-gray-700 pt-4">
