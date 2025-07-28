@@ -19,7 +19,6 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<any>(null);
 
-  // Charger données Supabase au montage
   useEffect(() => {
     async function getData() {
       const { data, error } = await supabase.from('todos').select('*'); // Ou 'community_messages' selon besoin
@@ -34,13 +33,11 @@ function App() {
     getData();
   }, []);
 
-  // Gestion du scroll en haut au chargement - version qui fonctionnait bien
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
 
-    // Empêche scroll automatique après
     const preventScroll = (e: Event) => {
       e.preventDefault();
       window.scrollTo(0, 0);
@@ -52,7 +49,6 @@ function App() {
     };
   }, []);
 
-  // Forcer plusieurs fois le scroll top, pour être sûr
   useEffect(() => {
     const forceScrollTop = () => {
       window.scrollTo(0, 0);
@@ -75,7 +71,6 @@ function App() {
     };
   }, []);
 
-  // Changement langue
   const handleLanguageChange = (langCode: string) => {
     changeLanguage(langCode as any);
   };
@@ -106,7 +101,6 @@ function App() {
       </div>
 
       <AdminSection />
-
       <Footer />
     </div>
   );
