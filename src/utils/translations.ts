@@ -579,7 +579,7 @@ export const translations = {
     months: "Monate",
     viewOnPolarsteps: "Auf Polarsteps ansehen",
     preparationPhase: "Vorbereitungsphase",
-    plannedDeparture: "Geplante Abfahrt: März 2026"
+    plannedDeparture: "Geplante Abfahrt: März 2026",
     detailedRoute: "Detaillierte Route",
     centralEurope: "Mitteleuropa",
     centralEuropeCountries: "Deutschland, Österreich, Slowenien",
@@ -765,7 +765,7 @@ export const translations = {
     months: "Месяцы",
     viewOnPolarsteps: "Смотреть на Polarsteps",
     preparationPhase: "Фаза подготовки",
-    plannedDeparture: "Планируемый отъезд: Март 2026"
+    plannedDeparture: "Планируемый отъезд: Март 2026",
     detailedRoute: "Подробный маршрут",
     centralEurope: "Центральная Европа",
     centralEuropeCountries: "Германия, Австрия, Словения",
@@ -952,7 +952,7 @@ export const translations = {
     months: "ヶ月",
     viewOnPolarsteps: "Polarstepsで見る",
     preparationPhase: "準備段階",
-    plannedDeparture: "出発予定：2026年3月"
+    plannedDeparture: "出発予定：2026年3月",
     detailedRoute: "詳細ルート",
     centralEurope: "中央ヨーロッパ",
     centralEuropeCountries: "ドイツ、オーストリア、スロベニア",
