@@ -2,6 +2,29 @@ import React from 'react';
 import { Coffee, Instagram, Youtube, Facebook, MapPin } from 'lucide-react';
 import { useTranslation } from '../hooks/useTranslation';
 
+const AnimatedBanner: React.FC = () => {
+  return (
+    <div className="relative w-full overflow-hidden h-32 mt-8">
+      <div
+        className="absolute inset-0 animate-slide bg-repeat-x"
+        style={{
+          backgroundImage: "url('/banner-motos.png')",
+          backgroundSize: "cover",
+        }}
+      />
+      <style>{`
+        @keyframes slide {
+          0% { background-position: 0 0; }
+          100% { background-position: -2000px 0; }
+        }
+        .animate-slide {
+          animation: slide 25s linear infinite;
+        }
+      `}</style>
+    </div>
+  );
+};
+
 const SocialSection: React.FC = () => {
   const { t } = useTranslation();
 
@@ -74,7 +97,7 @@ const SocialSection: React.FC = () => {
             </div>
           </a>
         </div>
-        
+
         <div className="text-center mt-12">
           <p className="text-gray-300 text-lg mb-4">
             💡 <strong>{t('supportMakesADifference')}</strong>
@@ -82,6 +105,9 @@ const SocialSection: React.FC = () => {
           <p className="text-gray-400 max-w-2xl mx-auto">
             {t('supportDescription')}
           </p>
+
+          {/* Bannière animée */}
+          <AnimatedBanner />
         </div>
       </div>
     </section>
