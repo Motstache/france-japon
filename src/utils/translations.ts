@@ -154,6 +154,17 @@ export const translations = {
     viewOnPolarsteps: "Voir sur Polarsteps",
     preparationPhase: "Phase de préparation",
     plannedDeparture: "Départ prévu : Mars 2026"
+    detailedRoute: "Itinéraire détaillé",
+    centralEurope: "Europe centrale",
+    centralEuropeCountries: "Allemagne, Autriche, Slovénie",
+    balkans: "Balkans",
+    balkansCountries: "Croatie, Bosnie, Monténégro, Albanie, Macédoine du Nord, Grèce",
+    caucasus: "Caucase",
+    caucasusCountries: "Turquie, Géorgie, Arménie",
+    centralAsia: "Asie centrale",
+    centralAsiaCountries: "Kazakhstan, Ouzbékistan, Tadjikistan, Kirghizistan",
+    farEast: "Extrême-Orient",
+    farEastCountries: "Russie, Mongolie, Corée du Sud, Japon",
   },
   
   en: {
@@ -569,6 +580,17 @@ export const translations = {
     viewOnPolarsteps: "Auf Polarsteps ansehen",
     preparationPhase: "Vorbereitungsphase",
     plannedDeparture: "Geplante Abfahrt: März 2026"
+    detailedRoute: "Detaillierte Route",
+    centralEurope: "Mitteleuropa",
+    centralEuropeCountries: "Deutschland, Österreich, Slowenien",
+    balkans: "Balkan",
+    balkansCountries: "Kroatien, Bosnien, Montenegro, Albanien, Nordmazedonien, Griechenland",
+    caucasus: "Kaukasus",
+    caucasusCountries: "Türkei, Georgien, Armenien",
+    centralAsia: "Zentralasien",
+    centralAsiaCountries: "Kasachstan, Usbekistan, Tadschikistan, Kirgisistan",
+    farEast: "Ferner Osten",
+    farEastCountries: "Russland, Mongolei, Südkorea, Japan",
   },
   
   ru: {
@@ -744,6 +766,17 @@ export const translations = {
     viewOnPolarsteps: "Смотреть на Polarsteps",
     preparationPhase: "Фаза подготовки",
     plannedDeparture: "Планируемый отъезд: Март 2026"
+    detailedRoute: "Подробный маршрут",
+    centralEurope: "Центральная Европа",
+    centralEuropeCountries: "Германия, Австрия, Словения",
+    balkans: "Балканы",
+    balkansCountries: "Хорватия, Босния, Черногория, Албания, Северная Македония, Греция",
+    caucasus: "Кавказ",
+    caucasusCountries: "Турция, Грузия, Армения",
+    centralAsia: "Центральная Азия",
+    centralAsiaCountries: "Казахстан, Узбекистан, Таджикистан, Кыргызстан",
+    farEast: "Дальний Восток",
+    farEastCountries: "Россия, Монголия, Южная Корея, Япония",
   },
   
   ja: {
@@ -920,6 +953,17 @@ export const translations = {
     viewOnPolarsteps: "Polarstepsで見る",
     preparationPhase: "準備段階",
     plannedDeparture: "出発予定：2026年3月"
+    detailedRoute: "詳細ルート",
+    centralEurope: "中央ヨーロッパ",
+    centralEuropeCountries: "ドイツ、オーストリア、スロベニア",
+    balkans: "バルカン半島",
+    balkansCountries: "クロアチア、ボスニア、モンテネグロ、アルバニア、北マケドニア、ギリシャ",
+    caucasus: "コーカサス",
+    caucasusCountries: "トルコ、ジョージア、アルメニア",
+    centralAsia: "中央アジア",
+    centralAsiaCountries: "カザフスタン、ウズベキスタン、タジキスタン、キルギス",
+    farEast: "極東",
+    farEastCountries: "ロシア、モンゴル、韓国、日本",
   }
 };
 
