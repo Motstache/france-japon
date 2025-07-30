@@ -8,9 +8,9 @@ const AnimatedBanner: React.FC = () => {
         className="absolute inset-0 animate-slide"
         style={{
           backgroundImage: "url('/banner-paysage.png')",
-          backgroundSize: "cover", // couvre toute la largeur
+          backgroundSize: "100% auto", // garde toute la hauteur de l'image
           backgroundRepeat: "repeat-x",
-          backgroundPosition: "bottom",
+          backgroundPosition: "bottom center",
         }}
       />
 
