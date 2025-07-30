@@ -153,7 +153,7 @@ export const translations = {
     months: "Mois",
     viewOnPolarsteps: "Voir sur Polarsteps",
     preparationPhase: "Phase de préparation",
-    plannedDeparture: "Départ prévu : Mars 2026"
+    plannedDeparture: "Départ prévu : Mars 2026",
     detailedRoute: "Itinéraire détaillé",
     centralEurope: "Europe centrale",
     centralEuropeCountries: "Allemagne, Autriche, Slovénie",
