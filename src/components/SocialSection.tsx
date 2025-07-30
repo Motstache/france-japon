@@ -1,29 +1,7 @@
 import React from 'react';
 import { Coffee, Instagram, Youtube, Facebook, MapPin } from 'lucide-react';
 import { useTranslation } from '../hooks/useTranslation';
-
-const AnimatedBanner: React.FC = () => {
-  return (
-    <div className="relative w-full overflow-hidden h-32 mt-8">
-      <div
-        className="absolute inset-0 animate-slide bg-repeat-x"
-        style={{
-          backgroundImage: "url('/banner-motos.png')",
-          backgroundSize: "cover",
-        }}
-      />
-      <style>{`
-        @keyframes slide {
-          0% { background-position: 0 0; }
-          100% { background-position: -2000px 0; }
-        }
-        .animate-slide {
-          animation: slide 25s linear infinite;
-        }
-      `}</style>
-    </div>
-  );
-};
+import AnimatedBanner from './AnimatedBanner';
 
 const SocialSection: React.FC = () => {
   const { t } = useTranslation();
@@ -39,7 +17,12 @@ const SocialSection: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          <a href="https://buymeacoffee.com/motstachej" target="_blank" rel="noopener noreferrer" className="group">
+          <a
+            href="https://buymeacoffee.com/motstachej"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+          >
             <div className="bg-gradient-to-br from-yellow-600 to-orange-600 rounded-2xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
               <Coffee className="w-12 h-12 text-white mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
               <h3 className="text-lg font-bold text-white mb-2">{t('supportUs')}</h3>
@@ -53,7 +36,12 @@ const SocialSection: React.FC = () => {
             </div>
           </a>
 
-          <a href="https://www.instagram.com/motstache/" target="_blank" rel="noopener noreferrer" className="group">
+          <a
+            href="https://www.instagram.com/motstache/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+          >
             <div className="bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
               <Instagram className="w-12 h-12 text-white mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
               <h3 className="text-lg font-bold text-white mb-2">Instagram</h3>
@@ -64,7 +52,12 @@ const SocialSection: React.FC = () => {
             </div>
           </a>
 
-          <a href="https://www.youtube.com/@motstache" target="_blank" rel="noopener noreferrer" className="group">
+          <a
+            href="https://www.youtube.com/@motstache"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+          >
             <div className="bg-gradient-to-br from-red-600 to-red-700 rounded-2xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
               <Youtube className="w-12 h-12 text-white mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
               <h3 className="text-lg font-bold text-white mb-2">YouTube</h3>
@@ -75,7 +68,12 @@ const SocialSection: React.FC = () => {
             </div>
           </a>
 
-          <a href="https://www.facebook.com/motstache" target="_blank" rel="noopener noreferrer" className="group">
+          <a
+            href="https://www.facebook.com/motstache"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+          >
             <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
               <Facebook className="w-12 h-12 text-white mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
               <h3 className="text-lg font-bold text-white mb-2">Facebook</h3>
@@ -86,7 +84,12 @@ const SocialSection: React.FC = () => {
             </div>
           </a>
 
-          <a href="https://www.polarsteps.com/Motstache" target="_blank" rel="noopener noreferrer" className="group">
+          <a
+            href="https://www.polarsteps.com/Motstache"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+          >
             <div className="bg-gradient-to-br from-green-600 to-teal-600 rounded-2xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
               <MapPin className="w-12 h-12 text-white mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
               <h3 className="text-lg font-bold text-white mb-2">Polarsteps</h3>
