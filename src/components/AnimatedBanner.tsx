@@ -2,26 +2,29 @@ import React from "react";
 
 const AnimatedBanner: React.FC = () => {
   return (
-    <div className="relative w-full overflow-hidden h-32 mt-8 flex items-end justify-center">
+    <div className="relative w-full overflow-hidden h-32 mt-8">
       {/* Fond panoramique qui défile */}
       <div
         className="absolute inset-0 animate-slide"
         style={{
-          backgroundImage: "url('/banner-paysage.png')", // fond panoramique
+          backgroundImage: "url('/banner-paysage.png')",
           backgroundSize: "contain",
           backgroundRepeat: "repeat-x",
           backgroundPosition: "bottom",
         }}
       />
 
-      {/* Motos fixes au premier plan */}
-      <div className="relative z-10">
-        <img
-          src="/moto-silhouettes.png"
-          alt="Motos"
-          className="h-24 object-contain"
-        />
-      </div>
+      {/* Motos fixes, position adaptée selon la taille d'écran */}
+      <img
+        src="/moto-silhouettes.png"
+        alt="Motos"
+        className="
+          absolute bottom-0 left-1/2 -translate-x-1/2 
+          translate-y-2 sm:translate-y-3 md:translate-y-4 lg:translate-y-5 
+          h-20 sm:h-24 md:h-28 lg:h-32 
+          object-contain z-10
+        "
+      />
 
       <style>{`
         @keyframes slide {
