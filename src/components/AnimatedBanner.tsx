@@ -2,13 +2,13 @@ import React from "react";
 
 const AnimatedBanner: React.FC = () => {
   return (
-    <div className="relative w-screen overflow-hidden h-32 mt-8">
+    <div className="relative w-screen overflow-hidden aspect-[2/1] max-h-32 mt-8">
       {/* Fond panoramique qui défile */}
       <div
         className="absolute inset-0 animate-slide"
         style={{
           backgroundImage: "url('/banner-paysage.png')",
-          backgroundSize: "100% auto", // garde toute la hauteur de l'image
+          backgroundSize: "cover",
           backgroundRepeat: "repeat-x",
           backgroundPosition: "bottom center",
         }}
@@ -21,7 +21,7 @@ const AnimatedBanner: React.FC = () => {
         className="
           absolute bottom-0 left-1/2 -translate-x-1/2
           translate-y-2 sm:translate-y-3 md:translate-y-4 lg:translate-y-5
-          h-20 sm:h-24 md:h-28 lg:h-32
+          h-[30%] sm:h-[35%] md:h-[40%] lg:h-[45%]
           object-contain z-10
         "
       />
