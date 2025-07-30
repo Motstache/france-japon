@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { FileText, Globe, Settings, MessageCircle, Send, X, ThumbsUp, Reply } from 'lucide-react';
+import { FileText, Globe, Settings, MessageCircle, Send, X } from 'lucide-react';
 import { useCommunityMessages } from '../hooks/useCommunityMessages';
 import { useTranslation } from '../hooks/useTranslation';
 
@@ -11,13 +11,6 @@ const AdminSection: React.FC = () => {
   const [replyingTo, setReplyingTo] = useState<number | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Debug: vérifier les traductions
-  useEffect(() => {
-    console.log('AdminSection - adminTitle:', t('adminTitle'));
-    console.log('AdminSection - adminSubtitle:', t('adminSubtitle'));
-  }, [t]);
-
-  // Défilement automatique vers le bas quand de nouveaux messages arrivent
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [communityMessages]);
@@ -26,24 +19,28 @@ const AdminSection: React.FC = () => {
     e.preventDefault();
     if (newMessage.trim() && userName.trim()) {
       try {
-        console.log('Soumission du formulaire:', { userName, newMessage }); // Debug log
         await addMessage(userName, newMessage);
         setNewMessage('');
-        console.log('Message ajouté, formulaire réinitialisé'); // Debug log
       } catch (error) {
-        console.error('Erreur lors de l\'envoi du message:', error);
+        console.error("Erreur lors de l'envoi du message:", error);
       }
     }
   };
 
   return (
-    <section id="admin" className="py-20 bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="admin" className="relative py-20 bg-gray-900">
+      {/* Image de fond Cappadoce */}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-40"
+        style={{
+          backgroundImage: "url('/cappadoce.jpg')",
+        }}
+      ></div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">{t('adminTitle')}</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            {t('adminSubtitle')}
-          </p>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">{t('adminSubtitle')}</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
@@ -95,17 +92,18 @@ const AdminSection: React.FC = () => {
           <div className="bg-gray-800 rounded-2xl p-8">
             <h3 className="text-2xl font-bold mb-6 flex items-center">
               <MessageCircle className="w-6 h-6 mr-2 text-orange-400" />
-              {t('communityDiscussion')} {messagesLoading && <span className="text-sm text-gray-500 ml-2">(Chargement...)</span>}
+              {t('communityDiscussion')}{" "}
+              {messagesLoading && (
+                <span className="text-sm text-gray-500 ml-2">(Chargement...)</span>
+              )}
               {messagesError && (
                 <span className="text-sm text-red-500 font-normal">
                   (Mode hors ligne)
                 </span>
               )}
             </h3>
-            <p className="text-gray-300 mb-6">
-              {t('discussionDesc')}
-            </p>
-            
+            <p className="text-gray-300 mb-6">{t('discussionDesc')}</p>
+
             {messagesError && (
               <div className="mb-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
                 <p className="text-sm text-yellow-800">
@@ -113,8 +111,7 @@ const AdminSection: React.FC = () => {
                 </p>
               </div>
             )}
-            
-            {/* Chat Messages */}
+
             <div className="bg-gray-700 rounded-lg p-4 h-96 overflow-y-auto mb-4 space-y-4">
               {messagesLoading && (
                 <div className="flex items-center justify-center py-4">
@@ -122,7 +119,7 @@ const AdminSection: React.FC = () => {
                   <span className="text-gray-300 ml-2">Chargement des messages...</span>
                 </div>
               )}
-              
+
               {!messagesLoading && communityMessages.length === 0 && !messagesError && (
                 <div className="flex items-center justify-center h-full text-gray-500">
                   <div className="text-center">
@@ -132,12 +129,18 @@ const AdminSection: React.FC = () => {
                   </div>
                 </div>
               )}
-              
+
               {communityMessages.map((message) => (
                 <div key={message.id} className="bg-gray-600 rounded-lg p-4">
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center space-x-2">
-                      <span className={`font-semibold ${message.author === 'Gauthier' || message.author === 'Magali' ? 'text-orange-400' : 'text-blue-400'}`}>
+                      <span
+                        className={`font-semibold ${
+                          message.author === 'Gauthier' || message.author === 'Magali'
+                            ? 'text-orange-400'
+                            : 'text-blue-400'
+                        }`}
+                      >
                         {message.author}
                         {(message.author === 'Gauthier' || message.author === 'Magali') && (
                           <span className="ml-1 text-xs bg-orange-500 px-2 py-1 rounded-full">Équipe</span>
@@ -151,18 +154,14 @@ const AdminSection: React.FC = () => {
                   <p className="text-gray-200">{message.content}</p>
                 </div>
               ))}
-              {/* Élément invisible pour le défilement automatique */}
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Reply indicator */}
             {replyingTo && (
               <div className="bg-blue-500/20 border border-blue-500/30 rounded-lg p-3 mb-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-blue-400 text-sm">
-                    {t('replying')}
-                  </span>
-                  <button 
+                  <span className="text-blue-400 text-sm">{t('replying')}</span>
+                  <button
                     onClick={() => setReplyingTo(null)}
                     className="text-gray-400 hover:text-white"
                   >
@@ -172,7 +171,6 @@ const AdminSection: React.FC = () => {
               </div>
             )}
 
-            {/* Message Form */}
             <form onSubmit={handleMessageSubmit} className="space-y-4">
               <div>
                 <input
