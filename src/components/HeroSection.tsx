@@ -21,7 +21,7 @@ const HeroSection: React.FC = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('https://zupimages.net/up/25/28/x01l.jpg')"
+          backgroundImage: "url('/Japon2.jpg')"
         }}
       >
         <div className="absolute inset-0 bg-black/60"></div>

@@ -20,7 +20,7 @@ const AboutSection: React.FC = () => {
             <div className="flex items-center mb-6">
               <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-blue-600 rounded-full flex items-center justify-center mr-6 overflow-hidden">
                 <img 
-                  src="https://zupimages.net/up/25/28/ad7c.jpg" 
+                  src="/photo-gauthier.jpg"
                   alt="Profile" 
                   className="w-full h-full object-cover"
                 />
@@ -45,7 +45,7 @@ const AboutSection: React.FC = () => {
             <div className="flex items-center mb-6">
               <div className="w-20 h-20 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center mr-6">
                 <img 
-                  src="https://zupimages.net/up/25/28/pzes.jpg" 
+                  src="/photo-magali.jpg"
                   alt="Magali" 
                   className="w-full h-full rounded-full object-cover"
                 />
