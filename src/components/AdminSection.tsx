@@ -5,7 +5,12 @@ import { useTranslation } from '../hooks/useTranslation';
 
 const AdminSection: React.FC = () => {
   const { t } = useTranslation();
-  const { messages: communityMessages, loading: messagesLoading, error: messagesError, addMessage } = useCommunityMessages();
+  const {
+    messages: communityMessages,
+    loading: messagesLoading,
+    error: messagesError,
+    addMessage,
+  } = useCommunityMessages();
   const [newMessage, setNewMessage] = useState('');
   const [userName, setUserName] = useState('');
   const [replyingTo, setReplyingTo] = useState<number | null>(null);
@@ -28,14 +33,13 @@ const AdminSection: React.FC = () => {
   };
 
   return (
-    <section id="admin" className="relative py-20 bg-gray-900">
-      {/* Image de fond Cappadoce */}
-      <div
-        className="absolute inset-0 bg-cover bg-center opacity-40"
-        style={{
-          backgroundImage: "url('/cappadoce.jpg')",
-        }}
-      ></div>
+    <section id="admin" className="relative py-20 bg-gray-900 overflow-hidden">
+      {/* ✅ Remplacement du div par une image responsive */}
+      <img
+        src="/cappadoce.jpg"
+        alt="Cappadoce"
+        className="absolute inset-0 w-full h-full object-cover sm:object-contain opacity-40"
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
@@ -92,14 +96,12 @@ const AdminSection: React.FC = () => {
           <div className="bg-gray-800 rounded-2xl p-8">
             <h3 className="text-2xl font-bold mb-6 flex items-center">
               <MessageCircle className="w-6 h-6 mr-2 text-orange-400" />
-              {t('communityDiscussion')}{" "}
+              {t('communityDiscussion')}{' '}
               {messagesLoading && (
                 <span className="text-sm text-gray-500 ml-2">(Chargement...)</span>
               )}
               {messagesError && (
-                <span className="text-sm text-red-500 font-normal">
-                  (Mode hors ligne)
-                </span>
+                <span className="text-sm text-red-500 font-normal">(Mode hors ligne)</span>
               )}
             </h3>
             <p className="text-gray-300 mb-6">{t('discussionDesc')}</p>
@@ -107,7 +109,8 @@ const AdminSection: React.FC = () => {
             {messagesError && (
               <div className="mb-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
                 <p className="text-sm text-yellow-800">
-                  ⚠️ Connexion à la base de données impossible. Les messages ne seront pas sauvegardés.
+                  ⚠️ Connexion à la base de données impossible. Les messages ne seront pas
+                  sauvegardés.
                 </p>
               </div>
             )}
@@ -143,7 +146,9 @@ const AdminSection: React.FC = () => {
                       >
                         {message.author}
                         {(message.author === 'Gauthier' || message.author === 'Magali') && (
-                          <span className="ml-1 text-xs bg-orange-500 px-2 py-1 rounded-full">Équipe</span>
+                          <span className="ml-1 text-xs bg-orange-500 px-2 py-1 rounded-full">
+                            Équipe
+                          </span>
                         )}
                       </span>
                       <span className="text-xs text-gray-400">
