@@ -6,13 +6,14 @@ const ProjectSection: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <section id="project" className="relative py-20 bg-gray-900 overflow-hidden">
-      {/* ✅ Nouvelle version : image responsive */}
-      <img
-        src="/projet-japon-bg.jpg"
-        alt="Projet Japon"
-        className="absolute inset-0 w-full h-full object-cover sm:object-contain opacity-40"
-      />
+    <section id="project" className="relative py-20 bg-gray-900">
+      {/* Image de fond */}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-40"
+        style={{
+          backgroundImage: "url('/projet-japon-bg.jpg')", // Mets l'image dans /public
+        }}
+      ></div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
