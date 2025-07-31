@@ -16,6 +16,7 @@ const BikesSection: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+          {/* Moto de Gauthier */}
           <div className="bg-gray-700 rounded-2xl p-8">
             <div className="flex items-center mb-6">
               <Bike className="w-12 h-12 text-orange-400 mr-4" />
@@ -25,8 +26,8 @@ const BikesSection: React.FC = () => {
               </div>
             </div>
             <img 
-              src="https://zupimages.net/up/25/28/gu8c.jpg" 
-              alt="Yamaha Tenere 700"
+              src="/motogauthier.jpg" 
+              alt="Moto de Gauthier"
               className="w-full h-48 object-cover rounded-xl mb-6"
             />
             <div className="space-y-3">
@@ -49,6 +50,7 @@ const BikesSection: React.FC = () => {
             </div>
           </div>
 
+          {/* Moto de Magali */}
           <div className="bg-gray-700 rounded-2xl p-8">
             <div className="flex items-center mb-6">
               <Bike className="w-12 h-12 text-pink-400 mr-4" />
@@ -58,8 +60,8 @@ const BikesSection: React.FC = () => {
               </div>
             </div>
             <img 
-              src="https://zupimages.net/up/25/28/49uk.jpg" 
-              alt="Yamaha Tenere 700"
+              src="/motomagali.jpg" 
+              alt="Moto de Magali"
               className="w-full h-48 object-cover rounded-xl mb-6"
             />
             <div className="space-y-3">
@@ -93,7 +95,7 @@ const BikesSection: React.FC = () => {
             <div>
               <h4 className="text-xl font-semibold mb-4 text-orange-400">{t('protectionSafety')}</h4>
               
-              {/* Gauthier's Equipment */}
+              {/* Gauthier */}
               <div className="mb-8">
                 <h5 className="text-lg font-semibold mb-3 text-blue-400">{t('gauthierEquipment')}</h5>
                 <ul className="space-y-2 text-gray-300">
@@ -106,7 +108,7 @@ const BikesSection: React.FC = () => {
                 </ul>
               </div>
               
-              {/* Magali's Equipment */}
+              {/* Magali */}
               <div className="mb-6">
                 <h5 className="text-lg font-semibold mb-3 text-pink-400">{t('magaliEquipment')}</h5>
                 <ul className="space-y-2 text-gray-300">
@@ -116,6 +118,7 @@ const BikesSection: React.FC = () => {
                 </ul>
               </div>
             </div>
+
             <div>
               <h4 className="text-xl font-semibold mb-4 text-orange-400">{t('luggageNavigation')}</h4>
               <div className="mb-6">
@@ -129,6 +132,7 @@ const BikesSection: React.FC = () => {
                 </ul>
               </div>
             </div>
+
             <div>
               <h4 className="text-xl font-semibold mb-4 text-orange-400">{t('campingSurvival')}</h4>
               <ul className="space-y-2 text-gray-300">
