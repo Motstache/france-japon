@@ -16,7 +16,86 @@ const SocialSection: React.FC = () => {
 
         {/* Icônes des réseaux sociaux */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {/* ... (les icônes inchangées) */}
+          <a
+            href="https://buymeacoffee.com/motstachej"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+          >
+            <div className="bg-gradient-to-br from-yellow-600 to-orange-600 rounded-2xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+              <Coffee className="w-12 h-12 text-white mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-bold text-white mb-2">{t("supportUs")}</h3>
+              <p className="text-yellow-100 mb-3 text-sm">{t("supportDesc")}</p>
+              <div className="bg-white/20 rounded-full px-3 py-1 text-white font-semibold text-sm">
+                Buy Me a Coffee
+              </div>
+              <p className="text-yellow-100 text-xs mt-2 italic">{t("supportQuote")}</p>
+            </div>
+          </a>
+
+          <a
+            href="https://www.instagram.com/motstache/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+          >
+            <div className="bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+              <Instagram className="w-12 h-12 text-white mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-bold text-white mb-2">Instagram</h3>
+              <p className="text-purple-100 mb-3 text-sm">{t("dailyPhotos")}</p>
+              <div className="bg-white/20 rounded-full px-3 py-1 text-white font-semibold text-sm">
+                @motstache
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://www.youtube.com/@motstache"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+          >
+            <div className="bg-gradient-to-br from-red-600 to-red-700 rounded-2xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+              <Youtube className="w-12 h-12 text-white mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-bold text-white mb-2">YouTube</h3>
+              <p className="text-red-100 mb-3 text-sm">{t("completeVlogs")}</p>
+              <div className="bg-white/20 rounded-full px-3 py-1 text-white font-semibold text-sm">
+                Motstache
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://www.facebook.com/motstache"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+          >
+            <div className="bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+              <Facebook className="w-12 h-12 text-white mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-bold text-white mb-2">Facebook</h3>
+              <p className="text-blue-100 mb-3 text-sm">{t("community")}</p>
+              <div className="bg-white/20 rounded-full px-3 py-1 text-white font-semibold text-sm">
+                Motstache
+              </div>
+            </div>
+          </a>
+
+          <a
+            href="https://www.polarsteps.com/Motstache"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group"
+          >
+            <div className="bg-gradient-to-br from-green-600 to-teal-600 rounded-2xl p-6 text-center transform transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+              <MapPin className="w-12 h-12 text-white mx-auto mb-3 group-hover:scale-110 transition-transform duration-300" />
+              <h3 className="text-lg font-bold text-white mb-2">Polarsteps</h3>
+              <p className="text-green-100 mb-3 text-sm">{t("realTimeTracking")}</p>
+              <div className="bg-white/20 rounded-full px-3 py-1 text-white font-semibold text-sm">
+                Motstache
+              </div>
+            </div>
+          </a>
         </div>
 
         {/* Widgets Instagram côte à côte */}
@@ -24,11 +103,8 @@ const SocialSection: React.FC = () => {
           {/* Dernière publication */}
           <div className="text-center">
             <h3 className="text-2xl font-bold text-orange-400 mb-3">
-              📸 Découvrez notre publication sur Instagram !
+              📸 Découvrez notre dernière publication sur Instagram !
             </h3>
-            <p className="text-gray-300 mb-6">
-              Suivez nos péripéties et plongez dans l'ambiance de notre voyage et sa préparation 🚀
-            </p>
             <iframe
               src="https://cdn.lightwidget.com/widgets/c4bdfdd32912546a9530f77248e3785f.html"
               scrolling="no"
@@ -49,9 +125,6 @@ const SocialSection: React.FC = () => {
             <h3 className="text-2xl font-bold text-orange-400 mb-3">
               🗺️ Découvrez le trajet théorique de notre aventure !
             </h3>
-            <p className="text-gray-300 mb-6">
-              Voici notre itinéraire de rêve jusqu’au Japon 🏍️✨
-            </p>
             <iframe
               src="https://www.instagram.com/reel/DMifUCAN8n1/embed"
               scrolling="no"
@@ -74,7 +147,6 @@ const SocialSection: React.FC = () => {
             💡 <strong>{t("supportMakesADifference")}</strong>
           </p>
           <p className="text-gray-400 max-w-2xl mx-auto">{t("supportDescription")}</p>
-
           <AnimatedBanner />
         </div>
       </div>
