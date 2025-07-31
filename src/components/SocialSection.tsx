@@ -16,6 +16,7 @@ const SocialSection: React.FC = () => {
           </p>
         </div>
 
+        {/* Icônes réseaux sociaux */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           <a
             href="https://buymeacoffee.com/motstachej"
@@ -101,6 +102,7 @@ const SocialSection: React.FC = () => {
           </a>
         </div>
 
+        {/* Texte de soutien */}
         <div className="text-center mt-12">
           <p className="text-gray-300 text-lg mb-4">
             💡 <strong>{t('supportMakesADifference')}</strong>
@@ -111,6 +113,25 @@ const SocialSection: React.FC = () => {
 
           {/* Bannière animée */}
           <AnimatedBanner />
+
+          {/* Widget Instagram stylé */}
+          <div className="mt-16 bg-gray-700/60 border border-gray-600 rounded-2xl shadow-lg p-6 max-w-3xl mx-auto">
+            <h3 className="text-2xl font-bold text-orange-400 mb-4">
+              📸 Découvrez notre dernière aventure sur Instagram !
+            </h3>
+            <p className="text-gray-300 mb-6">
+              Suivez nos photos et stories de voyage en temps réel 🎥🌍
+            </p>
+            <div className="overflow-hidden rounded-xl">
+              <iframe
+                src="//lightwidget.com/widgets/c4bdfdd32912546a9530f77248e3785f.html"
+                scrolling="no"
+                allowTransparency={true}
+                className="lightwidget-widget"
+                style={{ width: '100%', border: 0, overflow: 'hidden', minHeight: '450px' }}
+              ></iframe>
+            </div>
+          </div>
         </div>
       </div>
     </section>
