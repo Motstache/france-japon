@@ -14,9 +14,20 @@ const WeatherWidget: React.FC = () => {
     { name: "Japon", capital: "Tokyo", flag: "🇯🇵", currency: "JPY", lat: 35.6762, lon: 139.6503 },
   ];
 
-  // Récupération météo (API Open-Meteo)
+  const getWeatherIcon = (code: number) => {
+    if (code === 0) return "☀️";
+    if (code === 1 || code === 2) return "⛅";
+    if (code === 3) return "☁️";
+    if (code >= 45 && code <= 48) return "🌫️";
+    if (code >= 51 && code <= 67) return "🌧️";
+    if (code >= 71 && code <= 77) return "❄️";
+    if (code >= 95 && code <= 99) return "⛈️";
+    return "🌤️";
+  };
+
   useEffect(() => {
     const country = countries[currentCountryIndex];
+
     fetch(
       `https://api.open-meteo.com/v1/forecast?latitude=${country.lat}&longitude=${country.lon}&current=temperature_2m,relative_humidity_2m,weather_code,wind_speed_10m&timezone=auto`
     )
@@ -34,7 +45,7 @@ const WeatherWidget: React.FC = () => {
 
   return (
     <div className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-2 text-white text-sm">
-      <div className="flex items-center justify-between flex-wrap gap-2">
+      <div className="flex items-center justify-center flex-wrap gap-2">
         {/* Navigation pays */}
         <button
           onClick={() => setCurrentCountryIndex((prev) => (prev > 0 ? prev - 1 : countries.length - 1))}
@@ -43,10 +54,9 @@ const WeatherWidget: React.FC = () => {
           ←
         </button>
 
-        <div className="flex items-center gap-2">
-          <span className="text-lg">{country.flag}</span>
-          <span className="font-bold">{country.capital}</span>
-        </div>
+        <span className="font-bold">
+          {country.flag} {country.capital} ({country.name})
+        </span>
 
         <button
           onClick={() => setCurrentCountryIndex((prev) => (prev + 1) % countries.length)}
@@ -55,11 +65,20 @@ const WeatherWidget: React.FC = () => {
           →
         </button>
 
-        {/* Météo */}
+        <span className="text-gray-400">|</span>
+
+        {/* Icône météo + Température */}
         <span>
-          🌡️ {liveWeatherData ? `${Math.round(liveWeatherData.temperature_2m)}°C` : "--°C"}
+          {liveWeatherData ? getWeatherIcon(liveWeatherData.weather_code) : "🌤️"}{" "}
+          {liveWeatherData ? `${Math.round(liveWeatherData.temperature_2m)}°C` : "--°C"}
         </span>
+
+        <span className="text-gray-400">|</span>
+
+        {/* Vent */}
         <span>💨 {liveWeatherData ? `${Math.round(liveWeatherData.wind_speed_10m)} km/h` : "-- km/h"}</span>
+
+        <span className="text-gray-400">|</span>
 
         {/* Devises */}
         <span>
