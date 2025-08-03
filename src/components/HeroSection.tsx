@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react';
-import { useTranslation } from '../hooks/useTranslation';
-import WeatherWidget from './WeatherWidget';
-import PolarstepsWidget from './PolarstepsWidget';
+import React, { useEffect } from "react";
+import { useTranslation } from "../hooks/useTranslation";
+import WeatherWidget from "./WeatherWidget";
+import PolarstepsWidget from "./PolarstepsWidget";
 
 const HeroSection: React.FC = () => {
   const { t } = useTranslation();
 
   useEffect(() => {
-    const heroElement = document.getElementById('home');
+    const heroElement = document.getElementById("home");
     if (heroElement) {
-      heroElement.scrollIntoView({ behavior: 'instant', block: 'start' });
+      heroElement.scrollIntoView({ behavior: "instant", block: "start" });
     }
   }, []);
 
@@ -22,7 +22,7 @@ const HeroSection: React.FC = () => {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/Japon2.jpg')", // ✅ Image dans /public
+          backgroundImage: "url('/Japon2.jpg')", // Image dans /public
         }}
       >
         <div className="absolute inset-0 bg-black/60"></div>
@@ -30,28 +30,30 @@ const HeroSection: React.FC = () => {
 
       <div className="relative z-10 text-center max-w-7xl mx-auto px-4 w-full">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-white via-orange-200 to-orange-400 bg-clip-text text-transparent">
-          {t('heroTitle')}
+          {t("heroTitle")}
         </h1>
         <p className="text-sm sm:text-base md:text-xl lg:text-2xl mb-6 sm:mb-8 text-gray-200 max-w-2xl mx-auto leading-relaxed px-2">
-          {t('heroSubtitle')}
+          {t("heroSubtitle")}
         </p>
 
-        {/* ✅ Widget Polarsteps pleine largeur */}
+        {/* ✅ Polarsteps pleine largeur */}
         <div className="w-full mb-4">
           <PolarstepsWidget />
         </div>
 
-        {/* ✅ Widget météo en bandeau fin */}
+        {/* ✅ Bandeau compact météo + devises */}
         <div className="w-full flex justify-center">
-          <div className="w-full max-w-5xl bg-gray-900/60 rounded-xl py-2 px-4 shadow-lg">
-            <WeatherWidget />
+          <div className="w-full max-w-6xl bg-gray-900/80 rounded-lg py-2 px-3 shadow-lg">
+            <div className="flex flex-wrap justify-center items-center gap-4 text-white text-xs sm:text-sm md:text-base">
+              <WeatherWidget compact={true} showCurrencies={true} />
+            </div>
           </div>
         </div>
 
-        {/* ✅ Texte cookie */}
+        {/* ✅ Cookie Notice */}
         <div className="mt-6 sm:mt-8 md:mt-12 mb-4 text-center">
           <p className="text-gray-400 text-xs sm:text-sm italic px-2">
-            {t('cookieNotice')}
+            {t("cookieNotice")}
           </p>
         </div>
       </div>
