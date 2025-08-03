@@ -146,7 +146,7 @@ const SocialSection: React.FC = () => {
           <p className="text-gray-300 text-lg mb-4">
             💡 <strong>{t("supportMakesADifference")}</strong>
           </p>
-          <p className="text-gray-400 max-w-2xl mx-auto">{t("supportDescription")}</p>
+
           <AnimatedBanner />
         </div>
       </div>
