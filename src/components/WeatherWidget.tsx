@@ -46,21 +46,26 @@ const WeatherWidget: React.FC = () => {
   return (
     <div className="w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl p-2 text-white text-sm">
       <div className="flex items-center justify-center flex-wrap gap-2">
-        {/* Navigation pays */}
+        {/* Bouton précédent */}
         <button
-          onClick={() => setCurrentCountryIndex((prev) => (prev > 0 ? prev - 1 : countries.length - 1))}
-          className="px-2 bg-gray-700/40 rounded"
+          onClick={() =>
+            setCurrentCountryIndex((prev) => (prev > 0 ? prev - 1 : countries.length - 1))
+          }
+          className="px-3 py-1 rounded-lg bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 transition-all font-bold"
         >
           ←
         </button>
 
         <span className="font-bold">
-          {country.flag} {country.capital} ({country.name})
+          {country.flag} {country.capital} – {country.name}
         </span>
 
+        {/* Bouton suivant */}
         <button
-          onClick={() => setCurrentCountryIndex((prev) => (prev + 1) % countries.length)}
-          className="px-2 bg-gray-700/40 rounded"
+          onClick={() =>
+            setCurrentCountryIndex((prev) => (prev + 1) % countries.length)
+          }
+          className="px-3 py-1 rounded-lg bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 transition-all font-bold"
         >
           →
         </button>
@@ -80,7 +85,7 @@ const WeatherWidget: React.FC = () => {
 
         <span className="text-gray-400">|</span>
 
-        {/* Devises */}
+        {/* Taux de change */}
         <span>
           💱 1 EUR = {liveExchangeRate ? liveExchangeRate.toFixed(2) : "--"} {country.currency}
         </span>
