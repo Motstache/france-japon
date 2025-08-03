@@ -1,8 +1,6 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import WeatherWidget from './WeatherWidget';
-import TranslationWidget from './TranslationWidget';
 import PolarstepsWidget from './PolarstepsWidget';
 
 const HeroSection: React.FC = () => {
@@ -48,8 +46,10 @@ const HeroSection: React.FC = () => {
         {/* Widgets Section */}
         <div className="flex flex-col sm:flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8 items-center justify-center w-full max-w-7xl mx-auto">
           <WeatherWidget />
-          <PolarstepsWidget />
-          <TranslationWidget />
+          {/* Polarsteps agrandi */}
+          <div className="w-full max-w-4xl">
+            <PolarstepsWidget />
+          </div>
         </div>
       </div>
     </section>
