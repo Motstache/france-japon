@@ -53,7 +53,7 @@ const HeroSection: React.FC = () => {
           <PolarstepsWidget />
         </div>
 
-        {/* ✅ Widget météo en bandeau compact */}
+        {/* ✅ Widget météo élargi */}
         <div className="w-full max-w-7xl mt-4">
           <WeatherWidget />
         </div>
