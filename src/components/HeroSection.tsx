@@ -1,17 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import WeatherWidget from './WeatherWidget';
 import PolarstepsWidget from './PolarstepsWidget';
 
 const HeroSection: React.FC = () => {
   const { t } = useTranslation();
-
-  useEffect(() => {
-    const heroElement = document.getElementById('home');
-    if (heroElement) {
-      heroElement.scrollIntoView({ behavior: 'instant', block: 'start' });
-    }
-  }, []);
 
   return (
     <section
@@ -41,14 +34,10 @@ const HeroSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Widgets Section */}
         <div className="flex flex-col sm:flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8 items-center justify-center w-full max-w-7xl mx-auto">
-          {/* ✅ Widget Météo (taille normale) */}
           <div className="w-full lg:w-auto">
             <WeatherWidget />
           </div>
-
-          {/* ✅ Widget Polarsteps (plus large) */}
           <div className="w-full lg:flex-1">
             <PolarstepsWidget />
           </div>
