@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from '../hooks/useTranslation';
 import WeatherWidget from './WeatherWidget';
 import PolarstepsWidget from './PolarstepsWidget';
@@ -6,15 +6,24 @@ import PolarstepsWidget from './PolarstepsWidget';
 const HeroSection: React.FC = () => {
   const { t } = useTranslation();
 
+  // S'assurer que la section hero est visible au chargement
+  useEffect(() => {
+    const heroElement = document.getElementById('home');
+    if (heroElement) {
+      heroElement.scrollIntoView({ behavior: 'instant', block: 'start' });
+    }
+  }, []);
+
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden py-20 md:py-0"
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden py-20 md:py-0"
     >
+      {/* ✅ Image de fond */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/Japon2.jpg')",
+          backgroundImage: "url('/Japon2.jpg')", // ✅ image dans /public
         }}
       >
         <div className="absolute inset-0 bg-black/60"></div>
@@ -28,19 +37,23 @@ const HeroSection: React.FC = () => {
           {t('heroSubtitle')}
         </p>
 
-        <div className="mt-6 sm:mt-8 md:mt-16 mb-4 text-center">
+        {/* ✅ Widget Polarsteps pleine largeur */}
+        <div className="w-full mb-6">
+          <PolarstepsWidget />
+        </div>
+
+        {/* ✅ Widget météo en bandeau */}
+        <div className="w-full flex justify-center">
+          <div className="w-full max-w-4xl">
+            <WeatherWidget />
+          </div>
+        </div>
+
+        {/* ✅ Texte sur les cookies */}
+        <div className="mt-6 sm:mt-8 md:mt-12 mb-4 text-center">
           <p className="text-gray-400 text-xs sm:text-sm italic px-2">
             {t('cookieNotice')}
           </p>
-        </div>
-
-        <div className="flex flex-col sm:flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8 items-center justify-center w-full max-w-7xl mx-auto">
-          <div className="w-full lg:w-auto">
-            <WeatherWidget />
-          </div>
-          <div className="w-full lg:flex-1">
-            <PolarstepsWidget />
-          </div>
         </div>
       </div>
     </section>
