@@ -6,7 +6,6 @@ import PolarstepsWidget from './PolarstepsWidget';
 const HeroSection: React.FC = () => {
   const { t } = useTranslation();
 
-  // S'assurer que la section hero est visible au chargement
   useEffect(() => {
     const heroElement = document.getElementById('home');
     if (heroElement) {
@@ -23,7 +22,7 @@ const HeroSection: React.FC = () => {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: "url('/Japon2.jpg')", // ✅ image dans /public
+          backgroundImage: "url('/Japon2.jpg')", // ✅ Image dans /public
         }}
       >
         <div className="absolute inset-0 bg-black/60"></div>
@@ -38,18 +37,18 @@ const HeroSection: React.FC = () => {
         </p>
 
         {/* ✅ Widget Polarsteps pleine largeur */}
-        <div className="w-full mb-6">
+        <div className="w-full mb-4">
           <PolarstepsWidget />
         </div>
 
-        {/* ✅ Widget météo en bandeau */}
+        {/* ✅ Widget météo en bandeau fin */}
         <div className="w-full flex justify-center">
-          <div className="w-full max-w-4xl">
+          <div className="w-full max-w-5xl bg-gray-900/60 rounded-xl py-2 px-4 shadow-lg">
             <WeatherWidget />
           </div>
         </div>
 
-        {/* ✅ Texte sur les cookies */}
+        {/* ✅ Texte cookie */}
         <div className="mt-6 sm:mt-8 md:mt-12 mb-4 text-center">
           <p className="text-gray-400 text-xs sm:text-sm italic px-2">
             {t('cookieNotice')}
