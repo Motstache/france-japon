@@ -36,25 +36,17 @@ const HeroSection: React.FC = () => {
           {t("heroSubtitle")}
         </p>
 
-        {/* Cookie Notice */}
-        <div className="mt-6 sm:mt-8 md:mt-16 mb-4 text-center">
-          <p className="text-gray-400 text-xs sm:text-sm italic px-2">
-            {t("cookieNotice")}
-          </p>
-        </div>
-
-        {/* ✅ Message au-dessus de la carte */}
+        {/* Notice cookies - affichée UNE SEULE FOIS */}
         <p className="text-gray-300 text-sm sm:text-base mb-3">
           ℹ️ Veuillez accepter les cookies pour visualiser la carte
         </p>
 
-        {/* ✅ Widget Polarsteps pleine largeur */}
-        <div className="w-full max-w-7xl mb-4">
+        {/* ✅ Polarsteps + Météo avec la même largeur */}
+        <div className="w-full max-w-5xl mx-auto mb-4">
           <PolarstepsWidget />
         </div>
 
-        {/* ✅ Widget météo élargi */}
-        <div className="w-full max-w-7xl mt-4">
+        <div className="w-full max-w-5xl mx-auto mt-4">
           <WeatherWidget />
         </div>
       </div>
